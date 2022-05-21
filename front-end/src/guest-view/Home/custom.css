@@ -5,6 +5,7 @@
     --almond:#FFCCBC;
     --green:#00887A;
     --sky:#77A6F7;
+    --accent:#d3E3FC;
     --base:rgb(1, 27, 55);
 }
 
@@ -48,7 +49,7 @@ header video
 }
 .slider-text-part h6
 {
-    color: skyblue;
+    color: rgb(179, 229, 248);
     letter-spacing: 2px;
     text-transform: uppercase;
 }
@@ -200,12 +201,14 @@ footer a{
 footer::before
 {
     position: absolute;
-    height: 200px;
+    height: 100px;
     background-color: inherit;
     content: '';
     width: 100%;
-    transform: translateY(-60%);
+    transform: translateY(-99%);
     clip-path: polygon(100% 0, 0% 100%, 100% 100%);
+    /* clip-path: polygon(51% 85%, 100% 0, 100% 50%, 100% 100%, 0 100%, 0 0); */
+    /* clip-path: polygon(23% 0, 0% 100%, 100% 100%); */
     top: 0;
     z-index: 1;
     left: 0;
@@ -367,6 +370,277 @@ footer h6{
 /* --------------------- HOME ABOUT ----------------- */
 
 .home-sec-about{
-    background-color: red;
-    height: 500px;
+    background-color: white;
+    min-height: 100vh;
+    padding: 50px 0px;
+    padding-top: 100px;
+}
+.home-about-sec-header
+{
+    text-align: center;
+}
+.home-about-sec-header h6{
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    font-size: 0.8rem;
+    font-weight: bold;
+    color: var(--green);
+}
+.home-about-sec-header h1{
+    font-weight: 500;
+    text-transform: capitalize;
+    letter-spacing: 2px;
+    padding-top: 10px;
+}
+.home-about-sec-header p{
+    padding: 20px;
+    color: gray;
+    letter-spacing: 1px;
+}
+.home-about-sec-body
+{
+    padding-top: 20px;
+}
+.home-about-sec-body img{
+    width: 100%;
+}
+.home-about-item
+{
+    padding: 12px;
+    display: flex;
+}
+.home-about-item span
+{
+    font-size: 2rem;
+    width: 80px;
+    height: 80px;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--sky);
+    margin-right: 12px;
+    color: white;
+    border-radius: 10%;
+}
+.home-about-item h6{
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-weight: 600;
+    font-size: 0.9rem;
+    color: var(--green);
+}
+
+/* ---------------------- HOME COUNTER ---------------- */
+
+.home-counter-sec
+{
+    /* padding: 60px; */
+    /* background:linear-gradient(90deg,rgba(0, 136, 122,0.8),rgba(0, 136, 122,0.8)),
+    url('./../../../public/images/1.jpg'); */
+    background: url('./../../../public/images/1.jpg');
+    background-size: cover;
+    background-attachment: fixed;
+    text-align: center;
+}
+.home-counter-box
+{
+    padding: 20px 0px;
+    background-color: rgba(255, 255, 255,0.2);
+}
+.counter-divider
+{
+    /* border-right: solid 2px rgb(255, 255, 255); */
+}   
+.home-counter-box h1{
+    color: white;
+    letter-spacing: 2px;
+    font-size: 4rem;
+    font-weight: 500;
+}
+.home-counter-box h6{
+    color: white;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+.home-counter-box span
+{
+    font-size: 1.8rem;
+    display: block;
+    padding: 20px 0px;
+    color: white;
+}
+.ctr-1{
+    background-color: rgba(0, 133, 119,0.8);
+}
+.ctr-2{
+    background-color: rgba(255, 204, 188,0.8);
+}
+.ctr-3{
+    background-color: rgba(119, 166, 247,0.8);
+}
+
+
+/* ------------------ CLIENT SECTION ----------------- */
+
+.home-clients-sec-header
+{
+    text-align: center;
+}
+.home-clients-sec-header h6{
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    font-size: 0.8rem;
+    font-weight: bold;
+    color: var(--almond);
+}
+.home-clients-sec-header h1{
+    font-weight: 500;
+    text-transform: capitalize;
+    letter-spacing: 2px;
+    padding-top: 10px;
+    color: white;
+}
+.home-clients-sec-header p{
+    padding: 20px;
+    color: rgb(226, 226, 226);
+    letter-spacing: 1px;
+}
+.home-clients-sec
+{
+    padding: 90px;
+    background-color: var(--sky);
+    min-height: 100vh;
+}
+
+.home-client-card
+{
+    padding: 30px;
+    text-align: center;
+}
+.client-img-holder
+{
+    height: 150px;
+    width: 150px;
+    margin: auto;
+    overflow: hidden;
+    border-radius: 50%;
+}
+.home-client-card img{
+    width: 100%;
+}
+.home-client-card h5
+{
+    color: var(--almond);
+    letter-spacing: 2px;
+    padding: 20px 0px;
+    font-weight: bolder;
+}
+.home-client-card p{
+    font-weight: bold;
+    letter-spacing: 2px;
+    color: rgb(77, 77, 77);
+}
+
+
+/* -------------------- SUBSCRIBE SECTION ---------------- */
+
+.home-subscribe-sec
+{
+    /* background-color: rgb(245, 245, 245); */
+    background: linear-gradient(rgba(245, 245, 245,1),rgba(245, 245, 245,0.8)),
+    url('./../../../public/images/hero-bg.png');
+    background-attachment: fixed;
+    background-size: cover;
+    padding: 100px;
+    min-height: 600px;
+}
+
+.home-subscribe-sec input[type='email']
+{
+    width: 80%;
+    background-color: rgba(0,0,0,0.1);
+    border: none;
+    outline: none;
+    font-size: 1.3rem;
+    padding: 10px 15px;
+    transition: 0.3s;
+}
+.home-subscribe-sec input[type='email']:focus
+{
+    background-color: rgba(0,0,0,0.2);
+}
+.home-subscribe-sec button
+{
+    border: none;
+    margin-top: 20px;
+    background-color: var(--green);
+    padding: 7px 25px;
+    color: white;
+    letter-spacing: 2px;
+    cursor: pointer;
+    font-size: 1.2rem;
+    transition: 0.3s;
+}
+.home-subscribe-sec button:hover
+{
+    transform: scale(1.06);
+    box-shadow: rgb(148, 148, 148) 0px 0px 10px 0px;
+}
+
+/* -------------------- SERVICE SECTION ------------------ */
+.home-services-sec
+{
+    min-height: 100vh;
+    background-color: rgb(248, 247, 247);
+    position: relative;
+    margin-top: 100px;
+    padding: 70px 0px;
+}
+.home-services-sec::before
+{
+    content: '';
+    position: absolute;
+    width: 100%;
+    background-color: inherit;
+    height: 200px;
+    clip-path: polygon(0 0, 0% 100%, 100% 100%);
+    transform: translateY(-100%);
+}
+.home-service-card
+{
+    transition: 0.3s;
+    padding: 20px;
+    cursor: pointer;
+    text-align: center;
+    border: solid 2px rgb(194, 194, 194);
+    /* border-radius: 3%; */
+    margin: 20px 0px;
+}
+.home-service-card:hover
+{
+    box-shadow: silver 0px 0px 20px 0px;
+}
+.home-service-card span
+{
+    color: var(--green);
+    font-size: 3rem;
+}
+.home-service-card h5{
+    padding-top: 10px;
+    text-transform: lowercase;
+    letter-spacing: 2px;
+    /* color: var(--green); */
+    font-weight: 600;
+    font-size: 1.1rem;
+}
+.home-service-card p{
+    padding-top: 20px;
+    letter-spacing: 1px;
+}
+
+
+.home-service-card-img img
+{
+    width: 60%;
 }
