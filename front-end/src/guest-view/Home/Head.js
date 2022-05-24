@@ -1,7 +1,7 @@
 
 import React from 'react'
 import './custom.css';
-import Navigation from './Navigation';
+import Navigation from './../Common/Navigation';
 
 const Head = () => {
     return (
