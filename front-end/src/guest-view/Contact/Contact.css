@@ -1,0 +1,75 @@
+
+
+:root
+{
+    --almond:#FFCCBC;
+    --green:#00887A;
+    --sky:#77A6F7;
+    --accent:#d3E3FC;
+    --base:rgb(1, 27, 55);
+}
+/* 
+.contact-header-sec{
+    background-image: linear-gradient(90deg,rgba(0, 136, 122,0.9),rgba(0, 136, 122,0.7)), url('./../../../public/images/hero-bg.png');
+    min-height: 300px;
+    position: relative;
+    background-size:cover ;
+    background-attachment: fixed;
+}
+.contact-header-sec::before
+{
+    width: 100%;
+    height: 100px;
+    position: absolute;
+    content: '';
+    bottom: 0;
+    clip-path: polygon(74% 14%, 100% 78%, 100% 100%, 0% 100%);
+    background-color: white;
+}
+
+.contact-header-sec h1{
+    text-align: center;
+    padding-top: 150px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: white;
+}
+
+.contact-sec-form{
+    padding-top: 100px;
+    padding-bottom: 100px;
+}
+
+.contact-body-left
+{
+    padding: 60px;
+    border-right: solid 1px silver;
+}
+.contact-body-left input,textarea
+{
+    width: 100%;
+    margin: 20px 0px;
+    padding: 10px;
+    font-size: 1.2rem;
+    outline: none;
+    border: none;
+    border-bottom: solid 2px silver;
+    transition: 0.3s;
+}
+.contact-body-left input:focus
+{
+    background-color: rgba(0,0,0,0.02);
+    border-color: var(--sky);
+} */
+
+
+
+
+/* ------------------- MODIFIED CSS ---------------- */
+
+.contact-header-sec
+{
+    min-height: 100vh;
+    background-image: linear-gradient(rgba(119, 166, 247,0.9),rgba(119, 166, 247,0.8)), url('./../../../public/images/contact-back.jpg');
+    background-size: cover;
+}

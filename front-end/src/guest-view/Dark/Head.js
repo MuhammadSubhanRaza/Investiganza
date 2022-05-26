@@ -39,7 +39,7 @@ const Head = () => {
                                     <div className='row'>
                                             <div className='col-md-6'>
                                                 <div className='slider-text-part'>
-                                                    <h6>What we do?</h6>
+                                                    <h6>What we do ?</h6>
                                                     <h1>
                                                         Slide 2
                                                     </h1>
