@@ -1,0 +1,220 @@
+body {
+  margin: 0;
+
+
+
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+.btn2{
+  background-color: "white";
+  Color:"blue";
+  border-color:'#541cff';
+  border-radius: "30px";
+          margin-left:"50px";
+          width:"200px",
+}
+
+
+
+
+.login-key {
+  height: 100px;
+  font-size: 80px;
+  line-height: 100px;
+  background: -webkit-linear-gradient(#27EF9F, silver);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.login-title {
+  margin-top: 15px;
+  text-align: center;
+  font-size: 30px;
+  letter-spacing: 2px;
+  margin-top: 15px;
+  font-weight: bold;
+  color: #ECF0F5;
+}
+
+.login-form {
+  margin-top: 25px;
+  text-align: left;
+}
+
+input[type=text] {
+  background-color: white;
+  border: none;
+  border-bottom: 2px solid silver;
+  border-top: 0px;
+  border-radius: 0px;
+  font-weight: bold;
+  outline: 0;
+  margin-bottom: 20px;
+  padding-left: 0px;
+  color: black;
+}
+
+p{
+  font-size: large;
+  
+    
+}
+input[type=password] {
+  background-color: white;
+  border: none;
+  border-bottom: 2px solid silver;
+  border-top: 0px;
+  border-radius: 0px;
+  font-weight: bold;
+  outline: 0;
+  padding-left: 0px;
+  margin-bottom: 20px;
+  color: black;
+}
+
+.form-group {
+  margin-bottom: 40px;
+  outline: 0px;
+}
+
+.form-control:focus {
+  border-color: transparent;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+  border-bottom: 2px solid transparent;
+  outline: 0;
+  background-color: #1A2226;
+  color:transparent;
+}
+
+input:focus {
+  outline: none;
+  box-shadow: 0 0 0;
+}
+
+label {
+  margin-bottom: 0px;
+}
+
+.form-control-label {
+  font-size: 15px;
+  color: #6C6C6C;
+ 
+  letter-spacing: 1px;
+}
+
+.btn-outline-primary {
+  border-color: #0DB8DE;
+  color: #0DB8DE;
+  border-radius: 0px;
+  font-weight: bold;
+  letter-spacing: 1px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+}
+
+.btn-outline-primary:hover {
+  background-color: #0DB8DE;
+  right: 0px;
+ 
+}
+
+.login-btm {
+  float: left;
+}
+
+.login-button :hover{
+  padding-right: 0px;
+  text-align: right;
+  margin-bottom: 25px;
+ 
+ 
+}
+
+.login-text {
+  text-align: left;
+  padding-left: 0px;
+  color: #A2A4A4;
+}
+
+.loginbttm {
+  padding: 0px;
+
+}
+.buttset{
+ 
+  
+   
+    
+    border-radius: "30px";
+    
+          margin-left:"30px";
+         width:"200px",
+
+
+}
+.setlength{
+   font-size: large;
+  margin-top: 230px;
+ 
+  margin-bottom: 230px;
+}
+.setalign{
+  text-align: center;
+}
+.gradient-custom-2 {
+  /* fallback for old browsers */
+  background: linear-gradient(to right ,blue,#c56CEE );
+  
+  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right ,blue,#c56CEE );
+  /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  background: linear-gradient(to right ,blue,#c56CEE );opacity:0.85 ; 
+  
+  
+  }
+  .gradient-custom-3 {
+   
+    background-image:
+    linear-gradient(to bottom, #2b2caa, rgba(117, 19, 93, 0.73)),
+    url('../public/logo2.png'); 
+ 
+    width: auto;
+    height: auto;
+
+
+  
+    background-size: cover;
+    background-position: center;
+
+    
+    
+ 
+    opacity:0.8;
+ 
+    
+    }
+    
+  
+  @media (min-width: 768px) {
+  .gradient-form {
+  height: 100vh !important;
+
+  }
+  }
+  @media (min-width: 769px) {
+  .gradient-custom-2 {
+  border-top-right-radius: .3rem;
+  border-bottom-right-radius: .3rem;
+
+  }
+  }
+  
