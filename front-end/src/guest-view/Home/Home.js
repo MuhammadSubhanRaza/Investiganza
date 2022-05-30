@@ -6,6 +6,7 @@ import Footer from './../Common/Footer'
 import Head from './Head'
 import Services from './Services'
 import Subscribe from './../Common/Subscribe'
+import Companies from './Companies'
 
 const Home = () => {
   return (
@@ -14,6 +15,7 @@ const Home = () => {
         <About/>
         <Services/>
         <Counter/>
+        <Companies/>
         <Clients/>
         <Subscribe/>
         <Footer/>

@@ -1,0 +1,58 @@
+body{
+}
+
+.login-sec
+{
+    /* padding: 50px; */
+    min-height: 100vh;
+    /* background: linear-gradient(90deg,rgba(136, 96, 208,0.7),rgba(132, 206, 235,0.7)),
+    url(./../../../public/images/contact-back.jpg);
+    background-size: cover; */
+    /* background-color:rgba(132, 206, 235,0.7) ; */
+    /* margin-bottom: 100px; */
+}
+
+.login-container
+{
+    /* background-color: rgb(250, 250, 250); */
+    background-color: white;
+    box-shadow: rgb(241, 241, 241) 0px 0px 20px 0px;
+    /* padding: 50px; */
+    /* margin-top: 70px; */
+}
+.login-container img{
+    width: 100%;
+}
+.login-main
+{
+    display: flex;
+}
+.login-right
+{
+    /* background-color: rgba(136, 96, 208,1); */
+    background: linear-gradient(rgba(136, 96, 208,0.8),rgba(136, 96, 208,0.8)),
+    url('./../../../public/images/loginsvg.svg');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    height: 100vh;
+    width: 50%;
+    display: flex;
+    align-items: center;
+    padding: 30px 70px;
+}
+.login-left
+{
+    /* background-color: rgba(136, 96, 208,1); */
+    height: 100vh;
+    width: 50%;
+}
+.login-right-content
+{
+    color: white;
+}
+.login-heading-spacer{
+    height: 2px;
+    background-color: white;
+    width: 100px;
+}
