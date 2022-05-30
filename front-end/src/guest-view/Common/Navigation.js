@@ -1,8 +1,24 @@
-import React from 'react'
+import React,{useState} from 'react'
 
 const Navigation = () => {
+
+    const [navClass,setNavClass] = useState("navbar navbar-expand-lg navbar-dark cst-inactive-nav");
+
+    const changeBackground = () =>{
+        if(window.scrollY>80)
+        {
+            setNavClass("navbar navbar-expand-lg navbar-dark cst-active-nav")
+        }
+        else
+        {
+            setNavClass("navbar navbar-expand-lg navbar-dark cst-inactive-nav")
+        }
+    }
+
+    window.addEventListener('scroll',changeBackground)
+
     return (
-        <nav className="navbar navbar-expand-lg navbar-dark">
+        <nav className={navClass}>
             <a className="navbar-brand" href="#"><img src='images/logos/cubeColoredShaded.png'/></a>
             <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span className="navbar-toggler-icon"></span>

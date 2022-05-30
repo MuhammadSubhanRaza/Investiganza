@@ -2,11 +2,13 @@
 
 :root
 {
-    --almond:#03dffc;
+    --almond:rgb(11, 209, 221);
     --green:#00887A;
     --sky:#77A6F7;
     --accent:#d3E3FC;
-    --base:rgb(1, 27, 55);
+    --base:rgb(16, 21, 25);
+    --surface : rgb(28, 43, 50);
+    --base2:rgb(19, 29, 34);
 }
 
 *{
@@ -16,7 +18,8 @@
 }
 body
 {
-    font-family: 'Roboto', sans-serif;  
+    font-family: 'Roboto', sans-serif; 
+    background-color: var(--surface); 
 }
 
 header{
@@ -90,11 +93,18 @@ header video
 /* ------------------- NAVIGATION --------------- */
 
 nav{
-    border-bottom: solid 1px rgba(255, 255, 255,0.4);
-    padding: 20px !important;
+    padding: 10px !important;
     position: fixed !important;
     width: 100%;
     z-index: 100;
+    transition: 0.5s;
+}
+.cst-inactive-nav{
+    /* border-bottom: solid 1px rgba(255, 255, 255,0.4); */
+    background-color: transparent;
+}
+.cst-active-nav{
+    background-color: var(--base);
 }
 nav li a{
     color: #ffffff !important;
@@ -372,7 +382,7 @@ footer h6{
 /* --------------------- HOME ABOUT ----------------- */
 
 .home-sec-about{
-    background-color: white;
+    background-color: var(--surface);
     min-height: 100vh;
     padding: 50px 0px;
     padding-top: 100px;
@@ -386,17 +396,18 @@ footer h6{
     text-transform: uppercase;
     font-size: 0.8rem;
     font-weight: bold;
-    color: var(--green);
+    color: var(--almond);
 }
 .home-about-sec-header h1{
     font-weight: 500;
     text-transform: capitalize;
     letter-spacing: 2px;
     padding-top: 10px;
+    color: white;
 }
 .home-about-sec-header p{
     padding: 20px;
-    color: gray;
+    color: silver;
     letter-spacing: 1px;
 }
 .home-about-sec-body
@@ -430,7 +441,10 @@ footer h6{
     letter-spacing: 2px;
     font-weight: 600;
     font-size: 0.9rem;
-    color: var(--green);
+    color: var(--almond);
+}
+.home-about-item p{
+    color: silver;
 }
 
 /* ---------------------- HOME COUNTER ---------------- */
@@ -473,13 +487,16 @@ footer h6{
     color: white;
 }
 .ctr-1{
-    background-color: rgba(0, 133, 119,0.8);
+    /* background-color: rgba(0, 133, 119,0.8); */
+    background-color: rgba(11, 209, 221,0.8);
 }
 .ctr-2{
-    background-color: rgba(255, 204, 188,0.8);
+    /* background-color: rgba(255, 204, 188,0.8); */
+    background-color: rgba(11, 209, 221,0.8);
 }
 .ctr-3{
-    background-color: rgba(119, 166, 247,0.8);
+    /* background-color: rgba(119, 166, 247,0.8); */
+    background-color: rgba(11, 209, 221,0.8);
 }
 
 
@@ -511,7 +528,7 @@ footer h6{
 .home-clients-sec
 {
     padding: 90px;
-    background-color: var(--sky);
+    background-color: var(--base);
     min-height: 100vh;
 }
 
@@ -550,7 +567,9 @@ footer h6{
 .home-subscribe-sec
 {
     /* background-color: rgb(245, 245, 245); */
-    background: linear-gradient(rgba(245, 245, 245,1),rgba(245, 245, 245,0.8)),
+    /* background: linear-gradient(rgba(245, 245, 245,1),rgba(245, 245, 245,0.8)),
+    url('./../../../public/images/hero-bg.png'); */
+    background: linear-gradient(rgba(0, 0, 0,0.7),rgba(0, 0, 0,0.95)),
     url('./../../../public/images/hero-bg.png');
     background-attachment: fixed;
     background-size: cover;
@@ -594,7 +613,7 @@ footer h6{
 .home-services-sec
 {
     min-height: 100vh;
-    background-color: rgb(248, 247, 247);
+    background-color: var(--base2);
     position: relative;
     margin-top: 100px;
     padding: 70px 0px;
