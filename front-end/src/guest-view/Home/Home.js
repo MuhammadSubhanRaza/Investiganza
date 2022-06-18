@@ -7,16 +7,18 @@ import Head from './Head'
 import Services from './Services'
 import Subscribe from './../Common/Subscribe'
 import Companies from './Companies'
+import Ribbon from './Ribbon'
 
 const Home = () => {
   return (
       <>
         <Head/>
-        <About/>
         <Services/>
+        <About/>
         <Counter/>
-        <Companies/>
+        {/* <Companies/> */}
         <Clients/>
+        <Ribbon/>
         <Subscribe/>
         <Footer/>
       </>

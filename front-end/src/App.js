@@ -10,10 +10,10 @@ import Login from './guest-view/Login/Login';
 function App() {
   return (
     <div className="App">
-      {/* <Home/> */}
+      <Home/>
       {/* <About/> */}
       {/* <Contact/> */}
-      <Login/>
+      {/* <Login/> */}
     </div>
   );
 }
