@@ -528,36 +528,42 @@ footer
     text-transform: uppercase;
     font-size: 0.8rem;
     font-weight: bold;
-    color: var(--almond);
+    color: #7249fb;
 }
 .home-clients-sec-header h1{
     font-weight: 500;
     text-transform: capitalize;
     letter-spacing: 2px;
     padding-top: 10px;
-    color: white;
+    color: gray;
 }
 .home-clients-sec-header p{
     padding: 20px;
-    color: rgb(226, 226, 226);
+    color: rgb(150, 150, 150);
     letter-spacing: 1px;
 }
 .home-clients-sec
 {
-    padding: 90px;
-    background-color: var(--sky);
+    padding: 100px;
     min-height: 100vh;
+    /* background-color: #F9FAFF; */
 }
-
+.quote-testimonial
+{
+    color: #7249fb;
+    font-size: 2.3rem;
+}
 .home-client-card
 {
-    padding: 30px;
     text-align: center;
+    background-color: white;
+    padding: 20px 15px;
+    box-shadow: rgb(230, 230, 230) 0px 0px 20px 0px;
 }
 .client-img-holder
 {
-    height: 150px;
-    width: 150px;
+    height: 100px;
+    width: 100px;
     margin: auto;
     overflow: hidden;
     border-radius: 50%;
@@ -567,15 +573,17 @@ footer
 }
 .home-client-card h5
 {
-    color: var(--almond);
-    letter-spacing: 2px;
-    padding: 20px 0px;
-    font-weight: bolder;
+    color: #bc2bff;
+    font-size: 0.9rem;
+    margin-top: 10px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-weight: 600;
 }
 .home-client-card p{
-    font-weight: bold;
-    letter-spacing: 2px;
-    color: rgb(77, 77, 77);
+    padding-top: 10px;   
+    /* font-weight: 600; */
+    letter-spacing: 1px;
 }
 
 
@@ -590,6 +598,10 @@ footer
     background-size: cover;
     padding: 100px;
     min-height: 600px;
+}
+.home-subscribe-sec h6
+{
+    color: #7249fb;
 }
 
 .home-subscribe-sec input[type='email']
@@ -610,7 +622,7 @@ footer
 {
     border: none;
     margin-top: 20px;
-    background-color: var(--green);
+    background-color: #7249fb;
     padding: 7px 25px;
     color: white;
     letter-spacing: 2px;
