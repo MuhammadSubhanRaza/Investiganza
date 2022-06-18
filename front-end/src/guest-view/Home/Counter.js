@@ -1,4 +1,4 @@
-import { faCoffee } from '@fortawesome/free-solid-svg-icons'
+import { faChartLine, faCoffee, faMoneyCheckDollar, faUsers } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import React from 'react'
 import './custom.css';
@@ -11,7 +11,7 @@ const Counter = () => {
                     <div className='col-md-4 p-0'>
                         <div className='home-counter-box ctr-1 counter-divider'>
                             <span>
-                                <FontAwesomeIcon icon={faCoffee} />
+                                <FontAwesomeIcon icon={faUsers} />
                             </span>
                             <h6>Total Investors</h6>
                             <h1>100+</h1>
@@ -20,7 +20,7 @@ const Counter = () => {
                     <div className='col-md-4 p-0'>
                         <div className='home-counter-box ctr-2 counter-divider'>
                             <span>
-                                <FontAwesomeIcon icon={faCoffee} />
+                                <FontAwesomeIcon icon={faMoneyCheckDollar} />
                             </span>
                             <h6>Total Finance Seekers</h6>
                             <h1>70+</h1>
@@ -29,7 +29,7 @@ const Counter = () => {
                     <div className='col-md-4 p-0'>
                         <div className='home-counter-box ctr-3'>
                             <span>
-                                <FontAwesomeIcon icon={faCoffee} />
+                                <FontAwesomeIcon icon={faChartLine} />
                             </span>
                             <h6>Total Projects</h6>
                             <h1>170+</h1>
