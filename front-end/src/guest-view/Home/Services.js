@@ -19,7 +19,7 @@ const Services = () => {
             </div>
             <div className='row mt-5'>
                 <div className='col-md-3'>
-                    <div className='home-service-card'>
+                    <div className='home-service-card' data-aos="fade-up">
                         <div>
                             <span><FontAwesomeIcon icon={faChartBar}></FontAwesomeIcon></span>
                         </div>
@@ -28,7 +28,7 @@ const Services = () => {
                     </div>
                 </div>
                 <div className='col-md-3'>
-                    <div className='home-service-card'>
+                    <div className='home-service-card' data-aos="fade-up">
                         <div>
                             <span><FontAwesomeIcon icon={faChartBar}></FontAwesomeIcon></span>
                         </div>
@@ -37,7 +37,7 @@ const Services = () => {
                     </div>
                 </div>
                 <div className='col-md-3'>
-                    <div className='home-service-card'>
+                    <div className='home-service-card' data-aos="fade-up">
                         <div>
                             <span><FontAwesomeIcon icon={faChartBar}></FontAwesomeIcon></span>
                         </div>
@@ -46,7 +46,7 @@ const Services = () => {
                     </div>
                 </div>
                 <div className='col-md-3'>
-                    <div className='home-service-card'>
+                    <div className='home-service-card' data-aos="fade-up">
                         <div>
                             <span><FontAwesomeIcon icon={faChartBar}></FontAwesomeIcon></span>
                         </div>

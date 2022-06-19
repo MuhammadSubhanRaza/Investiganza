@@ -1,16 +1,24 @@
 
-import React from 'react'
+import React,{useEffect} from 'react'
 import './custom.css';
 import Navigation from './../Common/Navigation';
+import Aos from 'aos';
+import "aos/dist/aos.css";
 
 const Head = () => {
+
+
+    useEffect(()=>{
+        Aos.init({duration:2000})
+      },[])
+
     return (
         <>
             <header>
                 <Navigation />
                 <div className='video-back'>
                     <video src='videos/guest/7.mp4' autoPlay muted loop />
-                    <div className='header-content-container'>
+                    <div className='header-content-container'  data-aos="fade-left">
                         <div className='header-content container'>
                             <div id="carouselExampleIndicators" className="carousel slide" data-ride="carousel">
                                 <div className="carousel-inner">

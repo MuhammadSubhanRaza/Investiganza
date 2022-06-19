@@ -9,7 +9,7 @@ const Subscribe = () => {
             <div className='container'>
                 <div className='row'>
                     <div className='col-md-12'>
-                        <div className='home-about-sec-header'>
+                        <div className='home-about-sec-header' data-aos="fade-down">
                             <h6>Stay Connected</h6>
                             <h1>get In touch with us</h1>
                             <p>

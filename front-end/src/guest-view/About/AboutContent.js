@@ -10,7 +10,7 @@ const AboutContent = () => {
                 <div className='container'>
                     <div className='row'>
                         <div className='col-md-3'>
-                            <div className='aboutcontent-ind-card'>
+                            <div className='aboutcontent-ind-card' data-aos="fade-up">
                                 <span>
                                     <FontAwesomeIcon icon={faCoffee} />
                                 </span>
@@ -22,7 +22,7 @@ const AboutContent = () => {
                             </div>
                         </div>
                         <div className='col-md-3'>
-                            <div className='aboutcontent-ind-card'>
+                            <div className='aboutcontent-ind-card' data-aos="fade-up">
                                 <span>
                                     <FontAwesomeIcon icon={faCoffee} />
                                 </span>
@@ -34,7 +34,7 @@ const AboutContent = () => {
                             </div>
                         </div>
                         <div className='col-md-3'>
-                            <div className='aboutcontent-ind-card'>
+                            <div className='aboutcontent-ind-card' data-aos="fade-up">
                                 <span>
                                     <FontAwesomeIcon icon={faCoffee} />
                                 </span>
@@ -46,7 +46,7 @@ const AboutContent = () => {
                             </div>
                         </div>
                         <div className='col-md-3'>
-                            <div className='aboutcontent-ind-card'>
+                            <div className='aboutcontent-ind-card' data-aos="fade-up">
                                 <span>
                                     <FontAwesomeIcon icon={faCoffee} />
                                 </span>
@@ -65,7 +65,7 @@ const AboutContent = () => {
                     <div className='row'>
                         <div className='col-md-6 p-0'>
                             <div className='abt-sec-left'>
-                                <div>
+                                <div data-aos="fade-left">
                                     <h3>Where ideas grow</h3>
                                     <div className='about-sec-left-divider'></div>
                                     <p>
@@ -114,7 +114,7 @@ const AboutContent = () => {
                         </div>
                         <div className='col-md-6 p-0'>
                             <div className='abt-sec-left-2'>
-                                <div>
+                                <div data-aos="fade-right">
                                     <h3>Where ideas grow</h3>
                                     <div className='about-sec-left-divider'></div>
                                     <p>

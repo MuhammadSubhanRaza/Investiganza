@@ -3,7 +3,7 @@ import React from 'react'
 const Header = () => {
   return (
       <section className='about-sec-header'>
-        <div className='about-sec-header-content'>
+        <div className='about-sec-header-content' data-aos="fade-up">
           <h1>Who we are</h1>
           <div className='about-sec-header-divider'></div>
           <p>

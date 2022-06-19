@@ -23,7 +23,7 @@ const Contactbody = () => {
                     </div>
                 </div>
                 <div className='col-md-6'>
-                    <div className='contact-body-right'>
+                    <div className='contact-body-right' data-aos="fade-left">
                         <div className='text-center'>
                         <img src='images/contactsvg3.svg'/>
                         </div>
