@@ -1,122 +1,123 @@
+
 .sec-login-main
 {
     min-height: 100vh;
+    overflow: hidden;
+    position: relative;
+}
+.sec-login-main video
+{
+    z-index: -1;
+    position: absolute;
+    min-width: 100%;
+    min-height:100%;
+}
+.sec-login-main-content
+{
+    background-image: linear-gradient(90deg,rgba(0,0,0,0.5),rgba(0,0,0,0.5) );
+    height: 100vh;
+    position: relative;
+    z-index: 1;
 }
 
-
-.login-header-main
+.login-form-container
 {
-    background-color: #bc2bff ;
-    height: 80px;
-}
-
-.login-main-content
-{
-    
-}
-.login-left-main
-{
+    background-color: rgba(19, 18, 31, 0.7)  ;
     padding: 40px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
     width: 450px;
-    margin-top: 70px;
-    /* box-shadow: silver 0px 0px 20px 0px; */
+    box-sizing: border-box;
 }
 
-.login-left-main label
+.login-form-container label
 {
     display: block;
-    color: #bc2bff;
+    margin-top: 20px;
+    color: rgb(204, 204, 204);
+    letter-spacing: 1px;
+}
+
+.login-form-container h3{
+    color: #bc2bff ;
+}
+.login-sec-main-divider
+{
+    background-color: rgb(212, 212, 212);
+    height: 2px;
+    width: 60px;
+}
+.login-form-container input[type='email'],input[type='password']
+{
+    width: 100%;
+    color: white;
+    padding: 8px;
+    outline: none;
+    border: none;
+    background-color: transparent;
+    border: solid 1px rgb(161, 161, 161);
+    border-radius: 5px;
+    transition: 0.3s;
+}
+
+.login-form-container input[type='email']:focus,input[type='password']:focus
+{
+    border-color: #7249fb ;
+}
+.login-form-container span
+{
+    font-size: 1rem;
     text-transform: lowercase;
     letter-spacing: 2px;
-    font-weight: bold;
-    margin-top: 20px;
-}
-
-.login-left-main input[type='email'],input[type='password']
-{
-    width: 100%;
-    padding: 8px;
-    font-size: 1rem;
-    background-color: transparent;
-    border: solid 1px rgb(224, 224, 224);
-    transition: 0.3s;
-    outline: none;
-    border-radius: 5px;
 }
 
 
-.login-left-main input[type='email']:focus,input[type='password']:focus
+.login-sociallogin
 {
-    border: solid 1px #7249fb ;
-    background-color: rgb(250, 250, 250);
-}
-.login-left-main span
-{
-    color: black;
-    font-size: 1rem;
-    padding-left: 10px;
-}
-.btn-login-main
-{
-    border: none;
-    width: 100%;
-    color: white;
-    padding: 10px;
-    font-size: 1.2rem;
-    cursor: pointer;
-    background-color: #7249fb ;
-    margin-top: 10px;
-    transition: 0.3s;
-}
-
-.btn-login-main:hover
-{
-    background-color: #4e2db9 ;
-}
-.login-left-main h6{
+    background-color: rgba(34, 34, 34,0.6) ;
+    display: inline-flex;
+    font-size: 1.3rem;
     color: #7249fb;
-    font-weight: bold;
-    text-align: center;
-    margin-top: 10px;
-    margin-bottom: 10px;
-    letter-spacing: 1px;
-    text-transform: lowercase;
+    width: 40px;
+    height: 40px;
+    margin: 0px 5px;
+    border-radius: 5px;
+    justify-content: center;
+    align-items: center;
+    transition: 0.3s;
 }
 
-.btn-login-main-google
+.login-sociallogin:hover
 {
-    border: none;
-    width: 100%;
+    transform: scale(1.1);
     color: white;
-    padding: 6px;
-    font-size: 1rem;
-    cursor: pointer;
-    background-color: #bd0000 ;
-    margin-top: 10px;
-    transition: 0.3s;
 }
-.btn-login-main-facebook
+
+.login-loginbtn
 {
-    border: none;
+    background-color: #7249fb ;
     width: 100%;
-    color: white;
-    padding: 6px;
-    font-size: 1rem;
-    cursor: pointer;
-    background-color: #0064c2 ;
-    margin-top: 10px;
-    transition: 0.3s;
-}
-.login-left-main a{
+    padding: 7px;
+    font-size: 1.1rem;
+    letter-spacing: 2px;
+    color: rgb(231, 231, 231);
     display: block;
+    text-align: center;
     margin-top: 20px;
-    font-weight: bold;
+    margin-bottom: 20px;
+    transition: 0.3s;
+}
+
+.login-loginbtn:hover
+{
+    text-decoration: none;
+    color: white;
+    background-color: #4721c4;
+}
+.login-donothave-account
+{
+    color: white;
     letter-spacing: 1px;
 }
-
-.login-right-main img
-{
-    width: 60%;
-    margin-top: 100px;
-}
-

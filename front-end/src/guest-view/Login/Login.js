@@ -4,54 +4,42 @@ import Footer from '../Common/Footer'
 import Navigation from './../Common/Navigation'
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSignIn } from "@fortawesome/free-solid-svg-icons";
-import { faFacebook,faGoogle } from '@fortawesome/free-brands-svg-icons'
+import { faFacebook, faGoogle, faLinkedin } from '@fortawesome/free-brands-svg-icons'
 
 
 const Login = () => {
     return (
         <>
-            <Navigation />
-
-            <div className="login-header-main"></div>
-
-            <section className="sec-login-main">
-                <div className="login-main-content">
-                    <div className="container">
-                        <div className="row">
-                            <div className="col-md-6">
-                                <div className="login-left-main">
-                                    <h4>Login to your Account</h4>
-                                <form>
-                                    <label>Email</label>
-                                    <input type="email" placeholder="Enter Your Email"/>
-                                    <label>Password</label>
-                                    <input type="password" placeholder="Enter Your Password"/>
-                                    <div className="mt-3">
-                                    <input type="checkbox"/>
-                                    <span>Remember Me</span>
-                                    </div>
-                                    <button className="btn-login-main"><FontAwesomeIcon icon={faSignIn}/> Login</button>
-                                </form>
-                                <h6>OR Sign In With</h6>
-                                <div className="d-flex">
-                                    <button className="btn-login-main-google"><FontAwesomeIcon className="pr-2" icon={faGoogle}/> Google</button>
-                                    <div className="p-3"></div>
-                                    <button className="btn-login-main-facebook"><FontAwesomeIcon className="pr-2" icon={faFacebook}/> Facebook</button>
-                                </div>
-                                <a href="#">I don't have any account</a>
-                                </div>
+        <Navigation/>
+            <section class="sec-login-main">
+                <video src='videos/guest/5.mp4' autoPlay muted loop />
+                <div className="sec-login-main-content">
+                    <div className="login-form-container">
+                        <h3>Login</h3>
+                        <div className="login-sec-main-divider"></div>
+                        <form>
+                            <label>Username or Email</label>
+                            <input type="email" placeholder="Enter your email"/>
+                            <label>Password</label>
+                            <input type="password" placeholder="Enter your password"/>
+                            <div className="mt-3">
+                                <input type="checkbox"/>
+                                <span className="pl-3">Remember Me</span>
                             </div>
-                            <div className="col-md-6">
-                                <div className="login-right-main text-center">
-                                    <img src="images/svg3.svg"/>
-                                </div>
+                            <a href="#" className="login-loginbtn">LOGIN</a>
+                            <div className="mt-3 text-center">
+                                <a href="#" className="login-sociallogin"><FontAwesomeIcon icon={faGoogle}/></a>
+                                <a href="#" className="login-sociallogin"><FontAwesomeIcon icon={faFacebook}/></a>
+                                <a href="#" className="login-sociallogin"><FontAwesomeIcon icon={faLinkedin}/></a>
                             </div>
-                        </div>
+
+                            <div className="text-center pt-4">
+                            <a href="#" className="login-donothave-account">I do not have any account</a>
+                            </div>
+                        </form>
                     </div>
                 </div>
             </section>
-
-            <Footer />
         </>
     )
 }

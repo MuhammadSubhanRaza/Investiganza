@@ -1,4 +1,5 @@
 import React,{useState} from 'react'
+import {Link } from 'react-router-dom';
 
 const Navigation = () => {
 
@@ -26,22 +27,22 @@ const Navigation = () => {
             <div className="collapse navbar-collapse" id="navbarNav">
                 <ul className="navbar-nav ml-auto">
                     <li className="nav-item usual-nav-link">
-                        <a className="nav-link" href="#">Home</a>
+                        <Link className='nav-link' to="/">Home</Link>
                     </li>
                     <li className="nav-item usual-nav-link">
-                        <a className="nav-link" href="#">About us</a>
+                        <Link className='nav-link' to="/about">About</Link>
                     </li>
                     <li className="nav-item usual-nav-link">
-                        <a className="nav-link" href="#">Contact</a>
+                        <Link className='nav-link' to="/contact">Contact</Link>
                     </li>
                     <li className="nav-item usual-nav-link">
                         <a className="nav-link" href="#">Policies</a>
                     </li>
                     <li className="nav-item nav-link-login">
-                        <a className="nav-link" href="#">Login</a>
+                        <Link className='nav-link' to="/login">Login</Link>
                     </li>
                     <li className="nav-item nav-link-register">
-                        <a className="nav-link" href="#">Register</a>
+                        <Link className='nav-link' to="/signup">Register</Link>
                     </li>
                 </ul>
             </div>

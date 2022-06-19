@@ -13,6 +13,8 @@ import UnderReview from './guest-view/ErrorPages/UnderReview';
 import AfterLoginNav from './guest-view/AfterLoginNav/AfterLoginNav';
 import NewsFeed from './guest-view/NewsFeed/NewsFeed';
 import CreatePost from './guest-view/CreatePost/CreatePost';
+import {BrowserRouter as Router, Route, Routes,Link } from 'react-router-dom';
+import Navigation from './guest-view/Common/Navigation';
 // import Home from './guest-view/Dark/Home';
 
 function App() {
@@ -29,7 +31,18 @@ function App() {
       {/* <UnderReview/> */}
       {/* <AfterLoginNav/> */}
       {/* <NewsFeed/> */}
-      <CreatePost/>
+      {/* <CreatePost/> */}
+
+      <Router>
+        <Routes>
+          <Route path='/' element={<Home/>}/>
+          <Route path='/about' element={<About/>}/>
+          <Route path='/contact' element={<Contact/>}/>
+          <Route path='/login' element={<Login/>}/>
+          <Route path='/signup' element={<Signup/>}/>
+          <Route path='*' element={<Error400/>}/>
+        </Routes>
+      </Router>
     </div>
   );
 }

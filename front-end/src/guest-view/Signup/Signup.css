@@ -6,7 +6,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 20px 20px;
+    padding: 20px 60px;
 }
 .signup-left-content
 {
@@ -15,7 +15,14 @@
 }
 .signup-left-header h6
 {
-    color: #C1C8E4;
+    color: #bc2bff ;
+    font-size: 1.3rem;
+}
+.createaccount-divider
+{
+    height: 2px;
+    width: 120px;
+    background-color: #7249fb ;
 }
 .signup-left-header p{
     color: silver;
@@ -32,7 +39,7 @@
     text-transform: lowercase;
     letter-spacing: 1px;
     margin-top: 10px;
-    font-weight: bold;
+    /* font-weight: bold; */
 }
 .signup-left-content input
 {
@@ -41,8 +48,8 @@
     border: none;
     outline: none;
     /* border-bottom: solid 2px rgb(231, 231, 231); */
-    padding: 7px;
-    font-size: 1.1rem;
+    padding: 10px;
+    font-size: 1rem;
     transition: 0.3s;
     border: #bdbdbd solid 1px;
     border-radius: 5px;
@@ -50,7 +57,7 @@
 .signup-left-content input:focus
 {
     border-color: #7249fb ;
-    background-color: rgb(245, 245, 245);
+    background-color: rgb(248, 248, 248);
 }
 
 .signup-left-content button
@@ -75,7 +82,7 @@
 
 .signup-right
 {
-    background: url('../../../public/images/signupback3.png');
+    background: linear-gradient(rgba(29, 27, 56, 0.7),rgba(29, 27, 56, 0.7)),url('../../../public/images/buildingimage1.jpg');
     min-height: 100vh;
     background-size: cover;
     background-position: center;
@@ -83,6 +90,7 @@
     align-items: center;
     justify-content: center;
     background-repeat: no-repeat;
+    background-attachment: fixed;
 }
 
 .signup-right-content
@@ -91,63 +99,14 @@
     justify-content: right;
 }
 
-
-.signup-slider-card
+.signup-right-content h2
 {
-    width: 80%;
-    text-align: right;
-    /* background-color: red; */
-    min-height: 350px;
-}
-
-.signup-slider-card img
-{
-    width: 70%;
-    /* background-color: red; */
-    height: 250px;
-}
-.signup-slider-card h5
-{
-    color: #84ceeb;
-    text-transform: uppercase;
     letter-spacing: 2px;
-    padding-top: 20px;
+    color: #bc2bff ;
 }
-.signup-slider-card p
+
+.signup-right-content p
 {
-    color: rgb(236, 236, 236);
-    text-transform: lowercase;
     letter-spacing: 1px;
-}
-.signup-carousel
-{
-    
-}
-.signup-carousel-container
-{
-    width: 60%;
-}
-.signup-right-social-links-cont
-{
-    padding-top: 30px;
-}
-.signup-right-social-links-cont h6{
-    color: #C1C8E4;
-}
-.signup-social-btns
-{
-    display: inline-block;
-    padding: 7px 20px;
-    color: white;
-    cursor: pointer;
-    background-color: #8860d0;
-    margin-top: 10px;
-    border-radius: 50px;
-    transition: 0.3s;
-}
-.signup-social-btns:hover
-{
-    transform: translateX(10px);
-    text-decoration: none;
-    background-color: white;
+    color: #d4d4d4 ;
 }

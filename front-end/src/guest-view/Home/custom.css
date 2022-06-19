@@ -32,7 +32,8 @@ header video
     min-height:100%;
 }
 .header-content-container{
-    background-image: linear-gradient(90deg,rgba(188, 43, 255,0.63) ,rgba(114, 73, 251,0.8) );
+    /* background-image: linear-gradient(90deg,rgba(188, 43, 255,0.63) ,rgba(114, 73, 251,0.8) ); */
+    background-image: linear-gradient(90deg,rgba(19, 17, 32, 0.63) ,rgba(19, 17, 32, 0.63) );
     height: 100vh;
     position: relative;
     z-index: 1;
@@ -54,7 +55,7 @@ header video
     text-transform: uppercase;
 }
 .slider-text-part h1{
-    color: #84CEEB;
+    color: #bc2bff ;
     letter-spacing: 1px;
     text-transform: lowercase;
     font-size: 3.3rem;
