@@ -9,6 +9,7 @@ import Header from './Header';
 const Contact = () => {
   return (
       <>
+      {/* <Navigation/> */}
         <Header/>
         <Contactbody/>
         <Footer/>

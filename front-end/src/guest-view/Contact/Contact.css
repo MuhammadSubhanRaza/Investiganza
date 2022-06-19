@@ -1,75 +1,89 @@
 
 
-:root
-{
-    --almond:#FFCCBC;
-    --green:#00887A;
-    --sky:#77A6F7;
-    --accent:#d3E3FC;
-    --base:rgb(1, 27, 55);
-}
-/* 
-.contact-header-sec{
-    background-image: linear-gradient(90deg,rgba(0, 136, 122,0.9),rgba(0, 136, 122,0.7)), url('./../../../public/images/hero-bg.png');
-    min-height: 300px;
-    position: relative;
-    background-size:cover ;
-    background-attachment: fixed;
-}
-.contact-header-sec::before
-{
-    width: 100%;
-    height: 100px;
-    position: absolute;
-    content: '';
-    bottom: 0;
-    clip-path: polygon(74% 14%, 100% 78%, 100% 100%, 0% 100%);
-    background-color: white;
-}
-
-.contact-header-sec h1{
-    text-align: center;
-    padding-top: 150px;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    color: white;
-}
-
-.contact-sec-form{
-    padding-top: 100px;
-    padding-bottom: 100px;
-}
-
-.contact-body-left
-{
-    padding: 60px;
-    border-right: solid 1px silver;
-}
-.contact-body-left input,textarea
-{
-    width: 100%;
-    margin: 20px 0px;
-    padding: 10px;
-    font-size: 1.2rem;
-    outline: none;
-    border: none;
-    border-bottom: solid 2px silver;
-    transition: 0.3s;
-}
-.contact-body-left input:focus
-{
-    background-color: rgba(0,0,0,0.02);
-    border-color: var(--sky);
-} */
-
-
-
-
 /* ------------------- MODIFIED CSS ---------------- */
 
 .contact-header-sec
 {
-    min-height: 100vh;
-    background-image: linear-gradient(rgba(119, 166, 247,0.9),rgba(119, 166, 247,0.8)), url('./../../../public/images/contact-back.jpg');
+    min-height: 80px;
+    /* background-image: linear-gradient(rgba(119, 166, 247,0.9),rgba(119, 166, 247,0.8)), url('./../../../public/images/contact-back.jpg'); */
     background-size: cover;
+    background-color: #bc2bff ;
+}
+
+.contact-sec-form
+{
+    /* min-height: 100vh; */
+    background-color: white  ;
+    margin-top: 80px;
+    margin-bottom: 80px;
+}
+
+.contact-body-right
+{
+    background: linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5)),
+    url('./../../../public/images/building3.jpg');
+    background-size: cover;
+    min-height: 80vh;
+    padding: 60px;
+    color: white;
+}
+.contact-divider
+{
+    background-color: #ffffff;
+    width: 100px;
+    height: 2px;
+}
+.contact-body-right h3
+{
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+.contact-body-right img
+{
+    height: 170px;
+}
+
+.contact-body-right span
+{
+    color: #84CEEb;
+}
+.contact-body-left
+{
+    /* min-height: 60vh; */
+    padding: 60px;
+}
+
+.contact-body-left input,textarea
+{
+    width: 100%;
+    font-size: 1.1rem;
+    padding: 10px;
+    font-weight: bold;
+    outline: none;
+    margin: 10px 0px;
+    border: solid 2px transparent;
+    background-color: rgb(240, 240, 240);
+    border-radius: 7px;
+    transition: 0.3s;
+}
+.contact-body-left input:focus,textarea:focus
+{
+    border-color: #7249fb ;
+}
+.contact-body-left button
+{
+    border: none;
+    width: 100%;
+    color: white;
+    padding: 10px;
+    font-size: 1.2rem;
+    cursor: pointer;
+    background-color: #7249fb ;
+    margin-top: 30px;
+    transition: 0.3s;
+}
+
+.contact-body-left button:hover
+{
+    background-color: #4e2db9 ;
 }
