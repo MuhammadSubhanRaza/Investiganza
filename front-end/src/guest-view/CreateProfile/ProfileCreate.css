@@ -1,0 +1,95 @@
+.profile-create-sec
+{
+    /* margin-top: 100px; */
+}
+.createprofile-title
+{
+    font-size: 1.3rem;
+    color: #7249fb ;
+    font-weight: bold;
+    letter-spacing: 2px;
+}
+.profilecreate-header
+{
+    background-color: #bc2bff ;
+    height: 70px;
+}
+.c-f-img
+{
+    background-color: red;
+}
+.create-profile-left-sec img
+{
+    width: 200px;
+    image-rendering: 200px;
+    border-radius: 50%;
+    display: block;
+}
+.create-profile-left-sec button
+{
+    background-color: #e4e4e4;
+    color: rgb(59, 59, 59);
+    outline: none;
+    border: none;
+    margin-top: 20px;
+    padding: 5px 20px;
+    transition: 0.3s;
+    cursor: pointer;
+}
+.create-profile-left-sec button:hover
+{
+    background-color: #7249fb;
+    color: white;
+}
+
+.cp-r-header
+{
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-size: 0.9rem;
+    border-bottom: solid 1px #7249fb;
+    padding-bottom: 5px;
+}
+
+.profile-create-sec label
+{
+    display: block;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+.profile-create-sec input[type='text'],textarea,input[type='date'],select
+{
+    width: 100%;
+    padding: 5px;
+    outline: none;
+    border: none;
+    border: solid 1px silver;
+    transition: 0.3s;
+}
+
+.profile-create-sec input[type='text']:focus,textarea:focus,input[type='date']:focus,select:focus
+{
+    border-color:#7249fb  ;
+}
+.cp-r-interst-chk
+{
+    padding-left: 10px;
+}
+.create-profile-right-sec ul li
+{
+    color: gray;
+}
+
+.btn-cp-add
+{
+    border: none;
+    width: 100%;
+    color: white;
+    padding: 6px;
+    font-size: 1rem;
+    cursor: pointer;
+    background-color: #7249fb ;
+    margin-top: 50px;
+    transition: 0.3s;
+}
