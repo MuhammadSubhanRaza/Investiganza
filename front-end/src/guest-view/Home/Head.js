@@ -20,10 +20,10 @@ const Head = () => {
                                                 <div className='slider-text-part'>
                                                     <h6>Do You Want to invest ?</h6>
                                                     <h1>
-                                                        HELLO
+                                                        Welcome to Investiganza
                                                     </h1>
                                                     <p>
-                                                    Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ullam reiciendis voluptas aperiam voluptatum nobis iure nulla optio? Inventore, cum? Mollitia maiores enim commodi non accusamus!
+                                                    start a business or invest money for the business is extremely difficult as it’s quite difficult to find the investors for the business startup or business extension
                                                     </p>
                                                     <a href='#'>Explore More</a>
                                                 </div> 

@@ -1,0 +1,27 @@
+
+.newsfeed-sec-main
+{
+    padding: 60px;
+}
+
+.newsfeed-tag-card
+{
+    border: solid 1px rgb(230, 230, 230);
+    padding: 20px;
+}
+.newsfeed-tag-card a{
+    display: block;
+    color: black;
+    font-size: 1.1rem;
+    padding: 5px;
+}
+.newsfeed-tag-card a:hover
+{
+    color: #bc2bff ;
+    text-decoration: none;
+}
+
+.newsfeed-stream-part
+{
+    /* padding: 60px; */
+}
