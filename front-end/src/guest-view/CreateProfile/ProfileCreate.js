@@ -5,6 +5,7 @@ import AfterLoginNav from '../AfterLoginNav/AfterLoginNav';
 import Footer from '../Common/Footer';
 import Navigation from '../Common/Navigation';
 import './ProfileCreate.css';
+import { Link } from 'react-router-dom';
 
 const ProfileCreate = () => {
   return (
@@ -103,7 +104,7 @@ const ProfileCreate = () => {
                             </span>
 
                             <div>
-                                <button className='btn-cp-add'><FontAwesomeIcon icon={faPlus}/> Create</button>
+                                <Link to="/underreview" className='btn-cp-add'><FontAwesomeIcon icon={faPlus}/> Create</Link>
                             </div>
                             
                     </div>

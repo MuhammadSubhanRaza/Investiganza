@@ -6,6 +6,7 @@ import Navigation from '../Common/Navigation';
 import { faFacebook,faGoogle,faLinkedin } from '@fortawesome/free-brands-svg-icons'
 
 import './Signup.css';
+import { Link } from 'react-router-dom';
 
 const Signup = () => {
     return (
@@ -34,7 +35,7 @@ const Signup = () => {
                                         <input type="email" placeholder='Enter Your Email Name'/>
                                         <label>Password</label>
                                         <input type="password" placeholder='Enter Your Password'/>
-                                        <button>Sign up <FontAwesomeIcon icon={faArrowRight}/></button>
+                                        <Link to="/create-profile" className='btnSignupAccount'>Sign up <FontAwesomeIcon icon={faArrowRight}/></Link>
                                     </form>
                                 </div>
                             </div>  

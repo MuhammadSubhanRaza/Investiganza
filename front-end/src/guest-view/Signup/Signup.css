@@ -60,8 +60,9 @@
     background-color: rgb(248, 248, 248);
 }
 
-.signup-left-content button
+.signup-left-content .btnSignupAccount
 {
+    display: inline-block;
     border: none;
     outline: none;
     background-color: #5680E9;
@@ -73,7 +74,7 @@
     border-radius: 5px;
     margin-top: 20px;
 }
-.signup-left-content button:hover
+.btnSignupAccount:hover
 {
     background-color: #8860d0;
     transform: translateX(15px);

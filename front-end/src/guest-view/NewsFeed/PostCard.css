@@ -51,6 +51,13 @@
 {
     padding: 20px;
 }
+.newsfeed-post-body h6
+{
+    color: #bc2bff ;
+    font-weight: bold;
+    letter-spacing: 1px;
+    font-size: 1.1rem;
+}
 .newsfeed-post-body img
 {
     width: 45%;

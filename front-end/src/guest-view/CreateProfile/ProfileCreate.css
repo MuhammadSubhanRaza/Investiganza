@@ -92,4 +92,12 @@
     background-color: #7249fb ;
     margin-top: 50px;
     transition: 0.3s;
+    display: inline-block;
+    text-align: center;
+}
+.btn-cp-add:hover
+{
+    text-decoration: none;
+    background-color: #4120af ;
+    color: white;
 }

@@ -15,6 +15,7 @@ import NewsFeed from './guest-view/NewsFeed/NewsFeed';
 import CreatePost from './guest-view/CreatePost/CreatePost';
 import {BrowserRouter as Router, Route, Routes,Link } from 'react-router-dom';
 import Navigation from './guest-view/Common/Navigation';
+import Community from './guest-view/Community/Community';
 // import Home from './guest-view/Dark/Home';
 
 function App() {
@@ -40,6 +41,11 @@ function App() {
           <Route path='/contact' element={<Contact/>}/>
           <Route path='/login' element={<Login/>}/>
           <Route path='/signup' element={<Signup/>}/>
+          <Route path='/create-profile' element={<ProfileCreate/>}/>
+          <Route path='/underreview' element={<UnderReview/>}/>
+          <Route path='/newsfeed' element={<NewsFeed/>}/>
+          <Route path='/createpost' element={<CreatePost/>}/>
+          <Route path='/community' element={<Community/>}/>
           <Route path='*' element={<Error400/>}/>
         </Routes>
       </Router>

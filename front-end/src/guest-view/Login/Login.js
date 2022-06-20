@@ -5,6 +5,7 @@ import Navigation from './../Common/Navigation'
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSignIn } from "@fortawesome/free-solid-svg-icons";
 import { faFacebook, faGoogle, faLinkedin } from '@fortawesome/free-brands-svg-icons'
+import { Link } from "react-router-dom";
 
 
 const Login = () => {
@@ -26,7 +27,7 @@ const Login = () => {
                                 <input type="checkbox"/>
                                 <span className="pl-3">Remember Me</span>
                             </div>
-                            <a href="#" className="login-loginbtn">LOGIN</a>
+                            <Link to="/newsfeed" className="login-loginbtn">LOGIN</Link>
                             <div className="mt-3 text-center">
                                 <a href="#" className="login-sociallogin"><FontAwesomeIcon icon={faGoogle}/></a>
                                 <a href="#" className="login-sociallogin"><FontAwesomeIcon icon={faFacebook}/></a>

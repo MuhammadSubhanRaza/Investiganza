@@ -1,0 +1,73 @@
+.community-sec-main
+{
+    margin-bottom: 100px;
+}
+
+.community-page-header 
+{
+
+}
+
+.community-page-header h3
+{
+    color: #bc2bff ;
+    font-size: 1.4rem;
+    padding-top: 40px;
+    padding-bottom: 20px;
+}
+
+
+.community-card
+{
+    background-color: white ;
+    padding: 30px;
+    border: solid 1px silver;
+    border-radius: 15px;
+    box-shadow: rgb(230, 230, 230) 0px 0px 10px 0px;
+    transition: 0.3s;
+    margin: 15px 0px;
+}
+
+.community-card:hover
+{
+    box-shadow: rgb(177, 177, 177) 0px 0px 20px 0px;
+}
+
+.community-card img{
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+}
+.community-card h6{
+    margin: 0;
+    padding: 0;
+    margin-top: 20px;
+    color: rgb(209, 209, 209);
+    font-size: 0.9rem;
+    letter-spacing: 1px;
+}
+.community-card h5{
+    color: #7249fb ;
+    margin-top: 5px;
+    letter-spacing: 2px;
+    text-transform:uppercase ;
+    
+}
+.community-card-icon
+{
+    color: white;
+    background-color: #7249fb;
+    height: 35px;
+    width: 35px;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    margin: 5px ;
+    border-radius: 50%;
+    transition: 0.3s;
+}
+.community-card-icon:hover
+{
+    transform: scale(1.1);
+    color: white;
+}
