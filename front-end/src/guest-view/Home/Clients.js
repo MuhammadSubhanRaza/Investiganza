@@ -15,7 +15,7 @@ const Clients = () => {
               <h6>User Feedback</h6>
               <h1>What Our Clients Say About Us</h1>
               <p>
-                Lorem, ipsum dolor sit amet consectetur adipisicing elit Ullam reiciendis voluptas aperiam voluptatum nobis <br />  iure nulla optio? Inventore, cum? Mollitia maiores enim
+                Clients are the key thing for us our motive is to keep our clients happy <br />  Our clients are motivated and satisfied to work woth us
               </p>
             </div>
           </div>

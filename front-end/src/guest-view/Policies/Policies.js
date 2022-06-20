@@ -1,15 +1,20 @@
 import { faCheck } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import React from 'react'
+import React, { useEffect } from 'react'
 import Footer from '../Common/Footer'
 import Navigation from '../Common/Navigation'
 import './Policies.css';
+import Aos from 'aos';
+import "aos/dist/aos.css";
 
 const Policies = () => {
+
+    useEffect(()=>{
+        Aos.init({duration:2000})
+    });
+
     return (
         <>
-
-
             <Navigation />
 
             <section className='policies-sec-main'>
@@ -26,7 +31,7 @@ const Policies = () => {
                     </div>
                     <div className='row'>
                         <div className='col-md-6'>
-                            <div className='policies-page-body'>
+                            <div className='policies-page-body'  data-aos="fade-up">
                                 <div>
                                     <a href='documents/InvestiganzaPolicies.pdf' target="blank" className='btn-dwnld-plcs'>Download Policies in PDF</a>
                                     <div className='policies-points d-flex pl-5'>

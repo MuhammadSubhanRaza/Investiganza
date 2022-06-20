@@ -13,7 +13,7 @@ const Subscribe = () => {
                             <h6>Stay Connected</h6>
                             <h1>get In touch with us</h1>
                             <p>
-                                Lorem, ipsum dolor sit amet consectetur adipisicing elit Ullam reiciendis voluptas aperiam voluptatum nobis <br />  iure nulla optio? Inventore, cum? Mollitia maiores enim
+                                Investiganza will contact you and let you know the great way to enlighten your future
                             </p>
                             <form>
                                 <input type="email" placeholder='Enter Your Email' />

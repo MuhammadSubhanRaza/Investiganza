@@ -25,7 +25,7 @@ const About = () => {
                 <div className='col-md-6'>
                   <h1>We belive in making dreams true</h1>
                   <p>
-                  Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ullam reiciendis voluptas aperiam voluptatum nobis iure nulla optio? Inventore, cum? Mollitia maiores enim commodi non accusamus!
+                  There are so many new business ideas in the mind of new generation and people who are running the business, but they are unable to invest because they are not financially stable
                   </p>
                   <a href="#">More Details</a>
                 </div>
@@ -48,7 +48,7 @@ const About = () => {
                 <div className='col-md-6'>
                   <h1>We belive in collective Effort</h1>
                   <p>
-                  Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ullam reiciendis voluptas aperiam voluptatum nobis iure nulla optio? Inventore, cum? Mollitia maiores enim commodi non accusamus!
+                  there are many Business Professionals who want to invest in new start-ups and existing business to double their income. Investiganza’s idea is the motivation for these huddles for the business professionals.
                   </p>
                   <a href="#">More Details</a>
                 </div>

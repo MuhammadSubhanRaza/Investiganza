@@ -49,10 +49,10 @@ const Head = () => {
                                                 <div className='slider-text-part'>
                                                     <h6>What we do ?</h6>
                                                     <h1>
-                                                        Slide 2
+                                                        DO you have an idea?
                                                     </h1>
                                                     <p>
-                                                    Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ullam reiciendis voluptas aperiam voluptatum nobis iure nulla optio? Inventore, cum? Mollitia maiores enim commodi non accusamus!
+                                                    Establishing the new businesses by business makers and for investors to invest their money is a big problem to make a trustworthy agreement and not having the any opportunity or platform around there
                                                     </p>
                                                     <a href='#'>Explore More</a>
                                                 </div> 
