@@ -12,7 +12,7 @@ using Microsoft.AspNetCore.Identity;
 using System.Security.Claims;
 
 namespace backendInvestiganza.Controllers
-{
+{   
     [Route("api/[controller]")]
     [ApiController]
     public class CategoriesController : ControllerBase
@@ -24,7 +24,7 @@ namespace backendInvestiganza.Controllers
             _context = context;
         }
 
-        // GET: api/Categories
+        // GET: api/Categories   ---
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Category>>> GetCategories()
         {
