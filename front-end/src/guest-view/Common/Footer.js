@@ -13,8 +13,8 @@ const Footer = () => {
                     <div className="ftr-site-desc-sec pt-5 pb-5">
                         <img src="./images/logo.png" alt=""/>
                         <h6>Investiganza</h6>
-                        <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quibusdam, atque. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sint nisi assumenda quis sed officiis accusamus nesciunt eos? Accusantium dolor odit vitae ea consequuntur illum iure.</p>
-                        <p>Lorem ipsum dolor sit amet voluptate ...</p>
+                        <p>there are many Business Professionals who want to invest in new start-ups and existing business to double their income. Investiganza’s idea is the motivation for these huddles for the business professionals.</p>
+                        <p>Investiganza where ideas are worth</p>
                         <a href="#">Explore More</a>
                     </div>
                 </div>

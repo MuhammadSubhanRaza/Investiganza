@@ -1,0 +1,87 @@
+.btn-nav-profile-img
+{
+    padding: 0%;
+    margin: 0;
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    border: none;
+    outline: none;
+    position: relative;
+}
+.online-dot-indicator
+{
+    position: absolute;
+    background-color: rgb(36, 255, 36);
+    width: 10px;
+    height: 10px;
+    bottom: 0;
+    right: 0;
+    border-radius: 50%;
+}
+.btn-nav-profile-img img
+{
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+}
+
+.after-login-nav
+{
+    background-color: #7249fb;
+}
+.nav-link
+{
+    color: white !important;
+    margin: 0px 5px;
+    transition: 0.3s;
+}
+.nav-link:hover
+{
+    color: #b2e7fc !important;
+}
+.sub-category-nav
+{
+    text-align: center;
+    background-color: rgb(247, 247, 247);
+    padding: 10px;
+    padding-top: 60px;
+}
+.sub-category-nav ul
+{
+    
+    padding-bottom: 0;
+    margin-bottom: 0;
+}
+.sub-category-nav ul li
+{
+    display: inline;
+}
+.sub-category-nav ul li a{
+    display: inline-block;
+    padding: 5px 15px;
+    color: black;
+    transition: 0.3s;
+    background-color: rgb(233, 233, 233);
+    border-radius: 50px;
+    margin: 3px 5px;
+}
+.sub-category-nav ul li a:hover{
+    background-color:#bc2bff ;
+    text-decoration: none;
+    color: white;
+}
+
+.subnav-dropdown-login a
+{
+    color: black !important;
+}
+.subnav-dropdown-login a:hover
+{
+    color: #7249fb !important;
+    background-color: transparent;
+}
+.subnav-dropdown-login 
+{
+    left: -240%;
+}

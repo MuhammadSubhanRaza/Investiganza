@@ -1,0 +1,43 @@
+.policies-page-header
+{
+    background-color: #7249fb ;
+    padding: 30px;
+    min-height: 200px;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+}
+.policies-page-header h3{
+    color: white;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    text-align: center;
+}
+.policies-page-header p{
+    color: white;
+}
+.policies-page-body 
+{
+    padding: 70px 0px;
+}
+.policies-page-body img
+{
+    width: 60%;
+}
+.policy-point-check
+{
+    color: #bc2bff ;
+    margin-right: 10px;
+}
+.policies-points 
+{
+    margin: 5px 0px;
+}
+.btn-dwnld-plcs
+{
+    display: inline-block;
+    margin-left: 70px;
+    margin-bottom: 20px;
+    font-size: 1.1rem;
+    letter-spacing: 1px;
+}

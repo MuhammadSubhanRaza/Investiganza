@@ -1,1 +1,160 @@
 
+.about-sec-header
+{
+    min-height: 500px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* background: linear-gradient(rgba(114, 73, 251,0.4),rgba(114, 73, 251,0.4) )
+    ,url('../../../public/images/buildingimage1.jpg'); */
+    background: linear-gradient(rgba(114, 73, 251,0.4),rgba(0, 0, 0,0.4) )
+    ,url('../../../public/images/buildingimage1.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+.about-sec-header-content
+{
+    text-align: center;
+}
+.about-sec-header-content h1
+{
+    color: #7249fb ;
+    font-size: 3rem;
+    text-transform: uppercase;
+    letter-spacing: 5px;
+}
+.about-sec-header-content p{
+    color: rgb(255, 255, 255);
+    padding-top: 20px;
+}
+.about-sec-header-content a{
+    display: inline-block;
+    color: white;
+    background-color: #bc2bff;
+    padding: 9px 25px;
+    font-size: 1.1rem;
+    letter-spacing: 2px;
+    border-radius: 5px;
+    transition: 0.3s;
+}
+.about-sec-header-content a:hover{
+    text-decoration: none;
+    background-color: #67128f;
+}
+.about-sec-header-divider
+{
+    background-color: white;
+    height: 2px;
+    width: 200px;
+    margin: auto;
+}
+
+/* ----------------- */
+
+.aboutcontent-sec-indicators
+{
+    padding: 100px 0px;
+}
+.aboutcontent-ind-card 
+{
+    /* box-shadow: silver 0px 0px 20px 0px; */
+    padding: 30px 20px;
+    border: silver 1px solid;
+    transition: 0.3s;
+    margin: 20px 0px;
+}
+.aboutcontent-ind-card span
+{
+    display: block;
+    color: white;
+    background-color: #7249fb ;
+    width: 55px;
+    height: 55px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 5px;
+    font-size: 1.3rem;
+}
+.aboutcontent-ind-card h5
+{
+    color: #7249fb ;
+    font-size: 1rem;
+    letter-spacing: 2px;
+    font-weight: 600;
+    text-transform: lowercase;
+    margin-top: 20px;
+}
+
+.aboutcontent-sec-ribbon
+{
+    
+}
+.abt-sec-left
+{
+    padding: 60px;
+    min-height: 70vh;
+    background: linear-gradient(rgba(0,0,0,0.3),rgba(0,0,0,0.3)),url('../../../public/images/laptopback.jpg');
+    display: flex;
+    align-items: center;
+    background-attachment: fixed;
+}
+.abt-sec-left h3{
+    color: white;
+    font-size: 2.5rem;
+    letter-spacing: 5px;
+}
+.abt-sec-left p{
+    color: white;
+    margin-top: 20px;
+}
+
+.about-sec-left-divider
+{
+    background-color: white;
+    height: 2px;
+    width: 150px;
+}
+
+
+.abt-sec-right
+{
+    padding: 60px;
+}
+.abt-sec-right h3{
+    color: #bc2bff ;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+.abt-sec-right p{
+    color: rgb(161, 161, 161);
+}
+.abt-sec-right ul li{
+    /* color: #bc2bff ; */
+    display: block;
+    font-size: 1.3rem;
+    /* padding-top: 2px; */
+}
+
+.abt-sec-left-2
+{
+    padding: 60px;
+    min-height: 70vh;
+    background: linear-gradient(rgba(0,0,0,0.3),rgba(0,0,0,0.3)),url('../../../public/images/building4.jpg');
+    display: flex;
+    background-position: center;
+    background-size: cover;
+    align-items: center;
+    background-attachment: fixed;
+}
+.abt-sec-left-2 h3{
+    color: white;
+    font-size: 2.5rem;
+    letter-spacing: 5px;
+}
+.abt-sec-left-2 p{
+    color: white;
+    margin-top: 20px;
+}

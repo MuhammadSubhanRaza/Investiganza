@@ -8,7 +8,7 @@ const Ribbon = () => {
       <div>
         <h3>Investiganza's Community</h3>
         <p className='home-sec-ribbon-header-desc'>
-          Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ullam reiciendis voluptas aperiam voluptatum<br /> nobis iure nulla optio? Inventore, cum? Mollitia maiores enim commodi non accusamus!
+          We have a great community of Investors and Finance Seeker who make Investiganza absolute best <br /> Do You want to explore? 
         </p>
         <div className='container'>
           <div className='row'>

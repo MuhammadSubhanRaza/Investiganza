@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import About from './About'
 import Clients from './Clients'
 import Counter from './Counter'
@@ -10,6 +10,9 @@ import Companies from './Companies'
 import Ribbon from './Ribbon'
 
 const Home = () => {
+
+
+
   return (
       <>
         <Head/>

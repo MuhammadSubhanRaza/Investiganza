@@ -1,0 +1,66 @@
+
+.newsfeed-post-card
+{
+    border: solid 1px silver;
+    margin-bottom: 30px;
+}
+
+.newsfeed-post-header
+{
+    padding: 20px;
+    background-color: #222222  ;
+}
+.newsfeed-post-header img
+{
+    border-radius: 50%;
+}
+.newsfeed-post-header h6
+{
+    font-size: 1.3rem;
+    padding: 0;
+    margin: 0;
+    color: white  ;
+}
+.newsfeed-post-header span
+{
+    color: rgb(231, 231, 231);
+}
+
+.newsfeed-post-foooter 
+{
+    padding: 20px;
+}
+.newsfeed-post-foooter button
+{
+    outline: none;
+    border: none;
+    border-radius: 5px;
+    background-color: white ;
+    padding: 6px 20px;
+    cursor: pointer;
+    color:#7249fb ;
+    border: 1px solid #7249fb;
+    transition: 0.3s;
+}
+.newsfeed-post-foooter button:hover{
+    background-color: #7249fb;
+    color: white;
+}
+
+.newsfeed-post-body
+{
+    padding: 20px;
+}
+.newsfeed-post-body h6
+{
+    color: #bc2bff ;
+    font-weight: bold;
+    letter-spacing: 1px;
+    font-size: 1.1rem;
+}
+.newsfeed-post-body img
+{
+    width: 45%;
+    margin-right: 15px;
+    border-radius: 20px;
+}

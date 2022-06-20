@@ -15,7 +15,7 @@ const Clients = () => {
               <h6>User Feedback</h6>
               <h1>What Our Clients Say About Us</h1>
               <p>
-                Lorem, ipsum dolor sit amet consectetur adipisicing elit Ullam reiciendis voluptas aperiam voluptatum nobis <br />  iure nulla optio? Inventore, cum? Mollitia maiores enim
+                Clients are the key thing for us our motive is to keep our clients happy <br />  Our clients are motivated and satisfied to work woth us
               </p>
             </div>
           </div>
@@ -23,7 +23,7 @@ const Clients = () => {
 
         <div className='row mt-5'>
           <div className='col-md-4'>
-            <div className='home-client-card'>
+            <div className='home-client-card' data-aos="fade-right">
               <span className='quote-testimonial'><FontAwesomeIcon icon={faQuoteLeft} /></span>
               <p>
                 Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ullam reiciendis voluptas aperiam voluptatum nobis iure nulla optio? Inventore, cum? Mollitia maiores enim commodi non accusamus!
@@ -36,7 +36,7 @@ const Clients = () => {
             </div>
           </div>
           <div className='col-md-4'>
-            <div className='home-client-card'>
+            <div className='home-client-card' data-aos="fade-up">
               <span className='quote-testimonial'><FontAwesomeIcon icon={faQuoteLeft} /></span>
               <p>
                 Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ullam reiciendis voluptas aperiam voluptatum nobis iure nulla optio? Inventore, cum? Mollitia maiores enim commodi non accusamus!
@@ -49,7 +49,7 @@ const Clients = () => {
             </div>
           </div>
           <div className='col-md-4'>
-            <div className='home-client-card'>
+            <div className='home-client-card' data-aos="fade-left">
               <span className='quote-testimonial'><FontAwesomeIcon icon={faQuoteLeft} /></span>
               <p>
                 Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ullam reiciendis voluptas aperiam voluptatum nobis iure nulla optio? Inventore, cum? Mollitia maiores enim commodi non accusamus!
