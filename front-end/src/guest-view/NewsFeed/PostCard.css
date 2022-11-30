@@ -30,7 +30,7 @@
 {
     padding: 20px;
 }
-.newsfeed-post-foooter button
+.nf-post-btns
 {
     outline: none;
     border: none;
@@ -42,8 +42,9 @@
     border: 1px solid #7249fb;
     transition: 0.3s;
 }
-.newsfeed-post-foooter button:hover{
+.nf-post-btns:hover{
     background-color: #7249fb;
+    text-decoration: none;
     color: white;
 }
 

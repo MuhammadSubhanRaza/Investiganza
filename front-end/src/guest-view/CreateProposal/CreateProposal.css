@@ -1,0 +1,39 @@
+.create-proposal-cont{
+    box-shadow: rgba(0,0,0,0.3) 0px 0px 20px;
+    padding: 70px 50px;
+    margin-top: 50px;
+    border-radius: 10px;
+}
+.create-proposal-cont h3{
+    font-size: 1.4rem;
+    padding: 10px 0px;
+}
+.create-proposal-cont input,textarea{
+    width: 100%;
+    padding: 10px 20px;
+    font-size: 1.1rem;
+    border: none;
+    outline: none;
+    border: 1px solid rgb(204, 204, 204);
+    border-radius: 10px;
+}
+.create-proposal-cont input:focus{
+    border-color: #7249fb;
+}
+.create-proposal-cont textarea:focus{
+    border-color: #7249fb;
+}
+.create-proposal-cont button{
+    width: 100%;
+    color: white;
+    background-color: #7249fb;
+    outline: none;
+    border: none;
+    margin-top: 25px;
+    padding: 10px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+.create-proposal-cont button:hover{
+    background-color: #5435b9;
+}

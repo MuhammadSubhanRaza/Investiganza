@@ -3,6 +3,7 @@ import { faInfoCircle, faScroll } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React from 'react'
 import './PostCard.css';
+import {Link } from 'react-router-dom';
 
 const PostCard = () => {
   return (
@@ -33,8 +34,9 @@ const PostCard = () => {
             </div>
             <div className='newsfeed-post-foooter'>
                 <div className='text-right'>
-                    <button className='mr-3'><FontAwesomeIcon icon={faInfoCircle}/> View Details</button>
-                    <button><FontAwesomeIcon icon={faScroll}/> Send Proposal</button>
+                    <Link className='mr-3 nf-post-btns' to="/proposal-details"><FontAwesomeIcon icon={faInfoCircle}/> View Details</Link>
+                    <Link className='mr-3 nf-post-btns' to="/create-proposal"><FontAwesomeIcon icon={faScroll}/> Send Proposal</Link>
+                    {/* <button><FontAwesomeIcon icon={faScroll}/> Send Proposal</button> */}
                 </div>
             </div>
         </div>

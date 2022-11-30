@@ -44,8 +44,8 @@
 {
     text-align: center;
     background-color: rgb(247, 247, 247);
-    padding: 10px;
-    padding-top: 60px;
+    /* padding: 10px; */
+    padding-top: 50px;
 }
 .sub-category-nav ul
 {

@@ -14,7 +14,7 @@ const AfterLoginNav = () => {
                 <div className="collapse navbar-collapse" id="navbarNav">
                     <ul className="navbar-nav ml-auto">
                         <li className="nav-item active">
-                            <Link to="" className="nav-link">Dashboard</Link>
+                            <Link to="/newsfeed" className="nav-link">Posts</Link>
                         </li>
                         <li className="nav-item">
                             <Link to="/messages" className="nav-link">Messages</Link>
@@ -46,13 +46,13 @@ const AfterLoginNav = () => {
 
 
             <section className="sub-category-nav">
-                <ul>
+                {/* <ul>
                     <li><a href="#">Food Business</a></li>
                     <li><a href="#">State Agency Business</a></li>
                     <li><a href="#">IT Business</a></li>
                     <li><a href="#">Auto Mobile Business</a></li>
                     <li><a href="#">New Startups</a></li>
-                </ul>
+                </ul> */}
             </section>
 
         </>

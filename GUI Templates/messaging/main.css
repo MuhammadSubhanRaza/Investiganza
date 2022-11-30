@@ -1,7 +1,5 @@
 
 
-
-
 /* -- COLOR ONE #7249fb  */
 
 .msg-main-container{
@@ -109,7 +107,6 @@
     background-color: rgb(245, 245, 245);
 }
 .msg-rt-pane-header{
-    margin-top: 53px;
     padding: 10px 20px;
     display: flex;
     background-color: white;
