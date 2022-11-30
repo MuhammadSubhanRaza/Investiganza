@@ -1,5 +1,6 @@
 import React from 'react'
 import './CreateProposal.css'
+import Footer from '../Common/Footer';
 import AfterLoginNav from '../AfterLoginNav/AfterLoginNav';
 
 const CreateProposal = () => {
@@ -26,6 +27,8 @@ const CreateProposal = () => {
         </div>
     </div>
    </div>
+   
+   <Footer/>
     </>
   )
 }

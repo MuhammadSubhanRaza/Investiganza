@@ -80,6 +80,7 @@ const ProposalDetails = () => {
     </div>
 
 
+
     </>
   )
 }
