@@ -80,6 +80,17 @@
     transform: translateX(15px);
 }
 
+.signup_radio_cont input{
+    width: fit-content;
+}
+.signup_radio_cont span
+{
+    margin: 0px 10px;
+    font-size: 1rem;
+    color: black;
+}
+
+
 
 .signup-right
 {

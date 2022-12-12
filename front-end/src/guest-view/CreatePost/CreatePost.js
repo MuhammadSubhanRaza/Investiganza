@@ -51,12 +51,19 @@ const CreatePost = () => {
 
                                 <div className='mt-4'>
 
-                                <button><FontAwesomeIcon icon={faPlus}/> Create Post</button>
-                                <button><FontAwesomeIcon icon={faTimes}/> Cancel Post</button>
+                                
                                 </div>
 
                                 
                             </div>
+                        </div>
+                    </div>
+                    <div className='row create-post-right'>
+                        <div className='col-md-3 pl-5'>
+                            <button><FontAwesomeIcon icon={faPlus}/> Create Post</button>
+                        </div>
+                        <div className='col-md-3 pr-3'>
+                            <button><FontAwesomeIcon icon={faTimes}/> Cancel Post</button>
                         </div>
                     </div>
                 </div>

@@ -35,6 +35,15 @@ const Signup = () => {
                                         <input type="email" placeholder='Enter Your Email Name'/>
                                         <label>Password</label>
                                         <input type="password" placeholder='Enter Your Password'/>
+                                        <label>I want to join as</label>
+                                        {/* <select>
+                                            <option>Select</option>
+                                            <option></option>
+                                        </select> */}
+                                        <div className='signup_radio_cont'>
+                                            <input type="radio" name='user_type'/> <span>Finance Seeker</span>
+                                            <input type="radio" name='user_type'/> <span>Finance Seeker</span>
+                                        </div>
                                         <Link to="/create-profile" className='btnSignupAccount'>Sign up <FontAwesomeIcon icon={faArrowRight}/></Link>
                                     </form>
                                 </div>
