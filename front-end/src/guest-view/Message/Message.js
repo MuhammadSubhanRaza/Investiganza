@@ -1,3 +1,5 @@
+import { faPaperclip, faPaperPlane } from '@fortawesome/free-solid-svg-icons'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import React from 'react'
 import AfterLoginNav from '../AfterLoginNav/AfterLoginNav'
 import './Message.css'
@@ -169,11 +171,11 @@ const Message = () => {
                             <div className="msg-footer-inner">
                                 <input type="text" placeholder="Add your message"/>
                             <button className="msg-atch-file">
-                                <i className="fa fa-paperclip"></i>
+                                <FontAwesomeIcon icon={faPaperclip}/>
                             </button>
                             <button className="msg-snd-msg">
                                 Send
-                                <i className="fa fa-paper-plane"></i>
+                                <FontAwesomeIcon className='pl-2' icon={faPaperPlane}/>
                             </button>
                             </div>
                         </div>

@@ -20,6 +20,7 @@ import Policies from './guest-view/Policies/Policies';
 import Message from './guest-view/Message/Message';
 import CreateProposal from './guest-view/CreateProposal/CreateProposal';
 import ProposalDetails from './guest-view/ProposalDetails/ProposalDetails';
+import AllUsers from './admin-view/AllUsers/AllUsers';
 // import Home from './guest-view/Dark/Home';
 
 function App() {
@@ -55,6 +56,11 @@ function App() {
           <Route path='/create-proposal' element={<CreateProposal/>}/>
           <Route path='/proposal-details' element={<ProposalDetails/>}/>
           <Route path='*' element={<Error400/>}/>
+
+          {/* ----------- ADMIN ------------ */}
+
+          <Route path='/admin/allusers' element={<AllUsers/>} />
+
         </Routes>
       </Router>
     </div>
