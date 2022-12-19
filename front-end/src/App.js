@@ -13,7 +13,7 @@ import UnderReview from './guest-view/ErrorPages/UnderReview';
 import AfterLoginNav from './guest-view/AfterLoginNav/AfterLoginNav';
 import NewsFeed from './guest-view/NewsFeed/NewsFeed';
 import CreatePost from './guest-view/CreatePost/CreatePost';
-import {BrowserRouter as Router, Route, Routes,Link } from 'react-router-dom';
+import {BrowserRouter as Router, Route, Routes,Link,useNavigate } from 'react-router-dom';
 import Navigation from './guest-view/Common/Navigation';
 import Community from './guest-view/Community/Community';
 import Policies from './guest-view/Policies/Policies';
@@ -21,9 +21,17 @@ import Message from './guest-view/Message/Message';
 import CreateProposal from './guest-view/CreateProposal/CreateProposal';
 import ProposalDetails from './guest-view/ProposalDetails/ProposalDetails';
 import AllUsers from './admin-view/AllUsers/AllUsers';
+import Category from './admin-view/Category/Category';
+import AddCategory from './admin-view/Category/AddCategory';
+import { useEffect, useState } from 'react';
+import ServiceDown from './guest-view/ErrorPages/ServiceDown';
 // import Home from './guest-view/Dark/Home';
 
 function App() {
+
+
+
+
   return (
     <div className="App">
       {/* <Home/> */}
@@ -38,6 +46,7 @@ function App() {
       {/* <AfterLoginNav/> */}
       {/* <NewsFeed/> */}
       {/* <CreatePost/> */}
+
 
       <Router>
         <Routes>
@@ -56,10 +65,13 @@ function App() {
           <Route path='/create-proposal' element={<CreateProposal/>}/>
           <Route path='/proposal-details' element={<ProposalDetails/>}/>
           <Route path='*' element={<Error400/>}/>
+          <Route path='/servicedown' element={<ServiceDown/>}/>
 
           {/* ----------- ADMIN ------------ */}
 
           <Route path='/admin/allusers' element={<AllUsers/>} />
+          <Route path='/admin/categories' element={<Category/>}/>
+          <Route path='/admin/addcategory' element={<AddCategory/>}/>
 
         </Routes>
       </Router>

@@ -1,0 +1,168 @@
+.admin-content-cont{
+    background-color: white;
+    padding: 20px;
+    margin-top: 30px;
+    margin: 20px 40px;
+    overflow: hidden;
+    position: relative;
+    min-height: 150px;
+}
+
+.admin-window-title{
+    margin-left: 40px;
+    margin-top: 10px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+.admin-btn-add-new{
+    border: none;
+    outline: none;
+    margin-bottom: 20px;
+    margin-top: 10px;
+    background-color: transparent;
+    color: #bc2bff;
+    font-size: 0.9rem;
+    display: inline-block;
+}
+.admin-dt-datatable{
+    transition: 1s;
+}
+.admin-dt-datatable th{
+    /* background-color: #cccccc; */
+    background-color: #0f1a34;
+    color: white;
+    border: none !important;
+}
+.admin-dt-btn{
+    outline: none;
+    border: none;
+    padding: 6px;
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    background-color: rgb(230, 230, 230);
+    color: rgb(68, 68, 68) ;
+    margin: 0px 5px;
+    transition: 0.3s;
+}
+.admin-dt-btn:hover
+{
+    background: #bc2bff;
+    color: white;
+
+}
+.admn-cstm-frm-cntrl
+{
+    width: 100%;
+    padding: 10px;
+    outline: none;
+    border: none;
+    background-color: rgba(0,0,0,0.03);
+    border-bottom: solid 2px rgb(185, 185, 185);
+}
+.admn-cstm-frm-cntrl:focus{
+    border-color: #7249fb;
+    background-color: #f1ecff;
+    /* background-color: rgba(0,0,0,0.07); */
+}
+
+/* ------------- SPINNER -------------- */
+
+.data-load-spinner {
+    width: 56px;
+    height: 56px;
+    display: grid;
+    animation: spinner-plncf9 4s infinite;
+    margin: auto;
+ }
+ 
+ .data-load-spinner::before,
+ .data-load-spinner::after {
+    content: "";
+    grid-area: 1/1;
+    border: 9px solid;
+    border-radius: 50%;
+    border-color: #bc2bff #bc2bff #0000 #0000;
+    mix-blend-mode: darken;
+    animation: spinner-plncf9 1s infinite linear;
+ }
+ 
+ .data-load-spinner::after {
+    border-color: #0000 #0000 #eacaf9 #eacaf9;
+    animation-direction: reverse;
+ }
+ 
+ @keyframes spinner-plncf9 {
+    100% {
+       transform: rotate(1turn);
+    }
+ }
+
+.data-load-loader{
+    padding: 50px;
+    text-align: center;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: white;
+}
+.data-load-loader p{
+    margin-top: 10px;
+    font-size: 1rem;
+}
+
+.admin-form-error{
+    display: block;
+    color: rgb(219, 0, 0);
+}
+.admin-btn-save{
+    outline: none;
+    border: none;
+    background-color: #7249fb;
+    color: white;
+    font-size: 1rem;
+    transition: 0.3s;
+    padding: 8px 30px;
+    border-radius: 5px;
+}
+.admin-btn-save:hover{
+    background-color: #5334b8;
+}
+.admin-btn-cancel{
+    outline: none;
+    border: none;
+    background-color: #cecece;
+    color: rgb(48, 48, 48);
+    font-size: 1rem;
+    padding: 8px 30px;
+    transition: 0.3s;
+    border-radius: 5px;
+}
+.admin-btn-cancel:hover
+{
+    background-color: #a5a5a5;
+}
+
+
+
+/* ------------------- DATA SAVE SPINNER ------------ */
+
+
+.dt-save-spinner {
+    display: inline-block;
+    margin-left: 10px;
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    background: radial-gradient(farthest-side,#ffffff 94%,#0000) top/9px 5px no-repeat,
+           conic-gradient(#0000 30%,#ffffff);
+    -webkit-mask: radial-gradient(farthest-side,#0000 calc(100% - 5px),#000 0);
+    animation: spinner-c7wet2 1s infinite linear;
+ }
+ 
+ @keyframes spinner-c7wet2 {
+    100% {
+       transform: rotate(1turn);
+    }
+ }

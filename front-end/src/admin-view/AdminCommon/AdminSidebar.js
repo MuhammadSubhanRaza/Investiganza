@@ -9,7 +9,7 @@ import './../../adminAssets/vendors/niceselect/css/nice-select.css';
 import './../../adminAssets/vendors/scroll/scrollable.css';
 import { faBars } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-
+import { Link } from 'react-router-dom';
 
 
 
@@ -90,19 +90,28 @@ const [isSmallNavOpen, setIsSmallNavOpen] = useState("sidebar dark_sidebar");
                 </div>
             </div>
             <ul id="sidebar_menu">
+            <li className="">
+                    <Link to="/admin/dashboard" className='admin-sidebar-a' aria-expanded="false">
+                        <div className="nav_icon_small">
+                            <img src="img/menu-icon/2.svg" alt=""/>
+                        </div>
+                        <div className="nav_title">
+                            <span>Dashboard</span>
+                        </div>
+                    </Link>
+                </li>
                 <li className="admin-sidebar-li">
                     <a className="has-arrow admin-sidebar-a" href="#" aria-expanded="false">
                         <div className="nav_icon_small">
                             <img src="img/menu-icon/1.svg" alt=""/>
                         </div>
                         <div className="nav_title">
-                            <span>Dashboard </span>
+                            <span>Categories</span>
                         </div>
                     </a>
                     <ul>
-                        <li><a href="index_2.html">Default</a></li>
-                        <li><a href="index_3.html">Light Sidebar</a></li>
-                        <li><a href="index.html">Dark Sidebar</a></li>
+                        <li><Link to="/admin/categories">Show all</Link></li>
+                        <li><Link to="/admin/addcategory">Add New</Link></li>
                     </ul>
                 </li>
                 <li className="">
