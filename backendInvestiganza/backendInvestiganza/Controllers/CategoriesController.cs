@@ -88,6 +88,7 @@ namespace backendInvestiganza.Controllers
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteCategory(int id)
         {
+
             var category = await _context.Categories.FindAsync(id);
             if (category == null)
             {

@@ -25,11 +25,17 @@ import Category from './admin-view/Category/Category';
 import AddCategory from './admin-view/Category/AddCategory';
 import { useEffect, useState } from 'react';
 import ServiceDown from './guest-view/ErrorPages/ServiceDown';
-// import Home from './guest-view/Dark/Home';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 function App() {
 
+  
+  const notifyDataSaved = () => toast.success("Success! data has been saved successfully");
+  const notifyDataUpdated = () => toast.success("Success! data has been updated successfully");
+  const notifyDataDeleted = () => toast.success("Success! data has been deleted successfully");
 
+  const notifyDataSaveFailure = () => toast.error("Sorry! Action failed due to an unexpected failure");
 
 
   return (
@@ -70,11 +76,15 @@ function App() {
           {/* ----------- ADMIN ------------ */}
 
           <Route path='/admin/allusers' element={<AllUsers/>} />
-          <Route path='/admin/categories' element={<Category/>}/>
-          <Route path='/admin/addcategory' element={<AddCategory/>}/>
+          <Route path='/admin/categories' element={<Category notificationFailure={notifyDataSaveFailure} notificationDelete={notifyDataDeleted}/>}/>
+          <Route path='/admin/addcategory' element={<AddCategory notificationFailure={notifyDataSaveFailure}  notificationSave={notifyDataSaved}/>}/>
+          <Route path='/admin/editcategory/:catid' element={<AddCategory notificationFailure={notifyDataSaveFailure} notificationUpdate={notifyDataUpdated}/>}/>
 
         </Routes>
       </Router>
+
+      
+      <ToastContainer/>
     </div>
   );
 }

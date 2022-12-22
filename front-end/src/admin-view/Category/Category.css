@@ -1,13 +1,19 @@
 .admin-content-cont{
     background-color: white;
-    padding: 20px;
-    margin-top: 30px;
-    margin: 20px 40px;
+    padding: 30px;
+    margin: 0px 40px;
     overflow: hidden;
     position: relative;
     min-height: 150px;
+    border-radius: 10px;
+    box-shadow: rgba(0,0,0,0.1) 0px 0px 10px;
 }
-
+.dt-indicator{
+    font-size: 0.8rem;
+    margin: 20px 10px;
+    font-weight: 400;
+    color: #bc2bff;
+}
 .admin-window-title{
     margin-left: 40px;
     margin-top: 10px;
@@ -19,20 +25,41 @@
     outline: none;
     margin-bottom: 20px;
     margin-top: 10px;
-    background-color: transparent;
-    color: #bc2bff;
+    background-color: #7249fb;
+    padding: 5px 10px;
     font-size: 0.9rem;
     display: inline-block;
+    color: white;
+    border: solid 1px #7249fb;
+}
+.admin-btn-add-new:hover{
+    color: #7249fb;
+    background-color: transparent;
 }
 .admin-dt-datatable{
     transition: 1s;
+    width: 100%;
 }
 .admin-dt-datatable th{
-    /* background-color: #cccccc; */
-    background-color: #0f1a34;
-    color: white;
     border: none !important;
+    color: gray;
+    padding: 10px;
 }
+.admin-dt-datatable td{
+    font-weight: 400 !important;
+    letter-spacing: 1px;
+    color: rgb(90, 90, 90);
+    background-color: #f9f9f9;
+    padding: 5px 10px;
+    padding-left: 20px;
+    border-bottom: solid white 10px;
+}
+.admin-dt-datatable tr{
+    transition: 0.3s;
+}
+/* .admin-dt-datatable tr:hover{
+    background-color: #f4f4ff;
+} */
 .admin-dt-btn{
     outline: none;
     border: none;
@@ -44,6 +71,8 @@
     color: rgb(68, 68, 68) ;
     margin: 0px 5px;
     transition: 0.3s;
+    display: inline-block;
+    text-align: center;
 }
 .admin-dt-btn:hover
 {
@@ -165,4 +194,54 @@
     100% {
        transform: rotate(1turn);
     }
+ }
+
+
+ /* ------------ ADMIN MODAL ----------------- */
+
+ .admin-delete-modal-header{
+    border: none !important;
+ }
+
+ .admin-delete-modal-body{
+    text-align: center !important;
+ }
+ .admin-delete-modal-footer{
+    border: none;
+    text-align: center !important;
+    padding: 15px;
+ }
+ .modal-check-mark{
+    display: inline-block;
+    font-size: 3.8rem;
+    color: white;
+    border-radius: 50%;
+    width: 100px;
+    height: 100px;
+    padding-top: 10px;
+    background-color: #7249fb;
+ }
+ .admin-delete-modal-body h1{
+    font-size: 1.1rem;
+    margin-top: 20px;
+ }
+ .admin-modal-btn-save{
+    background-color: #bc2bff;
+    color: white !important;
+ }
+ .admin-modal-btn-cancel{
+    background-color: #f1ecff;
+    margin-left: 10px;
+ }
+
+ /* ---------------- CUSTOM MODAL ADMIN ----------------- */
+
+ .adminCustomModalCenter{
+    background-color: rgba(0,0,0,0.7);
+    width: 100%;
+    height: 100vh;
+    z-index: 1000;
+    position: fixed;
+    top: 0;
+    left: 0;
  }

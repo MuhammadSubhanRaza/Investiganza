@@ -3,39 +3,60 @@ import AdminSidebar from '../AdminCommon/AdminSidebar'
 import AdminTopbar from '../AdminCommon/AdminTopbar'
 import Aos from 'aos';
 import "aos/dist/aos.css";
-import { Link,useNavigate } from 'react-router-dom';
-import {saveData} from './CategoryService'
+import { Link,useNavigate, useParams } from 'react-router-dom';
+import {saveData,fetchDetails,updateData} from './CategoryService'
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
-const AddCategory = () => {
+const AddCategory = (props) => {
 
-  const apiUrl = "http://localhost:5070/api/categories";
-  const initialState = {"name":'',"description":''}
-  const [isDataSaving, setisDataSaving] = useState(false);
-
-  const notifyDataSaved = () => toast.success("Success! data saved successfuly");
-  const notifyDataSaveFailure = () => toast.error("Sorry! data save failure");
-
+  const{catid} = useParams();
   let navigate = useNavigate();
+  const initialState = {"name":'',"description":''}
 
+  const [isUpdate, setisUpdate] = useState(false);
+  const [isDataSaving, setisDataSaving] = useState(false);
   const [formData, setFormData] = useState({"name":'',"description":''});
   const [isDataValidated, setisDataValidated] = useState(true);
-
-  
   const [nameError, setNameError] = useState("");
   const [descriptionError, setDescriptionError] = useState("");
+  
 
-  function handleForm()
+
+  async function handleForm()
   {
     setisDataSaving(true)
+    const isActionSuccessful = await saveData(formData)
     setTimeout(() => {
-      saveData(formData)
-      resetForm()
+    if(isActionSuccessful)
+    {
+        resetForm()
+        setisDataSaving(false)
+        props.notificationSave()
+        navigate('/admin/categories')
+    }else{
+      props.notificationFailure()
       setisDataSaving(false)
-      notifyDataSaved()
-      // navigate('/admin/categories')
-    }, 3000);
+    }
+    }, 2000);
+  }
+
+  async function handleUpdateForm()
+  {
+    setisDataSaving(true)
+    const isActionSuccessful = await updateData(formData)
+    setTimeout(() => {
+    if(isActionSuccessful)
+    {
+        resetForm()
+        props.notificationUpdate()
+        setisDataSaving(false)
+        navigate('/admin/categories')
+    }else{
+      props.notificationFailure()
+      setisDataSaving(false)
+    }
+    }, 2000);
   }
 
   function resetForm()
@@ -56,7 +77,19 @@ const AddCategory = () => {
     return isDataValidated
   }
 
+
+  async function loadRecordDetails(id)
+  {
+    const dataToUpdate = await fetchDetails(id)
+    setFormData(dataToUpdate)
+  }
+
   useEffect(()=>{
+    if(catid!=undefined)
+    {
+      setisUpdate(true)
+      loadRecordDetails(catid)
+    }
     Aos.init({duration:2000})
 },[]);
 
@@ -92,11 +125,21 @@ useEffect(()=>{
             <input required disabled={isDataSaving} placeholder='Enter Category Description' value={formData.description} onChange={(e)=>{setFormData({...formData,"description":e.target.value})}} className='admn-cstm-frm-cntrl'/>
             <label className='admin-form-error'>{descriptionError}</label>
 
-            <button type='button' className='mt-3 admin-btn-save' onClick={()=>handleForm()}>
-              {isDataSaving && <div className='dt-save-spinner'></div>}
-              {isDataSaving && " saving data ..."}
-              {!isDataSaving && "Save"}
-            </button>
+            {!isUpdate &&
+              <button type='button' className='mt-3 admin-btn-save' onClick={()=>handleForm()}>
+                {isDataSaving && <div className='dt-save-spinner'></div>}
+                {isDataSaving && " saving data ..."}
+                {!isDataSaving && "Save"}
+              </button>
+            }
+
+            {isUpdate &&
+              <button type='button' className='mt-3 admin-btn-save' onClick={()=>handleUpdateForm()}>
+                {isDataSaving && <div className='dt-save-spinner'></div>}
+                {isDataSaving && " updating data ..."}
+                {!isDataSaving && "Update"}
+              </button>
+            }
             
             <button disabled={isDataSaving} type='button' className='mt-3 ml-3 admin-btn-cancel' onClick={()=>resetForm()}>Cancel</button>
         
