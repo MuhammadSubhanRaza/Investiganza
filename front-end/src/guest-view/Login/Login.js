@@ -1,5 +1,5 @@
 import "./Login.css";
-import React from 'react'
+import React, { useState } from 'react'
 import Footer from '../Common/Footer'
 import Navigation from './../Common/Navigation'
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -9,6 +9,34 @@ import { Link } from "react-router-dom";
 
 
 const Login = () => {
+
+    // ------------ INITIALIZERS ----------
+
+    const [isLoggingIn, setisLoggingIn] = useState(false);
+
+    
+     // -------------- FORMIK -----------------
+
+     const initialValues = {
+        email: "",
+        password: ""
+    }
+
+    const { values, errors, touched, handleBlur, handleChange, handleSubmit, setFieldValue, setValues, resetForm } = useFormik({
+        initialValues: initialValues,
+        validationSchema: signupSchema,
+        onSubmit: (values) => {
+            handleLogin()
+        }
+    });
+
+    async function handleLogin()
+    {
+
+    }
+
+
+
     return (
         <>
         <Navigation/>
@@ -20,7 +48,14 @@ const Login = () => {
                         <div className="login-sec-main-divider"></div>
                         <form>
                             <label>Username or Email</label>
-                            <input type="email" placeholder="Enter your email"/>
+                            <input type="email" placeholder="Enter your email"
+                             name="email"
+                             disabled={isLoggingIn}
+                             autoComplete="off"
+                             onChange={handleChange}
+                             onBlur={handleBlur}
+                             value={values.email}
+                            />
                             <label>Password</label>
                             <input type="password" placeholder="Enter your password"/>
                             <div className="mt-3">

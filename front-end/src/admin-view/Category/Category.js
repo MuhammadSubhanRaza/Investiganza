@@ -11,6 +11,7 @@ import DataLoadLoader from '../AdminCommon/DataLoadLoader';
 import { deleteData, fetchAllData } from './CategoryService'
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { CheckForServiceAvailablity } from '../Services/CheckIfServiceDown';
 
 const Category = (props) => {
 
@@ -40,7 +41,10 @@ const Category = (props) => {
     navigate('/admin/editcategory/'+id)
   }
 
+  
+
   useEffect(() => {
+    console.log(navigator.onLine)
     fetchData();
     Aos.init({ duration: 2000 })
   }, []);

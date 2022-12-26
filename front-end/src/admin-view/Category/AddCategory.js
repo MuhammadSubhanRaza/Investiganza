@@ -7,26 +7,45 @@ import { Link,useNavigate, useParams } from 'react-router-dom';
 import {saveData,fetchDetails,updateData} from './CategoryService'
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { useFormik } from 'formik';
+import { categorySchema } from '../../schemas';
+import { CheckForServiceAvailablity } from '../Services/CheckIfServiceDown';
 
 const AddCategory = (props) => {
 
   const{catid} = useParams();
   let navigate = useNavigate();
-  const initialState = {"name":'',"description":''}
 
   const [isUpdate, setisUpdate] = useState(false);
   const [isDataSaving, setisDataSaving] = useState(false);
-  const [formData, setFormData] = useState({"name":'',"description":''});
-  const [isDataValidated, setisDataValidated] = useState(true);
-  const [nameError, setNameError] = useState("");
-  const [descriptionError, setDescriptionError] = useState("");
+
+
+  // ------------------ FORM VALIDATION ----------
   
+  const initialValues = {
+    name:"",
+    description:""
+  }
+
+  const {values,errors,touched,handleBlur,handleChange,handleSubmit,setValues,resetForm} = useFormik({
+    initialValues : initialValues,
+    validationSchema : categorySchema,
+    onSubmit:(values)=>{
+      if(isUpdate)
+      {
+        handleRecordUpdate()
+      }else{
+        handleRecordInsert()
+      }
+    }
+    });
 
 
-  async function handleForm()
+
+  async function handleRecordInsert()
   {
     setisDataSaving(true)
-    const isActionSuccessful = await saveData(formData)
+    const isActionSuccessful = await saveData(values)
     setTimeout(() => {
     if(isActionSuccessful)
     {
@@ -41,10 +60,10 @@ const AddCategory = (props) => {
     }, 2000);
   }
 
-  async function handleUpdateForm()
+  async function handleRecordUpdate()
   {
     setisDataSaving(true)
-    const isActionSuccessful = await updateData(formData)
+    const isActionSuccessful = await updateData(values)
     setTimeout(() => {
     if(isActionSuccessful)
     {
@@ -59,32 +78,18 @@ const AddCategory = (props) => {
     }, 2000);
   }
 
-  function resetForm()
-  {
-    setFormData(initialState)
-  }
-
-  function validateForm()
-  {
-    if(formData.name == ''){
-      setNameError("*Name can not be null or empty")
-      setisDataValidated(false)
-    }
-    if(formData.description == ''){
-      setDescriptionError("*Description can not be null or empty")
-      setisDataValidated(false)
-    }
-    return isDataValidated
-  }
-
 
   async function loadRecordDetails(id)
   {
     const dataToUpdate = await fetchDetails(id)
-    setFormData(dataToUpdate)
+    setValues(dataToUpdate)
   }
 
   useEffect(()=>{
+    if(!CheckForServiceAvailablity())
+    {
+      navigate("/servicedown")
+    }
     if(catid!=undefined)
     {
       setisUpdate(true)
@@ -94,9 +99,6 @@ const AddCategory = (props) => {
 },[]);
 
 
-useEffect(()=>{
-  setisDataValidated(false)
-},[isDataValidated]);
 
   return (
     <section className="main_content dashboard_part large_header_bg">
@@ -112,34 +114,61 @@ useEffect(()=>{
 
           <Link to="/admin/categories">Show All Records</Link>
 
-           <div className='container'>
+           <div className='container mt-4'>
             <div className='row'>
               <div className='col-md-10 offset-md-1'>
-              <form className='admin-data-frm'>
+              <form className='admin-data-frm' onSubmit={handleSubmit}>
             
-            <label className='mt-4'>Name</label>
-            <input required disabled={isDataSaving} placeholder='Enter Category Name' value={formData.name} onChange={(e)=>{setFormData({...formData,"name":e.target.value})}} className='admn-cstm-frm-cntrl'/>
-            <label className='admin-form-error'>{nameError}</label>
+            <div className='cstm-admn-cntrl-cont'>
+              <label className='admn-cstm-frm-lbl'>Name</label>
+              <input name='name'  disabled={isDataSaving} placeholder='Enter Category Name' 
+              value={values.name} 
+              autoComplete="off"
+              onChange={handleChange}
+              onBlur={handleBlur}
+              className='admn-cstm-frm-cntrl'/>
+               {
+              errors.name && touched.name ? (
+                <label className='admin-form-error'>{errors.name}</label>
+              ) : null
+            }
+            </div>
+            
+           
+            
 
-            <label className='mt-4'>Description</label>
-            <input required disabled={isDataSaving} placeholder='Enter Category Description' value={formData.description} onChange={(e)=>{setFormData({...formData,"description":e.target.value})}} className='admn-cstm-frm-cntrl'/>
-            <label className='admin-form-error'>{descriptionError}</label>
+            
+            <div className='cstm-admn-cntrl-cont'>
+              <label className='admn-cstm-frm-lbl'>Description</label>
+              <input name='description' disabled={isDataSaving} placeholder='Enter Category Description' 
+              value={values.description}
+              onChange={handleChange} 
+              autoComplete="off"
+              onBlur={handleBlur}
+              className='admn-cstm-frm-cntrl'/>
+              {
+                errors.description && touched.description ? (
+                  <label className='admin-form-error'>{errors.description}</label>
+                ) : null
+              }
+            </div>
 
             {!isUpdate &&
-              <button type='button' className='mt-3 admin-btn-save' onClick={()=>handleForm()}>
+              <button type='submit' className='mt-3 admin-btn-save' >
                 {isDataSaving && <div className='dt-save-spinner'></div>}
                 {isDataSaving && " saving data ..."}
                 {!isDataSaving && "Save"}
               </button>
-            }
+            } 
 
             {isUpdate &&
-              <button type='button' className='mt-3 admin-btn-save' onClick={()=>handleUpdateForm()}>
+              <button type='submit' className='mt-3 admin-btn-save'>
                 {isDataSaving && <div className='dt-save-spinner'></div>}
                 {isDataSaving && " updating data ..."}
                 {!isDataSaving && "Update"}
               </button>
             }
+
             
             <button disabled={isDataSaving} type='button' className='mt-3 ml-3 admin-btn-cancel' onClick={()=>resetForm()}>Cancel</button>
         
