@@ -3,8 +3,8 @@ import * as Yup from 'yup'
 
 
 export const loginSchema = Yup.object({
-    email:Yup.string().required("Please enter email"),
-    password:Yup.string().required("Please enter password")
+    email:Yup.string().required("Email is required field"),
+    password:Yup.string().required("Password is required field")
 });
 
 
