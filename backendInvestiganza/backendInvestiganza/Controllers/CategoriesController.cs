@@ -7,11 +7,15 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using backendInvestiganza.Data;
 using backendInvestiganza.Models;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Identity;
+using System.Security.Claims;
 
 namespace backendInvestiganza.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
+    [Authorize]
     public class CategoriesController : ControllerBase
     {
         private readonly InvestiganzaDbContext _context;
@@ -25,6 +29,7 @@ namespace backendInvestiganza.Controllers
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Category>>> GetCategories()
         {
+            var user = User.FindFirst(ClaimTypes.NameIdentifier).Value;
             return await _context.Categories.ToListAsync();
         }
 

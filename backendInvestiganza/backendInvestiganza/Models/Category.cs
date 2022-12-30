@@ -6,6 +6,7 @@ namespace backendInvestiganza.Models
 {
     public class Category
     {
+        [Key]
         public int Id { get; set; }
 
         [Required]
@@ -14,5 +15,8 @@ namespace backendInvestiganza.Models
 
         [Column(TypeName ="nvarchar(200)")]
         public string Description { get; set; }
+
+        [NotMapped]
+        public virtual ICollection<Profile>? Profiles { get; set; }
     }
 }

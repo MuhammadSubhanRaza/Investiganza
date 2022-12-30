@@ -7,5 +7,7 @@ namespace backendInvestiganza.Models
         public string FirstName { get; set; }
         public string LastName { get; set; }
         public bool isInvestor { get; set; }
+
+        public virtual Profile Profile { get; set; }
     }
 }

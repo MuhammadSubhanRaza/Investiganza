@@ -13,6 +13,31 @@ namespace backendInvestiganza.Data
             
         }
 
+
+        protected override void OnModelCreating(ModelBuilder builder)
+        {
+
+            //builder.Entity<Profile>().HasKey(x => new { 
+            //    x.CategoryId,
+            //    x.OccupationId,
+            //    x.UserId,
+            //    x.ResidenceCityId,
+            //    x.OccupationCityId
+            //});
+
+            //var profile_category = builder.Entity<Profile>();
+            //profile_category.HasKey(p=>p.Id);
+            //profile_category.HasOne(c => c.Category)
+            //    .WithOne()
+
+
+            base.OnModelCreating(builder);
+        }
+
+
         public DbSet<Category> Categories { get; set; }
+        public DbSet<City> Cities { get; set; }
+        public DbSet<Occupation> Occupations { get; set; }
+        public DbSet<Profile> Profiles { get; set; }
     }
 }

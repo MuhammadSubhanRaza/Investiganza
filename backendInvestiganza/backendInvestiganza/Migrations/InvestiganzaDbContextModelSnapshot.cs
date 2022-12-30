@@ -119,6 +119,107 @@ namespace backendInvestiganza.Migrations
                     b.ToTable("Categories");
                 });
 
+            modelBuilder.Entity("backendInvestiganza.Models.City", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("Province")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Cities");
+                });
+
+            modelBuilder.Entity("backendInvestiganza.Models.Occupation", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Occupations");
+                });
+
+            modelBuilder.Entity("backendInvestiganza.Models.Profile", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+
+                    b.Property<string>("About")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Address")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("CNIC")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("CategoryId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Degree")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("OccupationId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("OtherOccupation")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("OtherQualification")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ProfileImagePath")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("ProvinceResidence")
+                        .HasColumnType("int");
+
+                    b.Property<int>("ResidenceCityId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("UserId")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(450)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("CategoryId");
+
+                    b.HasIndex("OccupationId");
+
+                    b.HasIndex("ResidenceCityId");
+
+                    b.HasIndex("UserId")
+                        .IsUnique();
+
+                    b.ToTable("Profiles");
+                });
+
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>
                 {
                     b.Property<string>("Id")
@@ -252,6 +353,41 @@ namespace backendInvestiganza.Migrations
                     b.ToTable("AspNetUserTokens", (string)null);
                 });
 
+            modelBuilder.Entity("backendInvestiganza.Models.Profile", b =>
+                {
+                    b.HasOne("backendInvestiganza.Models.Category", "Category")
+                        .WithMany("Profiles")
+                        .HasForeignKey("CategoryId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("backendInvestiganza.Models.Occupation", "Occupation")
+                        .WithMany("Profiles")
+                        .HasForeignKey("OccupationId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("backendInvestiganza.Models.City", "ResidenceCity")
+                        .WithMany("Profiles")
+                        .HasForeignKey("ResidenceCityId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("backendInvestiganza.Models.ApplicationUser", "User")
+                        .WithOne("Profile")
+                        .HasForeignKey("backendInvestiganza.Models.Profile", "UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Category");
+
+                    b.Navigation("Occupation");
+
+                    b.Navigation("ResidenceCity");
+
+                    b.Navigation("User");
+                });
+
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
                 {
                     b.HasOne("Microsoft.AspNetCore.Identity.IdentityRole", null)
@@ -301,6 +437,27 @@ namespace backendInvestiganza.Migrations
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+                });
+
+            modelBuilder.Entity("backendInvestiganza.Models.ApplicationUser", b =>
+                {
+                    b.Navigation("Profile")
+                        .IsRequired();
+                });
+
+            modelBuilder.Entity("backendInvestiganza.Models.Category", b =>
+                {
+                    b.Navigation("Profiles");
+                });
+
+            modelBuilder.Entity("backendInvestiganza.Models.City", b =>
+                {
+                    b.Navigation("Profiles");
+                });
+
+            modelBuilder.Entity("backendInvestiganza.Models.Occupation", b =>
+                {
+                    b.Navigation("Profiles");
                 });
 #pragma warning restore 612, 618
         }

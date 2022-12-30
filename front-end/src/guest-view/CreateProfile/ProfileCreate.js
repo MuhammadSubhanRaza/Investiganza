@@ -1,117 +1,223 @@
 import { faPlus } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import React from 'react'
+import React, { useState } from 'react'
 import AfterLoginNav from '../AfterLoginNav/AfterLoginNav';
 import Footer from '../Common/Footer';
 import Navigation from '../Common/Navigation';
 import './ProfileCreate.css';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate, useParams } from 'react-router-dom';
+import { useFormik } from 'formik';
+import { profileSchema } from '../../schemas/profileSchema';
 
 const ProfileCreate = () => {
+
+    
+  // ------------------ INITIALIZERS ----------
+
+    const{profileid} = useParams();
+    let navigate = useNavigate();
+
+    const [isUpdate, setisUpdate] = useState(false);
+    const [isDataSaving, setisDataSaving] = useState(false);
+
+    // ------------------ FORM VALIDATION ----------
+  
+  const initialValues = {
+    profileImagePath:"",
+    cNIC:"",
+    address:"",
+    provinceResidence:-1,
+    residenceCityId:-1,
+    about:"",
+    degree:"",
+    otherQualification:"",
+    occupationId:-1,
+    otherOccupation:"",
+    categoryId:-1,
+    userId:""
+  }
+
+  const {values,errors,touched,handleBlur,handleChange,handleSubmit,setValues,resetForm} = useFormik({
+    initialValues : initialValues,
+    validationSchema : profileSchema,
+    onSubmit:(values)=>{
+      if(isUpdate)
+      {
+        handleRecordUpdate()
+      }else{
+        handleRecordInsert()
+      }
+    }
+    });
+
+
+    
+  async function handleRecordInsert()
+  {
+    
+  }
+
+  async function handleRecordUpdate()
+  {
+    
+  }
+
+
+
   return (
     <>
     
     <Navigation/>
 
-    <div className='profilecreate-header'>
+    <section className="sec-profile">
 
-    </div>
+        <div className='profile-header'>
+            </div>
 
-    <section class="profile-create-sec">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-5 p-5">
-                    <div class="create-profile-left-sec">
-                        <h1 className='createprofile-title'>Complete Your Profile</h1>
-                        <img src="images/c_p_img.jpeg" class="c-f-img" alt=""/>
-                        <br/>
-                        <button><span><i class="fa fa-upload"></i></span> Upload Profile Image</button>
-                        <div class="cp-r-header mt-4">Personal Information</div>
-                        <label for="" class="mt-3">CNIC</label>
-                        <input type="text" placeholder="Enter Your CNIC here"/>
-                        
-                        <label for="">Address</label>
-                        <textarea cols="30" rows="2" placeholder="Enter Your Address"></textarea>
+    <form onSubmit={handleSubmit}>
+            <div className="profile-fragment p-f-1">
+                <h6 className="profile-fragment-title">Profile Information</h6>
+                <p className="profile-fragment-subtitle">Update your account's profile information</p>
 
-                        <label for="">Date of Birth</label>
-                        <input type="date"/>
 
-                        <label for="">About You</label>
-                        <textarea name="" placeholder="Enter Some Description" id="" cols="30" rows="3"></textarea>
+                <div className="container-fluid">
+                    <div className="row">
+                        <div className="col-md-8">
+                            <label className="profile-label" for="">CNIC</label>
+                            <input className="profile-control" type="text"
+                            name='cNIC'
+                            />
 
-                        <div class="mt-3 mb-4">
-                            <input type="checkbox"/>
-                            <span>I am Currently doing job</span>
-                        </div>
-                    
-                    </div>
-                </div>
-                <div class="col-md-6 p-5">
-                    <div class="create-profile-right-sec">
+                            <label className="profile-label" for="">Address</label>
+                            <textarea rows={2} className="profile-control"
+                            name='address'
+                            ></textarea>
 
-                            <div class="cp-r-header mt-3">Qualification</div>
-                            
-                            <label for="" class="mt-3">Last Degree</label>
-
-                            <select>
-                                <option value="-1">-- Select </option>
-                                <option value="0">Matriculation</option>
-                                <option value="1">Intermediate</option>
-                                <option value="2">Graduation</option>
-                                <option value="3">Master</option>
+                            <label className="profile-label" for="">Province</label>
+                            <select className="profile-control"
+                            name='provinceResidence'
+                            >
+                                <option value="-1">Select</option>
+                                <option value="0">Sindh</option>
+                                <option value="1">Punjab</option>
+                                <option value="2">Khyber Pakhtun</option>
+                                <option value="3">Balochistan</option>
                             </select>
 
-                            <label for="" class="mt-3">Other Qualification</label>
-                            <input type="text" placeholder="Please Enter Other Qualification if any"/>
+                            <label className="profile-label" for="">City</label>
+                            <select className="profile-control"
+                            name='residenceCityId'
+                            >
+                                <option value="-1">Select</option>
+                                <option value="0">Sindh</option>
+                                <option value="1">Punjab</option>
+                                <option value="2">Khyber Pakhtun</option>
+                                <option value="3">Balochistan</option>
+                            </select>
 
-
-                            <div class="cp-r-header mt-4">Interest</div>
-                            
-                            <label for="" class="mt-3">Type of Business interest</label>
-
-                            <div class="row mt-2">
-                                <div class="col-sm-6">
-                                    <input type="checkbox"/><span class="cp-r-interst-chk">Food</span>
-                                    <br/>
-                                    <input type="checkbox"/><span class="cp-r-interst-chk">Auto Mobile</span>
-                                    <br/>
-                                    <input type="checkbox"/><span class="cp-r-interst-chk">IT</span>
-                                    <br/>
-                                </div>
-                                <div class="col-sm-6">
-                                    <input type="checkbox"/><span class="cp-r-interst-chk">Electronics</span>
-                                    <br/>
-                                    <input type="checkbox"/><span class="cp-r-interst-chk">Buy and Sell</span>
-                                    <br/>
-                                    <input type="checkbox"/><span class="cp-r-interst-chk">Others</span>
-                                </div>
-                            </div>
-
-                            <div class="cp-r-header mt-3">Terms and Policies</div>
-
-                            <ul class="mt-3">
-                                <li>Investiganza has all the rights to block if information is wrong</li>
-                                <li>Legal action can be taken against you in case of fraud</li>
-                                <li>In case of complains, you will face consequences</li>
-                            </ul>
-
-                            <input type="checkbox" class="mt-3"/>
-                            <span>I accept all the terms and conditions</span>
-
-                            <br/>
-                            <input type="checkbox"/>
-                            <span>I pledge that all the given information is correct
-                            </span>
-
-                            <div>
-                                <Link to="/underreview" className='btn-cp-add'><FontAwesomeIcon icon={faPlus}/> Create</Link>
-                            </div>
-                            
+                            <label className="profile-label" for="">About You</label>
+                            <textarea rows={4} className="profile-control"
+                            name='about'
+                            ></textarea>
+                        </div>
+                        <div className="col-md-3 offset-md-1 text-center profile-img-main-holdr">
+                            <img className="profile-set-img" src="./images/c3.jpg" />
+                            <input type="file" className="form-control"
+                            name='profileImagePath'
+                            />
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
+
+            <div className="profile-fragment p-f-1">
+                <h6 className="profile-fragment-title">Educational Information</h6>
+                <p className="profile-fragment-subtitle">Update your educational information</p>
+
+
+                <label className="profile-label" for="">Last Degree Achieved</label>
+                <select className="profile-control"
+                name='degree'
+                >
+                    <option value="-1">Select</option>
+                    <option value="0">Ph.d</option>
+                    <option value="1">Masters</option>
+                    <option value="2">Bachelors</option>
+                    <option value="3">Intermediate</option>
+                    <option value="4">Matriculation</option>
+                </select>
+
+                <label className="profile-label" for="">Other Qualification</label>
+                <input type="text" className="profile-control"
+                name='otherQualification'
+                />
+            </div>
+
+            <div className="profile-fragment p-f-1">
+                <h6 className="profile-fragment-title">Occupational Information</h6>
+                <p className="profile-fragment-subtitle">Update your occupational information</p>
+
+
+                <label className="profile-label" for="">Current Occupation</label>
+                <select className="profile-control"
+                name='occupationId'
+                >
+                    <option value="-1">Select</option>
+                    <option value="0">Ph.d</option>
+                    <option value="1">Masters</option>
+                    <option value="2">Bachelors</option>
+                    <option value="3">Intermediate</option>
+                    <option value="4">Matriculation</option>
+                </select>
+
+
+                <label className="profile-label" for="">Others</label>
+                <input className="profile-control" type="text" 
+                name='otherOccupation'
+                />
+
+               
+            </div>
+
+            <div className="profile-fragment p-f-1">
+                <h6 className="profile-fragment-title">Business Interest</h6>
+                <p className="profile-fragment-subtitle">Update your occupational information</p>
+
+
+                <label className="profile-label" for="">Business Categories</label>
+                <select className="profile-control"
+                name='categoryId'
+                >
+                    <option value="-1">Select</option>
+                    <option value="0">Ph.d</option>
+                    <option value="1">Masters</option>
+                    <option value="2">Bachelors</option>
+                    <option value="3">Intermediate</option>
+                    <option value="4">Matriculation</option>
+                </select>
+            </div>
+
+            <div className="profile-fragment p-f-1">
+                <h6 className="profile-fragment-title">Terms and Conditions</h6>
+                <p className="profile-fragment-subtitle">Acceptance of our terms and policies</p>
+
+                <p className="profile-term">Investiganza has all the rights to block a user permenantly from the system if any information given proved wrong</p>
+                <p className="profile-term">Legal actions can be taken in case of any fraud or malicious activity</p>
+                <p className="profile-term">In case of any complain, user will have to face consequences</p>
+                
+               <div className="mt-5 text-right">
+                <button className="profile-logout">
+                    Logout
+                </button>
+                <button className="profile-submit">
+                    Submit Profile
+                </button>
+               </div>
+                
+            </div>
+            </form>
+
+        </section>
     
     <Footer/>
 

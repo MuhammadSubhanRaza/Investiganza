@@ -1,6 +1,5 @@
-.profile-create-sec
+/* .profile-create-sec
 {
-    /* margin-top: 100px; */
 }
 .createprofile-title
 {
@@ -100,4 +99,121 @@
     text-decoration: none;
     background-color: #4120af ;
     color: white;
+} */
+
+
+
+/* ------------------------------  */
+
+
+
+
+
+
+.sec-profile
+{
+    /* background-color: rgb(243, 243, 243); */
+    background:url('../../../public/images/profileback.jpg');
+    background-attachment: fixed;
+    min-height: 100vh;
+    padding: 50px;
+    position: relative;
+}
+
+.profile-fragment
+{
+    background-color: white;
+    padding: 60px;
+    border-radius: 10px;
+    box-shadow: rgba(0,0,0,0.2) 0px 0px 8px;
+    margin-top: 30px;
+}
+.profile-fragment-title
+{
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    /* color: #bc2bff; */
+    padding: 0;
+    margin: 0;
+}
+.profile-fragment-subtitle{
+    color: rgb(170, 170, 170);
+    /* letter-spacing: 1px; */
+    font-size: 0.9rem;
+    margin-top: 4px;
+}
+
+.profile-label{
+    display: block;
+    margin: 0;
+    padding: 0;
+    margin-top: 10px;
+}
+.profile-control{
+    width: 100%;
+    padding: 5px 20px;
+    border: none;
+    outline: none;
+    border: solid 2px rgb(212, 212, 212);
+    border-radius: 5px;
+    transform: 0.3s;
+    background-color: white;
+}
+.profile-control:focus
+{
+    border-color: #bc2bff;
+}
+
+.profile-img-main-holdr{
+    border: solid 1px silver;
+    padding: 20px;
+    border-radius: 20px;
+}
+
+.profile-set-img{
+    width: 170px;
+    height: 170px;
+    margin-bottom: 25px;
+    border-radius: 50%;
+}
+
+.profile-term{
+    margin: 0;
+    padding: 0;
+    margin-top: 10px;
+    color: gray;
+    position: relative;
+    padding-left: 30px;
+}
+.profile-term::before{
+    position: absolute;
+    content: '';
+    padding: 5px;
+    left: 0;
+    top: 7px;
+    background-color: #bc2bff;
+}
+
+.profile-submit
+{
+    border: none;
+    outline: none;
+    padding: 6px 25px;
+    color: white;
+    background-color: #7249fb;
+    font-size: 1.1rem;
+    letter-spacing: 1px;
+    border-radius: 7px;
+    margin-left: 10px;
+}
+.profile-logout{
+    border: none;
+    outline: none;
+    padding: 6px 25px;
+    color: white;
+    background-color: #1b162c;
+    font-size: 1.1rem;
+    letter-spacing: 1px;
+    border-radius: 7px;
+    margin-right: 10px;
 }

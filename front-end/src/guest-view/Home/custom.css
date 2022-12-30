@@ -761,3 +761,63 @@ footer
     text-decoration: none;
 }
 
+
+/* --------------------------- NEW INDEX HEADER ---------------------- */
+
+.index-new-header-cont
+{
+    text-align: center;
+}
+.index-new-header-cont h6{
+    color: #49b4fb;
+    font-size: 1.1rem;
+}
+.index-new-header-cont h1{
+    color: white;
+    letter-spacing: 2px;
+    font-size: 3.5rem;
+}
+.index-new-header-cont p{
+    color: rgb(233, 233, 233);
+    letter-spacing: 1px;
+    font-size: 1rem;
+    width: 80%;
+    margin: auto;
+}
+.explr-more{
+    color: white;
+    display: inline-block;
+    background-color: #bc2bff;
+    padding: 13px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-size: 0.9rem;
+    margin: 10px;
+    width: 180px;
+    border: solid 2px #bc2bff;
+}
+
+.explr-more:hover{
+    border-color: white;
+    color: white;
+    background-color: transparent;
+}
+
+.join-us-index-btn{
+    color: white;
+    display: inline-block;
+    background-color: #7249fb;
+    padding: 13px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-size: 0.9rem;
+    margin: 10px;
+    width: 180px;
+    border: solid 2px #7249fb;
+}
+.join-us-index-btn:hover
+{
+    background-color: transparent;
+    color: white;
+    border-color: white;
+}

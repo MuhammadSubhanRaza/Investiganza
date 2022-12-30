@@ -1,8 +1,14 @@
 ﻿using backendInvestiganza.Data;
 using backendInvestiganza.Models;
+using Microsoft.AspNetCore.Authentication.Cookies;
+using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using System.Security.Claims;
+using Microsoft.IdentityModel.Tokens;
+using System.Text;
+using System.IdentityModel.Tokens.Jwt;
 
 namespace backendInvestiganza.Controllers
 {
@@ -13,14 +19,21 @@ namespace backendInvestiganza.Controllers
         private readonly InvestiganzaDbContext _context;
         private readonly UserManager<ApplicationUser> _userManager;
         private readonly SignInManager<ApplicationUser> _signInManager;
+        private readonly IHttpContextAccessor _contextAccessor;
+        public IConfiguration _configuration;
 
         public AccountsController(InvestiganzaDbContext context,
             UserManager<ApplicationUser> userManager,
-            SignInManager<ApplicationUser> signInManager)
+            SignInManager<ApplicationUser> signInManager,
+            IHttpContextAccessor contextAccessor,
+            IConfiguration configuration
+            )
         {
             _context = context;
             _userManager = userManager;
             _signInManager = signInManager;
+            _contextAccessor = contextAccessor;
+            _configuration = configuration;
         }
 
         [HttpPost]
@@ -47,18 +60,70 @@ namespace backendInvestiganza.Controllers
 
         }
 
+        //[HttpPost]
+        //[Route("login")]
+        //public async Task<IActionResult> LoginUser(Login loginModel)
+        //{
+        //    var result = await _signInManager.PasswordSignInAsync(loginModel.Email, loginModel.Password, false, false);
+
+        //    if (result.Succeeded)
+        //    {
+        //        //var user = _contextAccessor.HttpContext.User.FindFirst(ClaimTypes.NameIdentifier);
+        //        //var user = User.FindFirst("UserFirstName").Value;
+
+        //        //var user =  _userManager.GetUserId(HttpContext.User); 
+
+        //        //var user = HttpContext.User;
+
+
+
+        //        return Ok(new { message = "success" });
+        //    }
+
+        //    return Ok(new { message = "failure", error = "Invalid Credentials" });
+        //}
+
+
         [HttpPost]
         [Route("login")]
         public async Task<IActionResult> LoginUser(Login loginModel)
         {
-            var result = await _signInManager.PasswordSignInAsync(loginModel.Email, loginModel.Password, false, false);
-
-            if (result.Succeeded)
+            var user = await _userManager.FindByEmailAsync(loginModel.Email);
+            if(user==null)
             {
-                return Ok(new { message = "success"});
+                return Ok(new { message = "failure", errors = "User is UnAutherized" });
             }
 
-            return Ok(new { message = "failure",error="Invalid Credentials" });
+            var result = await _userManager.CheckPasswordAsync(user,loginModel.Password);
+
+            if (!result)
+            {
+                return Ok(new { message = "failure", errors = "Invalid Credentials" });
+            }
+
+            var claims = new[] {
+                new Claim("Email",loginModel.Email),
+                new Claim(ClaimTypes.NameIdentifier,user.Id)
+            };
+
+            // ----------- CREATING THE JWT TOKEN
+
+            var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_configuration["AuthSettings:Key"]));
+
+            var token = new JwtSecurityToken(
+                issuer: _configuration["AuthSettings:Issuer"],
+                audience : _configuration["AuthSettings:Audience"],
+                claims: claims,
+                expires:DateTime.Now.AddDays(10),
+                signingCredentials: new SigningCredentials(key,SecurityAlgorithms.HmacSha256)
+                );
+
+            string tokenAsString = new JwtSecurityTokenHandler().WriteToken(token);
+
+
+
+            return Ok(new { message = "success", token = tokenAsString, userId = user.Id });
         }
+
     }
 }

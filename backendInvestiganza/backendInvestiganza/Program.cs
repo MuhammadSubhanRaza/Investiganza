@@ -1,7 +1,11 @@
 using backendInvestiganza.Data;
 using backendInvestiganza.Models;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.IdentityModel.Tokens;
+using System.Configuration;
+using System.Text;
 
 var builder = WebApplication.CreateBuilder(args);
 var MyAllowSpecificOrigins = "_myAllowSpecificOrigins";
@@ -30,7 +34,23 @@ builder.Services.AddDbContext<InvestiganzaDbContext>(
     );
 
 builder.Services.AddIdentity<ApplicationUser, IdentityRole>()
-    .AddEntityFrameworkStores<InvestiganzaDbContext>();
+    .AddEntityFrameworkStores<InvestiganzaDbContext>().AddDefaultTokenProviders();
+
+builder.Services.AddAuthentication(auth => { 
+    auth.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
+    auth.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
+}).AddJwtBearer(options => {
+    options.TokenValidationParameters = new Microsoft.IdentityModel.Tokens.TokenValidationParameters
+    {
+        ValidateIssuer = true,
+        ValidateAudience = true,
+        ValidAudience = builder.Configuration["AuthSettings:Audience"],
+        ValidIssuer = builder.Configuration["AuthSettings:Issuer"],
+        RequireExpirationTime = true,
+        IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(builder.Configuration["AuthSettings:Key"])),
+        ValidateIssuerSigningKey = true
+    };
+});
 
 
 
@@ -46,10 +66,13 @@ if (app.Environment.IsDevelopment())
 
 app.UseCors(MyAllowSpecificOrigins);
 
+
 app.UseAuthentication();
 
 app.UseAuthorization();
 
+
 app.MapControllers();
+
 
 app.Run();
