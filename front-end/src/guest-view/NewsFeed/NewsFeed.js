@@ -1,11 +1,18 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import React from 'react'
+import React, { useContext } from 'react'
+import { Globalvalue } from '../../admin-view/Services/CustomGlobalStates';
 import AfterLoginNav from '../AfterLoginNav/AfterLoginNav';
 import Footer from '../Common/Footer';
 import './NewsFeed.css';
 import PostCard from './PostCard';
+import { useSelector } from 'react-redux';
 
 const NewsFeed = () => {
+
+    //------------ REDUX
+
+    const myState = useSelector((state)=>state.SetTheProfileGlobal)
+    
   return (
     <>
     

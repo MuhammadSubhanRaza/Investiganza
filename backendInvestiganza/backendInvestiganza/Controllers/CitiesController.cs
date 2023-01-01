@@ -7,55 +7,52 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using backendInvestiganza.Data;
 using backendInvestiganza.Models;
-using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Identity;
-using System.Security.Claims;
 
 namespace backendInvestiganza.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class CategoriesController : ControllerBase
+    public class CitiesController : ControllerBase
     {
         private readonly InvestiganzaDbContext _context;
 
-        public CategoriesController(InvestiganzaDbContext context)
+        public CitiesController(InvestiganzaDbContext context)
         {
             _context = context;
         }
 
-        // GET: api/Categories
+        // GET: api/Cities
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<Category>>> GetCategories()
+        public async Task<ActionResult<IEnumerable<City>>> GetCities()
         {
-            return await _context.Categories.ToListAsync();
+            return await _context.Cities.ToListAsync();
         }
 
-        // GET: api/Categories/5
+        // GET: api/Cities/5
         [HttpGet("{id}")]
-        public async Task<ActionResult<Category>> GetCategory(int id)
+        public async Task<ActionResult<City>> GetCity(int id)
         {
-            var category = await _context.Categories.FindAsync(id);
+            var city = await _context.Cities.FindAsync(id);
 
-            if (category == null)
+            if (city == null)
             {
                 return NotFound();
             }
 
-            return category;
+            return city;
         }
 
-        // PUT: api/Categories/5
+        // PUT: api/Cities/5
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPut("{id}")]
-        public async Task<IActionResult> PutCategory(int id, Category category)
+        public async Task<IActionResult> PutCity(int id, City city)
         {
-            if (id != category.Id)
+            if (id != city.Id)
             {
                 return BadRequest();
             }
 
-            _context.Entry(category).State = EntityState.Modified;
+            _context.Entry(city).State = EntityState.Modified;
 
             try
             {
@@ -63,7 +60,7 @@ namespace backendInvestiganza.Controllers
             }
             catch (DbUpdateConcurrencyException)
             {
-                if (!CategoryExists(id))
+                if (!CityExists(id))
                 {
                     return NotFound();
                 }
@@ -76,37 +73,36 @@ namespace backendInvestiganza.Controllers
             return NoContent();
         }
 
-        // POST: api/Categories
+        // POST: api/Cities
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPost]
-        public async Task<ActionResult<Category>> PostCategory(Category category)
+        public async Task<ActionResult<City>> PostCity(City city)
         {
-            _context.Categories.Add(category);
+            _context.Cities.Add(city);
             await _context.SaveChangesAsync();
 
-            return CreatedAtAction("GetCategory", new { id = category.Id }, category);
+            return CreatedAtAction("GetCity", new { id = city.Id }, city);
         }
 
-        // DELETE: api/Categories/5
+        // DELETE: api/Cities/5
         [HttpDelete("{id}")]
-        public async Task<IActionResult> DeleteCategory(int id)
+        public async Task<IActionResult> DeleteCity(int id)
         {
-
-            var category = await _context.Categories.FindAsync(id);
-            if (category == null)
+            var city = await _context.Cities.FindAsync(id);
+            if (city == null)
             {
                 return NotFound();
             }
 
-            _context.Categories.Remove(category);
+            _context.Cities.Remove(city);
             await _context.SaveChangesAsync();
 
             return NoContent();
         }
 
-        private bool CategoryExists(int id)
+        private bool CityExists(int id)
         {
-            return _context.Categories.Any(e => e.Id == id);
+            return _context.Cities.Any(e => e.Id == id);
         }
     }
 }

@@ -7,55 +7,52 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using backendInvestiganza.Data;
 using backendInvestiganza.Models;
-using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Identity;
-using System.Security.Claims;
 
 namespace backendInvestiganza.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class CategoriesController : ControllerBase
+    public class OccupationsController : ControllerBase
     {
         private readonly InvestiganzaDbContext _context;
 
-        public CategoriesController(InvestiganzaDbContext context)
+        public OccupationsController(InvestiganzaDbContext context)
         {
             _context = context;
         }
 
-        // GET: api/Categories
+        // GET: api/Occupations
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<Category>>> GetCategories()
+        public async Task<ActionResult<IEnumerable<Occupation>>> GetOccupations()
         {
-            return await _context.Categories.ToListAsync();
+            return await _context.Occupations.ToListAsync();
         }
 
-        // GET: api/Categories/5
+        // GET: api/Occupations/5
         [HttpGet("{id}")]
-        public async Task<ActionResult<Category>> GetCategory(int id)
+        public async Task<ActionResult<Occupation>> GetOccupation(int id)
         {
-            var category = await _context.Categories.FindAsync(id);
+            var occupation = await _context.Occupations.FindAsync(id);
 
-            if (category == null)
+            if (occupation == null)
             {
                 return NotFound();
             }
 
-            return category;
+            return occupation;
         }
 
-        // PUT: api/Categories/5
+        // PUT: api/Occupations/5
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPut("{id}")]
-        public async Task<IActionResult> PutCategory(int id, Category category)
+        public async Task<IActionResult> PutOccupation(int id, Occupation occupation)
         {
-            if (id != category.Id)
+            if (id != occupation.Id)
             {
                 return BadRequest();
             }
 
-            _context.Entry(category).State = EntityState.Modified;
+            _context.Entry(occupation).State = EntityState.Modified;
 
             try
             {
@@ -63,7 +60,7 @@ namespace backendInvestiganza.Controllers
             }
             catch (DbUpdateConcurrencyException)
             {
-                if (!CategoryExists(id))
+                if (!OccupationExists(id))
                 {
                     return NotFound();
                 }
@@ -76,37 +73,36 @@ namespace backendInvestiganza.Controllers
             return NoContent();
         }
 
-        // POST: api/Categories
+        // POST: api/Occupations
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPost]
-        public async Task<ActionResult<Category>> PostCategory(Category category)
+        public async Task<ActionResult<Occupation>> PostOccupation(Occupation occupation)
         {
-            _context.Categories.Add(category);
+            _context.Occupations.Add(occupation);
             await _context.SaveChangesAsync();
 
-            return CreatedAtAction("GetCategory", new { id = category.Id }, category);
+            return CreatedAtAction("GetOccupation", new { id = occupation.Id }, occupation);
         }
 
-        // DELETE: api/Categories/5
+        // DELETE: api/Occupations/5
         [HttpDelete("{id}")]
-        public async Task<IActionResult> DeleteCategory(int id)
+        public async Task<IActionResult> DeleteOccupation(int id)
         {
-
-            var category = await _context.Categories.FindAsync(id);
-            if (category == null)
+            var occupation = await _context.Occupations.FindAsync(id);
+            if (occupation == null)
             {
                 return NotFound();
             }
 
-            _context.Categories.Remove(category);
+            _context.Occupations.Remove(occupation);
             await _context.SaveChangesAsync();
 
             return NoContent();
         }
 
-        private bool CategoryExists(int id)
+        private bool OccupationExists(int id)
         {
-            return _context.Categories.Any(e => e.Id == id);
+            return _context.Occupations.Any(e => e.Id == id);
         }
     }
 }

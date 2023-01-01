@@ -11,9 +11,16 @@ import { signupSchema } from '../../schemas/signup';
 import { signup } from './SignupService';
 import Aos from 'aos';
 import "aos/dist/aos.css";
+import { useDispatch } from 'react-redux'
+import { setProfileData } from '../../ReduxHub/index'
 
 
 const Signup = () => {
+
+    
+    // ------------- REDUX
+
+    const dispatch = useDispatch();
 
     // ------------ INITIALIZERS ----------
 
@@ -65,6 +72,7 @@ const Signup = () => {
             var message = response.data.message;
             if (message == "success") {
                 setisSigningUp(false)
+                setGlobalState(response.data.user)
                 navigate('/create-profile')   
             }
             else {
@@ -77,6 +85,18 @@ const Signup = () => {
             }
         }, 3000);
         
+    }
+
+    function setGlobalState(login_states)
+    {
+        const loggedin_user_data = {
+            id : login_states.id,
+            firstName : login_states.firstName,
+            lastName : login_states.lastName
+        }
+        
+        dispatch(setProfileData(loggedin_user_data))
+    
     }
 
 

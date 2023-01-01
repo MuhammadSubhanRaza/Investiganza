@@ -56,7 +56,7 @@ namespace backendInvestiganza.Controllers
                 return Ok(new { message = "success" });
             }
 
-            return Ok(new { message = "failure", errors = result.Errors });
+            return Ok(new { message = "failure", errors = result.Errors,user = user });
 
         }
 
@@ -122,7 +122,7 @@ namespace backendInvestiganza.Controllers
 
 
 
-            return Ok(new { message = "success", token = tokenAsString, userId = user.Id });
+            return Ok(new { message = "success", token = tokenAsString, user = user });
         }
 
     }

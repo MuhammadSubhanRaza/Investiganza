@@ -23,14 +23,17 @@ import ProposalDetails from './guest-view/ProposalDetails/ProposalDetails';
 import AllUsers from './admin-view/AllUsers/AllUsers';
 import Category from './admin-view/Category/Category';
 import AddCategory from './admin-view/Category/AddCategory';
-import { useEffect, useState } from 'react';
+import { createContext, useEffect, useState } from 'react';
 import ServiceDown from './guest-view/ErrorPages/ServiceDown';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { DataLayerContext } from './admin-view/Services/CustomGlobalStates';
 
 function App() {
 
   
+  const FirstName = createContext();
+
   const notifyDataSaved = () => toast.success("Success! data has been saved successfully");
   const notifyDataUpdated = () => toast.success("Success! data has been updated successfully");
   const notifyDataDeleted = () => toast.success("Success! data has been deleted successfully");
@@ -51,8 +54,6 @@ function App() {
       {/* <UnderReview/> */}
       {/* <AfterLoginNav/> */}
       {/* <NewsFeed/> */}
-      {/* <CreatePost/> */}
-
 
       <Router>
         <Routes>
@@ -82,6 +83,7 @@ function App() {
 
         </Routes>
       </Router>
+
 
       
       <ToastContainer/>

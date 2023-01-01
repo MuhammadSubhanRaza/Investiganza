@@ -11,9 +11,15 @@ import { loginSchema } from "../../schemas/login";
 import { login } from "./LoginService";
 import Aos from 'aos';
 import "aos/dist/aos.css";
+import { useDispatch } from 'react-redux'
+import { setProfileData } from '../../ReduxHub/index'
 
 
 const Login = () => {
+
+    // ------------- REDUX
+
+    const dispatch = useDispatch();
 
     // ------------ INITIALIZERS ----------
 
@@ -54,13 +60,26 @@ const Login = () => {
             var message = response.data.message;
             if (message == "success") {
                 setisLoggingIn(false)
+                setGlobalState(response.data.user)
                 navigate('/newsfeed')   
             }else{
                 setisLoggingIn(false)
                 setisInvalidCreds(true)
             }
-            console.log(values)
         }, 3000);
+    }
+
+
+    function setGlobalState(login_states)
+    {
+        const loggedin_user_data = {
+            id : login_states.id,
+            firstName : login_states.firstName,
+            lastName : login_states.lastName
+        }
+        
+        dispatch(setProfileData(loggedin_user_data))
+    
     }
 
 
