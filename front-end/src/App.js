@@ -31,6 +31,8 @@ import { DataLayerContext } from './admin-view/Services/CustomGlobalStates';
 
 function App() {
 
+
+
   
   const FirstName = createContext();
 
@@ -62,10 +64,10 @@ function App() {
           <Route path='/contact' element={<Contact/>}/>
           <Route path='/login' element={<Login/>}/>
           <Route path='/signup' element={<Signup/>}/>
-          <Route path='/create-profile' element={<ProfileCreate/>}/>
+          <Route path='/create-profile' element={<ProfileCreate notificationFailure={notifyDataSaveFailure} notificationUpdate={notifyDataUpdated}/>}/>
           <Route path='/underreview' element={<UnderReview/>}/>
           <Route path='/newsfeed' element={<NewsFeed/>}/>
-          <Route path='/createpost' element={<CreatePost/>}/>
+          <Route path='/createpost' element={<CreatePost notificationFailure={notifyDataSaveFailure}  notificationSave={notifyDataSaved}/>}/>
           <Route path='/community' element={<Community/>}/>
           <Route path='/policies' element={<Policies/>}/>
           <Route path='/messages' element={<Message/>}/>

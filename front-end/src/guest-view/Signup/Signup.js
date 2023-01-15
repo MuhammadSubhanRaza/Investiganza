@@ -79,7 +79,6 @@ const Signup = () => {
                 
                 var errorsList = response.data.errors
                 setsignupErrors(errorsList)
-                console.log(errorsList)
                 setisThereError(true);
                 setisSigningUp(false)
             }

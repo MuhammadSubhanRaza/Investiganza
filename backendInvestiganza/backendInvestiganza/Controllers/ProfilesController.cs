@@ -16,10 +16,12 @@ namespace backendInvestiganza.Controllers
     public class ProfilesController : ControllerBase
     {
         private readonly InvestiganzaDbContext _context;
+        private readonly IWebHostEnvironment _webHostEnvironment;
 
-        public ProfilesController(InvestiganzaDbContext context)
+        public ProfilesController(InvestiganzaDbContext context, IWebHostEnvironment webHostEnvironment)
         {
             _context = context;
+            _webHostEnvironment = webHostEnvironment;
         }
 
         // GET: api/Profiles
@@ -40,7 +42,7 @@ namespace backendInvestiganza.Controllers
                             select new ProfileUser()
                             { 
                                 Id = p.Id,
-                                ProfileImagePath = p.ProfileImagePath,
+                                ProfileImagePath = @"http://localhost:5070/uploads/" + p.ProfileImagePath,
                                 CNIC = p.CNIC,
                                 Address = p.Address,
                                 ProvinceResidence = p.ProvinceResidence,
@@ -111,8 +113,10 @@ namespace backendInvestiganza.Controllers
         // POST: api/Profiles
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPost]
-        public async Task<ActionResult<Profile>> PostProfile(Profile profile)
+        [Consumes("multipart/form-data")]
+        public async Task<ActionResult<Profile>> PostProfile([FromForm]Profile profile)
         {
+            profile.ProfileImagePath = await SaveImage(profile.ImageFile);
             _context.Profiles.Add(profile);
             try
             {
@@ -152,6 +156,20 @@ namespace backendInvestiganza.Controllers
         private bool ProfileExists(int id)
         {
             return _context.Profiles.Any(e => e.CategoryId == id);
+        }
+
+        [NonAction]
+        private async Task<string> SaveImage(IFormFile imageFile)
+        {
+            string imageName = new String(Path.GetFileNameWithoutExtension(imageFile.FileName).
+                Take(10).ToArray()).Replace(' ','-');
+            imageName = imageName + DateTime.Now.ToString("yymmssfff") + Path.GetExtension(imageFile.FileName);
+            var imagePath = Path.Combine(_webHostEnvironment.ContentRootPath,"uploads",imageName);
+            using (var fileStream = new FileStream(imagePath,FileMode.Create))
+            { 
+                await imageFile.CopyToAsync(fileStream);
+            }
+            return imageName;
         }
     }
 }

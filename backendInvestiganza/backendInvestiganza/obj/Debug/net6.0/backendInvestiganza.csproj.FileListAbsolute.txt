@@ -269,3 +269,4 @@ D:\Investiganza\backendInvestiganza\backendInvestiganza\bin\Debug\net6.0\Microso
 D:\Investiganza\backendInvestiganza\backendInvestiganza\bin\Debug\net6.0\Microsoft.NET.StringTools.dll
 D:\Investiganza\backendInvestiganza\backendInvestiganza\bin\Debug\net6.0\System.Reflection.MetadataLoadContext.dll
 D:\Investiganza\backendInvestiganza\backendInvestiganza\bin\Debug\net6.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
+D:\Investiganza\backendInvestiganza\backendInvestiganza\bin\Debug\net6.0\backendInvestiganza.staticwebassets.runtime.json

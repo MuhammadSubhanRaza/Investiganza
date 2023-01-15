@@ -39,5 +39,6 @@ namespace backendInvestiganza.Data
         public DbSet<City> Cities { get; set; }
         public DbSet<Occupation> Occupations { get; set; }
         public DbSet<Profile> Profiles { get; set; }
+        public DbSet<ApplicationUser> Users { get; set; }
     }
 }

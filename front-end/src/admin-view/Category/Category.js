@@ -44,7 +44,6 @@ const Category = (props) => {
   
 
   useEffect(() => {
-    console.log(navigator.onLine)
     fetchData();
     Aos.init({ duration: 2000 })
   }, []);

@@ -14,7 +14,7 @@
     letter-spacing: 1px;
     margin: 10px 0px;
 }
-.create-post-left input,textarea
+.create-post-left input,textarea,select
 {
     width: 100%;
     padding: 8px;
@@ -27,8 +27,11 @@
 }
 
 .create-post-right img{
-    width: 48%;
-    height: 180px;
+    /* width: 48%;
+    height: 180px; */
+    width: 120px;
+    height: 120px;
+    margin: 10px;
 }
 
 .create-post-right button

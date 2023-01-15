@@ -9,9 +9,11 @@ import { Link, useNavigate, useParams } from 'react-router-dom';
 import { useFormik } from 'formik';
 import { profileSchema } from '../../schemas/profileSchema';
 import { useSelector } from 'react-redux';
-import { fetchCatgories, fetchCities, fetchOccupations } from './ProfileService';
+import { fetchCatgories, fetchCities, fetchOccupations,saveData } from './ProfileService';
+import Aos from 'aos';
+import "aos/dist/aos.css";
 
-const ProfileCreate = () => {
+const ProfileCreate = (props) => {
 
     // ------------ REDUX
 
@@ -22,7 +24,8 @@ const ProfileCreate = () => {
     const{profileid} = useParams();
     let navigate = useNavigate();
 
-    const [formImage, setformImage] = useState("images/profileimageholder.png");
+    const defaultFormImage = "images/profileimageholder.png";
+    const [formImage, setformImage] = useState(defaultFormImage);
 
     const [citiesList, setcitiesList] = useState([]);
     const [occupationsList, setoccupationsList] = useState([]);
@@ -36,7 +39,6 @@ const ProfileCreate = () => {
     async function loadCities() {
         const cities = await fetchCities()
         setcitiesList(cities.data)
-        // console.log(cities.data)
     }
     async function loadOccupations() {
         const occupations = await fetchOccupations()
@@ -53,17 +55,26 @@ const ProfileCreate = () => {
         loadCities()
         loadCategories()
         loadOccupations()
-    }, [citiesList,occupationsList,categoriesList]);
+        Aos.init({ duration: 2000 })
+    }, []);
 
     //-------------------- UPLOAD IMAGE ----------
 
     function uploadImage(events)
     {
-        let files = events.target.files;
-        let reader = new FileReader();
-        let res = reader.readAsDataURL(files[0]);
-        reader.onload = (e) =>{
-            setformImage(e.target.result)
+        if(events.target.files && events.target.files[0])
+        {
+            let files = events.target.files;
+            let reader = new FileReader();
+            let res = reader.readAsDataURL(files[0]);
+            reader.onload = (e) =>{
+                setFieldValue('imageFile',events.target.files[0]);
+                setformImage(e.target.result)
+            }
+        }
+        else{
+            setFieldValue('imageFile',null);
+            setformImage(defaultFormImage);
         }
     }
 
@@ -72,6 +83,7 @@ const ProfileCreate = () => {
   
   const initialValues = {
     profileImagePath:"",
+    imageFile:"",
     cNIC:"",
     address:"",
     provinceResidence:-1,
@@ -82,10 +94,10 @@ const ProfileCreate = () => {
     occupationId:-1,
     otherOccupation:"",
     categoryId:-1,
-    userId:""
+    userId:myState.userId
   }
 
-  const {values,errors,touched,handleBlur,handleChange,handleSubmit,setValues,resetForm} = useFormik({
+  const {values,errors,touched,handleBlur,handleChange,handleSubmit,setFieldValue,setValues,resetForm} = useFormik({
     initialValues : initialValues,
     validationSchema : profileSchema,
     onSubmit:(values)=>{
@@ -93,8 +105,9 @@ const ProfileCreate = () => {
       {
         handleRecordUpdate()
       }else{
-        console.log(values)
+        setisDataSaving(true)
         handleRecordInsert()
+    
       }
     }
     });
@@ -103,12 +116,44 @@ const ProfileCreate = () => {
     
   async function handleRecordInsert()
   {
-    
+    let formData = formDataConversion()
+    const isActionSuccessful = await saveData(formData)
+    setTimeout(() => {
+    if(isActionSuccessful)
+    {
+        resetForm()
+        setisDataSaving(false)
+        navigate('/underreview');
+    }else{
+      props.notificationFailure()
+      setisDataSaving(false)
+    }
+    }, 3000);
   }
 
   async function handleRecordUpdate()
   {
     
+  }
+
+
+  function formDataConversion()
+  {
+    let formData = new FormData()
+    formData.append("profileImagePath",values.profileImagePath);
+    formData.append("imageFile",values.imageFile);
+    formData.append("cNIC",values.cNIC);
+    formData.append("address",values.address);
+    formData.append("provinceResidence",values.provinceResidence);
+    formData.append("residenceCityId",values.residenceCityId);
+    formData.append("about",values.about);
+    formData.append("degree",values.degree);
+    formData.append("otherQualification",values.otherQualification);
+    formData.append("occupationId",values.occupationId);
+    formData.append("otherOccupation",values.otherOccupation);
+    formData.append("categoryId",values.categoryId);
+    formData.append("userId",values.userId);
+    return formData
   }
 
 
@@ -124,7 +169,7 @@ const ProfileCreate = () => {
             </div>
 
     <form onSubmit={handleSubmit}>
-            <div className="profile-fragment p-f-1">
+            <div className="profile-fragment p-f-1" data-aos="fade-up">
                 <h6 className="profile-fragment-title">Profile Information</h6>
                 <p className="profile-fragment-subtitle">Update your account's profile information</p>
 
@@ -132,6 +177,7 @@ const ProfileCreate = () => {
                 <div className="container-fluid">
                     <div className="row">
                         <div className="col-md-8">
+                            <input type="hidden" value={values.userId}/>
                             <label className="profile-label" >CNIC</label>
                             <input className="profile-control" type="text"
                             name='cNIC'
@@ -196,10 +242,6 @@ const ProfileCreate = () => {
                                         );
                                     })
                                 }
-                                {/* <option value="0">Sindh</option>
-                                <option value="1">Punjab</option>
-                                <option value="2">Khyber Pakhtun</option>
-                                <option value="3">Balochistan</option> */}
                             </select>
                             {
                                 errors.residenceCityId && touched.residenceCityId ? (
@@ -224,12 +266,8 @@ const ProfileCreate = () => {
                         </div>
                         <div className="col-md-3 offset-md-1 text-center profile-img-main-holdr">
                             <img className="profile-set-img" src={formImage} />
-                            <input type="file" className="form-control"
+                            <input type="file" accept="image/*" className="form-control"
                             name='profileImagePath'
-                            // disabled={isDataSaving}
-                            // onChange={handleChange}
-                            // onBlur={handleBlur}
-                            // value={values.profileImagePath}
                             onChange={(e)=>uploadImage(e)}
                             />
                         </div>
@@ -237,7 +275,7 @@ const ProfileCreate = () => {
                 </div>
             </div>
 
-            <div className="profile-fragment p-f-1">
+            <div className="profile-fragment p-f-1" data-aos="fade-up">
                 <h6 className="profile-fragment-title">Educational Information</h6>
                 <p className="profile-fragment-subtitle">Update your educational information</p>
 
@@ -273,7 +311,7 @@ const ProfileCreate = () => {
                 />
             </div>
 
-            <div className="profile-fragment p-f-1">
+            <div className="profile-fragment p-f-1" data-aos="fade-up">
                 <h6 className="profile-fragment-title">Occupational Information</h6>
                 <p className="profile-fragment-subtitle">Update your occupational information</p>
 
@@ -319,7 +357,7 @@ const ProfileCreate = () => {
                
             </div>
 
-            <div className="profile-fragment p-f-1">
+            <div className="profile-fragment p-f-1" data-aos="fade-up">
                 <h6 className="profile-fragment-title">Business Interest</h6>
                 <p className="profile-fragment-subtitle">Update your occupational information</p>
 
@@ -353,7 +391,7 @@ const ProfileCreate = () => {
                 }
             </div>
 
-            <div className="profile-fragment p-f-1">
+            <div className="profile-fragment p-f-1" data-aos="fade-up">
                 <h6 className="profile-fragment-title">Terms and Conditions</h6>
                 <p className="profile-fragment-subtitle">Acceptance of our terms and policies</p>
 
@@ -372,6 +410,16 @@ const ProfileCreate = () => {
                 
             </div>
             </form>
+
+            {isDataSaving &&
+                <div className='profile-saving-loader'>
+                    <div>
+                        {/* <div className='profile-save-spinner '></div> */}
+                        <div className='p-s-progress'></div>
+                        <p>please wait! while we are creating your profile</p>
+                    </div>
+                </div>
+            }
 
         </section>
     

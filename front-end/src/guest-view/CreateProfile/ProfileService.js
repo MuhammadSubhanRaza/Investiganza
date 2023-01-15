@@ -10,6 +10,8 @@ const citiesUrl = `http://localhost:5070/api/cities`;
 const apiUrl = `http://localhost:5070/api/profiles`;
 
 
+
+
 export async function fetchCatgories()
 {
    let dt = []
@@ -46,4 +48,18 @@ export async function fetchCities()
    return dt
 }
 
+
+export async function saveData(formData)
+{
+   let isActionSuccesful = false
+    await Axios.post(apiUrl,formData)
+     .then(res=>{
+         isActionSuccesful= true
+     },
+     error=>{
+      console.log(error.response)
+      isActionSuccesful = false
+     })
+     return isActionSuccesful
+   }
 

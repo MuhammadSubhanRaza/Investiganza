@@ -1,8 +1,26 @@
 import React from 'react'
-import { Link } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
+import { setProfileData } from '../../ReduxHub/index'
+import { Link, useNavigate } from 'react-router-dom';
 import './AfterLoginNav.css';
 
 const AfterLoginNav = () => {
+
+     // ------------- REDUX
+
+    const dispatch = useDispatch();
+
+    const myState = useSelector((state)=>state.SetTheProfileGlobal)
+   
+    const navigate = useNavigate()
+
+    function onLogoutClick()
+    {
+        dispatch(setProfileData(null));
+        navigate('/login')
+    }
+
+
     return (
         <>
 
@@ -33,13 +51,15 @@ const AfterLoginNav = () => {
                         <li className="nav-item dropdown ">
 
                             <a className="nav-link btn-nav-profile-img" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <img src="images/c7.jpg" alt="" />
+                                <img src={myState.profileImagePath} alt="" />
                                 <div className="online-dot-indicator"></div>
                             </a>
                             <div className="dropdown-menu subnav-dropdown-login" aria-labelledby="navbarDropdownMenuLink">
-                                <Link to="" className='dropdown-item'>View Profile</Link>
-                                <Link to="/createpost" className='dropdown-item'>Create New Post</Link>
-                                <Link to="/" className='dropdown-item'>Logout</Link>
+                                <p className='afterlogin_user_title'>{myState.firstName+" "+myState.lastName} </p>
+                                <Link to="" className='dropdown-item a-nav-s-item'>View Profile</Link>
+                                <Link to="/createpost" className='dropdown-item a-nav-s-item'>Create New Post</Link>
+                                {/* <Link to="/" className='dropdown-item'>Logout</Link> */}
+                                <button className='dropdown-item a-nav-s-item' onClick={()=>onLogoutClick()}>Logout</button>
                             </div>
                         </li>
                     </ul>

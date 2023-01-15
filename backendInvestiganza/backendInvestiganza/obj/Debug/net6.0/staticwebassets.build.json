@@ -1,11 +1,37 @@
 {
   "Version": 1,
-  "Hash": "jxAEAm5chKC0u12ola03CmvAxxyJgCbycjhEvjGUy34=",
+  "Hash": "1ENg4VTl5wgXJwBL/KEVSXYbqAuAK++VU+yPYt/4wSU=",
   "Source": "backendInvestiganza",
   "BasePath": "_content/backendInvestiganza",
   "Mode": "Default",
   "ManifestType": "Build",
   "ReferencedProjectsConfiguration": [],
-  "DiscoveryPatterns": [],
-  "Assets": []
+  "DiscoveryPatterns": [
+    {
+      "Name": "backendInvestiganza\\wwwroot",
+      "Source": "backendInvestiganza",
+      "ContentRoot": "D:\\Investiganza\\backendInvestiganza\\backendInvestiganza\\wwwroot\\",
+      "BasePath": "_content/backendInvestiganza",
+      "Pattern": "**"
+    }
+  ],
+  "Assets": [
+    {
+      "Identity": "D:\\Investiganza\\backendInvestiganza\\backendInvestiganza\\wwwroot\\uploads\\20220213_1235018393.jpg",
+      "SourceId": "backendInvestiganza",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\Investiganza\\backendInvestiganza\\backendInvestiganza\\wwwroot\\",
+      "BasePath": "_content/backendInvestiganza",
+      "RelativePath": "uploads/20220213_1235018393.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\uploads\\20220213_1235018393.jpg"
+    }
+  ]
 }

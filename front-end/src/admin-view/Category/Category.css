@@ -157,7 +157,7 @@
 
 .admin-form-error{
     display: block;
-    color: rgb(219, 0, 0);
+    color: rgb(219, 0, 0) !important;
 }
 .admin-btn-save{
     outline: none;
@@ -258,4 +258,18 @@
     position: fixed;
     top: 0;
     left: 0;
+ }
+
+ .table-admin-prof-img{
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+ }
+
+ .admin-table-user-status-a{
+    color: rgb(75, 233, 1);
+ }
+ 
+ .admin-table-user-status-da{
+    color: rgb(233, 1, 1);
  }

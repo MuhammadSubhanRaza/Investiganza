@@ -9,6 +9,7 @@ using System.Security.Claims;
 using Microsoft.IdentityModel.Tokens;
 using System.Text;
 using System.IdentityModel.Tokens.Jwt;
+using backendInvestiganza.CombineModels;
 
 namespace backendInvestiganza.Controllers
 {
@@ -53,10 +54,10 @@ namespace backendInvestiganza.Controllers
 
             if (result.Succeeded)
             {
-                return Ok(new { message = "success" });
+                return Ok(new { message = "success", user = user });
             }
 
-            return Ok(new { message = "failure", errors = result.Errors,user = user });
+            return Ok(new { message = "failure", errors = result.Errors});
 
         }
 
@@ -120,9 +121,26 @@ namespace backendInvestiganza.Controllers
 
             string tokenAsString = new JwtSecurityTokenHandler().WriteToken(token);
 
+            var profile_user = _context.Profiles.Where(x => x.UserId == user.Id).FirstOrDefault();
+
+            string cnic = null;
+
+            if (profile_user != null)
+            {
+                cnic = profile_user.CNIC;
+            }
+
+            var user_with_profile = new AfterLoginUserDetails() { 
+                UserId = user.Id,
+                FirstName = user.FirstName,
+                LastName = user.LastName,
+                Email = user.Email,
+                CNIC = cnic,
+                ImageUrl = @"http://localhost:5070/uploads/" + profile_user.ProfileImagePath,
+            };
 
 
-            return Ok(new { message = "success", token = tokenAsString, user = user });
+            return Ok(new { message = "success", token = tokenAsString, user = user_with_profile});
         }
 
     }

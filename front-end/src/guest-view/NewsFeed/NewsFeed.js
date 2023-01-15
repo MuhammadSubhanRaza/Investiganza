@@ -1,17 +1,39 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import React, { useContext } from 'react'
+import React, { useContext, useEffect } from 'react'
 import { Globalvalue } from '../../admin-view/Services/CustomGlobalStates';
 import AfterLoginNav from '../AfterLoginNav/AfterLoginNav';
 import Footer from '../Common/Footer';
 import './NewsFeed.css';
 import PostCard from './PostCard';
 import { useSelector } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
 
 const NewsFeed = () => {
 
     //------------ REDUX
 
     const myState = useSelector((state)=>state.SetTheProfileGlobal)
+
+    
+    const navigate = useNavigate()
+
+
+    console.log(myState);
+    
+
+
+    function checkIfProfileIsPresent()
+    {
+        if(myState.cnic == null)
+        {   
+            navigate('/create-profile');
+        }
+    }
+
+    useEffect(() => {
+        checkIfProfileIsPresent();
+    }, []);
+
     
   return (
     <>

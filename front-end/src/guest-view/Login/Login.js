@@ -73,9 +73,12 @@ const Login = () => {
     function setGlobalState(login_states)
     {
         const loggedin_user_data = {
-            id : login_states.id,
+            id : login_states.userId,
             firstName : login_states.firstName,
-            lastName : login_states.lastName
+            lastName : login_states.lastName,
+            email : login_states.email,
+            cnic : login_states.cnic,
+            profileImagePath : login_states.imageUrl
         }
         
         dispatch(setProfileData(loggedin_user_data))

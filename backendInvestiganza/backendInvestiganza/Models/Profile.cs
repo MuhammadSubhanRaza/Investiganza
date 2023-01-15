@@ -7,7 +7,11 @@ namespace backendInvestiganza.Models
     {
         [Key]
         public int Id { get; set; }
-        public string ProfileImagePath { get; set; }
+        public string? ProfileImagePath { get; set; }
+
+        [NotMapped]
+        public IFormFile? ImageFile { get; set; }
+
         public string CNIC { get; set; }
         public string Address { get; set; }
         public int ProvinceResidence { get; set; }
@@ -27,9 +31,6 @@ namespace backendInvestiganza.Models
         public virtual Occupation? Occupation { get; set; }
         public string? OtherOccupation { get; set; }
 
-        //[ForeignKey("OccupationCity")]
-        //public int OccupationCityId { get; set; }
-        //public virtual City OccupationCity { get; set; }
 
 
 
