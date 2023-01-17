@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using backendInvestiganza.Data;
 
@@ -11,9 +12,10 @@ using backendInvestiganza.Data;
 namespace backendInvestiganza.Migrations
 {
     [DbContext(typeof(InvestiganzaDbContext))]
-    partial class InvestiganzaDbContextModelSnapshot : ModelSnapshot
+    [Migration("20230116180722_Post Images Table Added")]
+    partial class PostImagesTableAdded
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -169,9 +171,6 @@ namespace backendInvestiganza.Migrations
 
                     b.Property<int>("CategoryId")
                         .HasColumnType("int");
-
-                    b.Property<DateTime>("Date")
-                        .HasColumnType("datetime2");
 
                     b.Property<string>("Description")
                         .IsRequired()

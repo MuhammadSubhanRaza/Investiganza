@@ -3,7 +3,7 @@ import Axios from 'axios';
 
 const categoriesUrl = `http://localhost:5070/api/categories`;
 
-const apiUrl = `http://localhost:5070/api/categories`;
+const apiUrl = `http://localhost:5070/api/posts`;
 
 export async function fetchAllCategories()
 {
@@ -21,12 +21,14 @@ export async function fetchAllCategories()
 
 export async function saveRecord(formData)
 {
+
    let isActionSuccesful = false
     await Axios.post(apiUrl,formData)
      .then(res=>{
          isActionSuccesful= true
      },
      error=>{
+      console.log(error)
       isActionSuccesful = false
      })
      return isActionSuccesful

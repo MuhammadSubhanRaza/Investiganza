@@ -9,8 +9,10 @@ import { useFormik } from 'formik';
 import { createPostSchema } from '../../schemas/createPostSchema' 
 import { useNavigate } from 'react-router-dom';
 import { faGalacticSenate } from '@fortawesome/free-brands-svg-icons';
+import { useSelector } from 'react-redux';
 
 const CreatePost = (props) => {
+
 
 
     
@@ -23,15 +25,21 @@ const CreatePost = (props) => {
     const [isImageUploading, setisImageUploading] = useState(false);
 
 
+    // -------------------- REDUX
+
+    const myState = useSelector((state)=>state.SetTheProfileGlobal)
+
+
     // ------------------ FORM VALIDATION ----------
   
     const initialValues = {
-        documentPath:"",
+        document:"",
         images:[],
         subject:"",
         description:"",
         amount:"",
-        businessType:-1
+        categoryId:-1,
+        userId:""
     }
 
 
@@ -39,8 +47,8 @@ const CreatePost = (props) => {
         initialValues : initialValues,
         validationSchema : createPostSchema,
         onSubmit:(values)=>{
-            console.log(values)
-            // handleRecordInsert()
+            handleRecordInsert()
+            // console.log(values)
         }
         });
 
@@ -49,20 +57,43 @@ const CreatePost = (props) => {
         async function handleRecordInsert()
         {
             setisDataSaving(true)
-            const isActionSuccessful = await saveRecord(values)
+            let formData = formDataConversion()
+            const isActionSuccessful = await saveRecord(formData)
             setTimeout(() => {
             if(isActionSuccessful)
             {
                 resetForm()
                 setisDataSaving(false)
-                props.notificationSave()
-                navigate('/admin/categories')
+                navigate('/newsfeed')
             }else{
             props.notificationFailure()
             setisDataSaving(false)
             }
             }, 2000);
         }
+
+
+    // ------------------------ FORM DATA CONVERSION
+
+    function formDataConversion()
+    {
+        let formData = new FormData();
+        formData.append("subject",values.subject)
+        formData.append("description",values.description)
+        formData.append("categoryId",values.categoryId)
+        formData.append("amount",values.amount)
+        formData.append("document",values.document)
+        // formData.append("images",values.images)
+        formData.append("userId",myState.id)
+
+        for (var i=0; i< values.images.length; i++)
+        {
+            formData.append("images",values.images[0])
+        }
+
+        return formData
+    }
+
 
     // -------------------- FILE HANDLINGS
 
@@ -75,12 +106,12 @@ const CreatePost = (props) => {
             let reader = new FileReader();
             let res = reader.readAsDataURL(files[0]);
             reader.onload = (e) =>{
-                setFieldValue('documentPath',events.target.files[0]);
+                setFieldValue('document',events.target.files[0]);
                 setuploadedDocumentName(events.target.files[0].name)
             }
         }
         else{
-            setFieldValue('documentPath',null);
+            setFieldValue('document',null);
         }
     }
 
@@ -118,6 +149,7 @@ const CreatePost = (props) => {
 
     useEffect(() => {
         fetchCategories()
+        
     }, [imagesToSet]);
 
     return (
@@ -150,8 +182,8 @@ const CreatePost = (props) => {
                                         }
                                         
                                         <label>Type Of Business</label>
-                                        <select name='businessType'
-                                        value={values.businessType} 
+                                        <select name='categoryId'
+                                        value={values.categoryId} 
                                         onChange={handleChange}
                                         onBlur={handleBlur}
                                         >
@@ -165,8 +197,8 @@ const CreatePost = (props) => {
                                             }
                                         </select>
                                         {
-                                            errors.businessType && touched.businessType ? (
-                                                <label className='admin-form-error'>{errors.businessType}</label>
+                                            errors.categoryId && touched.categoryId ? (
+                                                <label className='admin-form-error'>{errors.categoryId}</label>
                                             ) : null
                                         }
 
@@ -207,7 +239,7 @@ const CreatePost = (props) => {
                                             <span className="input-group-text">Upload</span>
                                         </div>
                                         <div className="custom-file">
-                                            <input onChange={(e)=>uploadDocument(e)} name='documentPath' type="file" className="custom-file-input" id="inputGroupFile01" />
+                                            <input onChange={(e)=>uploadDocument(e)} name='document' type="file" className="custom-file-input" id="inputGroupFile01" />
                                             <label className="custom-file-label">{uploadedDocumentName}</label>
                                         </div>
                                     </div>

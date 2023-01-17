@@ -71,8 +71,8 @@ function App() {
           <Route path='/community' element={<Community/>}/>
           <Route path='/policies' element={<Policies/>}/>
           <Route path='/messages' element={<Message/>}/>
-          <Route path='/create-proposal' element={<CreateProposal/>}/>
-          <Route path='/proposal-details' element={<ProposalDetails/>}/>
+          <Route path='/create-proposal/:postid' element={<CreateProposal/>}/>
+          <Route path='/proposal-details/:postid' element={<ProposalDetails/>}/>
           <Route path='*' element={<Error400/>}/>
           <Route path='/servicedown' element={<ServiceDown/>}/>
 

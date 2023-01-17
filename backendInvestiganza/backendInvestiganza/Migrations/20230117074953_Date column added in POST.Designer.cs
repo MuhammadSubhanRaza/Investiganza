@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using backendInvestiganza.Data;
 
@@ -11,9 +12,10 @@ using backendInvestiganza.Data;
 namespace backendInvestiganza.Migrations
 {
     [DbContext(typeof(InvestiganzaDbContext))]
-    partial class InvestiganzaDbContextModelSnapshot : ModelSnapshot
+    [Migration("20230117074953_Date column added in POST")]
+    partial class DatecolumnaddedinPOST
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
