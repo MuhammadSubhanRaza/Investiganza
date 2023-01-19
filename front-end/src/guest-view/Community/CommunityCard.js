@@ -1,19 +1,36 @@
 import React from 'react'
 import { faChartArea, faEye, faHandshake, faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { useNavigate } from 'react-router-dom'
 
-const CommunityCard = () => {
+const CommunityCard = (props) => {
+    
+    const profile = props.profile
+
+
+    const navigate = useNavigate()
+
+
+    // --------------------- PAGE NAVIGATION
+
+    function loadProfileDetails(id)
+    {
+        navigate('/profiledetails/'+id)
+    }
+
+
+
     return (
         <div className='col-md-4'>
             <div className='community-card'>
-                <img src='images/c5.jpg' />
+                <img src={profile.profileImagePath} />
                 <h6>Financer / Investor</h6>
-                <h5>Arham Khan</h5>
+                <h5>{profile.firstName+" "+profile.lastName}</h5>
                 <p>
-                    Hey there I am Muhammad Arham Khan. I am the one who seeks the business for the investments so that i can later have a good margin
+                    {profile.about}
                 </p>
 
-                <a className='community-card-icon' href='#'>
+                {/* <a className='community-card-icon' href='#'>
                     <FontAwesomeIcon icon={faEye} />
                 </a>
                 <a className='community-card-icon' href='#'>
@@ -21,7 +38,8 @@ const CommunityCard = () => {
                 </a>
                 <a className='community-card-icon' href='#'>
                     <FontAwesomeIcon icon={faHandshake} />
-                </a>
+                </a> */}
+                <button className='community-card-icon' onClick={()=>loadProfileDetails(profile.id)} >View Profile</button>
             </div>
         </div>
     )

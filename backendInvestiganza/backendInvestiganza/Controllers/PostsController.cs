@@ -50,6 +50,67 @@ namespace backendInvestiganza.Controllers
             return post;
         }
 
+
+        [HttpGet("{id}")]
+        [Route("getuserposts")]
+        public async Task<ActionResult<IEnumerable<ProfilePost>>> GetUserPosts(string id)
+        {
+            var post = await (from p in _context.Posts
+                              join pi in _context.PostImages
+                              on p.Id equals pi.PostId
+                              join user in _context.Users
+                              on p.UserId equals user.Id
+                              join profile in _context.Profiles
+                              on user.Id equals profile.UserId
+                              select new ProfilePost()
+                              {
+                                  Amount = p.Amount,
+                                  Subject = p.Subject,
+                                  Description = p.Description,
+                                  Document = p.DocumentPath,
+                                  PostId = p.Id,
+                                  Date = p.Date,
+                                  CategoryId = p.CategoryId,
+                                  UserName = user.FirstName + " " + user.LastName,
+                                  PofilePath = @"http://localhost:5070/uploads/" + profile.ProfileImagePath,
+                                  Images = _context.PostImages.Where(x => x.PostId == p.Id).ToList(),
+                                  UserId = p.UserId
+                              }
+                              ).Where(x => x.UserId == id).ToListAsync();
+            return post;
+        }
+
+
+
+        [HttpGet("{id}")]
+        public async Task<ActionResult<ProfilePost>> GetPost(int id)
+        {
+            var post = await (from p in _context.Posts
+                              join pi in _context.PostImages
+                              on p.Id equals pi.PostId
+                              join user in _context.Users
+                              on p.UserId equals user.Id
+                              join profile in _context.Profiles
+                              on user.Id equals profile.UserId
+                              select new ProfilePost()
+                              {
+                                  Amount = p.Amount,
+                                  Subject = p.Subject,
+                                  Description = p.Description,
+                                  Document = p.DocumentPath,
+                                  PostId = p.Id,
+                                  Date = p.Date,
+                                  CategoryId = p.CategoryId,
+                                  UserName = user.FirstName + " " + user.LastName,
+                                  PofilePath = @"http://localhost:5070/uploads/" + profile.ProfileImagePath,
+                                  Images = _context.PostImages.Where(x => x.PostId == p.Id).ToList()
+                              }
+                              ).Where(x=>x.PostId==id).FirstOrDefaultAsync();
+
+            return post;
+        }
+
+
         [HttpPost]
         [Consumes("multipart/form-data")]
         public async Task<ActionResult<City>> PosPost([FromForm]Post post)
@@ -82,18 +143,18 @@ namespace backendInvestiganza.Controllers
             return imageName;
         }
 
-        [HttpGet("{id}")]
-        public async Task<ActionResult<Post>> GetPost(int id)
-        {
-            var post = await _context.Posts.FindAsync(id);
+        //[HttpGet("{id}")]
+        //public async Task<ActionResult<Post>> GetPost(int id)
+        //{
+        //    var post = await _context.Posts.FindAsync(id);
 
-            if (post == null)
-            {
-                return NotFound();
-            }
+        //    if (post == null)
+        //    {
+        //        return NotFound();
+        //    }
 
-            return post;
-        }
+        //    return post;
+        //}
 
     }
 }

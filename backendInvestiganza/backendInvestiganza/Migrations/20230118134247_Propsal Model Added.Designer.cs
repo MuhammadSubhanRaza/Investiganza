@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using backendInvestiganza.Data;
 
@@ -11,9 +12,10 @@ using backendInvestiganza.Data;
 namespace backendInvestiganza.Migrations
 {
     [DbContext(typeof(InvestiganzaDbContext))]
-    partial class InvestiganzaDbContextModelSnapshot : ModelSnapshot
+    [Migration("20230118134247_Propsal Model Added")]
+    partial class PropsalModelAdded
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -137,34 +139,6 @@ namespace backendInvestiganza.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Cities");
-                });
-
-            modelBuilder.Entity("backendInvestiganza.Models.Feedbacks", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
-
-                    b.Property<string>("Message")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<int>("ProfileId")
-                        .HasColumnType("int");
-
-                    b.Property<string>("UserId")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(450)");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("ProfileId");
-
-                    b.HasIndex("UserId");
-
-                    b.ToTable("Feedbacks");
                 });
 
             modelBuilder.Entity("backendInvestiganza.Models.Occupation", b =>
@@ -472,25 +446,6 @@ namespace backendInvestiganza.Migrations
                     b.HasKey("UserId", "LoginProvider", "Name");
 
                     b.ToTable("AspNetUserTokens", (string)null);
-                });
-
-            modelBuilder.Entity("backendInvestiganza.Models.Feedbacks", b =>
-                {
-                    b.HasOne("backendInvestiganza.Models.Profile", "Profile")
-                        .WithMany()
-                        .HasForeignKey("ProfileId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("backendInvestiganza.Models.ApplicationUser", "User")
-                        .WithMany()
-                        .HasForeignKey("UserId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Profile");
-
-                    b.Navigation("User");
                 });
 
             modelBuilder.Entity("backendInvestiganza.Models.Post", b =>

@@ -61,21 +61,42 @@ namespace backendInvestiganza.Controllers
 
             
 
-            //var l = _context.Profiles.ToList();
             return profiles;
         }
 
         // GET: api/Profiles/5
         [HttpGet("{id}")]
-        public async Task<ActionResult<Profile>> GetProfile(int id)
+        public async Task<ActionResult<ProfileUser>> GetProfile(int id)
         {
-            var profile = await _context.Profiles.FindAsync(id);
+            var profile = await (from p in _context.Profiles
+                                  join u in _context.Users
+                                  on p.UserId equals u.Id
+                                  join c in _context.Categories
+                                  on p.CategoryId equals c.Id
+                                  join o in _context.Occupations
+                                  on p.OccupationId equals o.Id
+                                  join cy in _context.Cities
+                                  on p.ResidenceCityId equals cy.Id
+                                  select new ProfileUser()
+                                  {
+                                      Id = p.Id,
+                                      ProfileImagePath = @"http://localhost:5070/uploads/" + p.ProfileImagePath,
+                                      CNIC = p.CNIC,
+                                      Address = p.Address,
+                                      ProvinceResidence = p.ProvinceResidence,
+                                      ResidenceCity = cy.Name,
+                                      About = p.About,
+                                      Degree = p.Degree,
+                                      OtherQualification = p.OtherQualification,
+                                      OccupationName = o.Name,
+                                      OtherOccupation = p.OtherOccupation,
+                                      CategoryName = c.Name,
+                                      FirstName = u.FirstName,
+                                      LastName = u.LastName,
+                                      Email = u.Email
+                                  }
+                             ).Where(x=>x.Id == id).FirstOrDefaultAsync();
 
-            if (profile == null)
-            {
-                return NotFound();
-            }
-            
             return profile;
         }
 

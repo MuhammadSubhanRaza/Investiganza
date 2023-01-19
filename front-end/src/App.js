@@ -28,6 +28,9 @@ import ServiceDown from './guest-view/ErrorPages/ServiceDown';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { DataLayerContext } from './admin-view/Services/CustomGlobalStates';
+import MyPosts from './guest-view/MyPosts/MyPosts';
+import MyProposals from './guest-view/MyProposals/MyProposals';
+import ProfileDetails from './guest-view/ProfileDetails/ProfileDetails';
 
 function App() {
 
@@ -75,6 +78,9 @@ function App() {
           <Route path='/proposal-details/:postid' element={<ProposalDetails/>}/>
           <Route path='*' element={<Error400/>}/>
           <Route path='/servicedown' element={<ServiceDown/>}/>
+          <Route path='/myposts' element={<MyPosts/>}/>
+          <Route path='/myproposals' element={<MyProposals/>}/>
+          <Route path='/profiledetails/:profid' element={<ProfileDetails/>}/>
 
           {/* ----------- ADMIN ------------ */}
 

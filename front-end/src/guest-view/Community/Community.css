@@ -33,6 +33,11 @@
     box-shadow: rgb(177, 177, 177) 0px 0px 20px 0px;
 }
 
+.community-card p{
+    height: 80px;
+    overflow: hidden;
+}
+
 .community-card img{
     width: 70px;
     height: 70px;
@@ -55,19 +60,15 @@
 }
 .community-card-icon
 {
-    color: white;
-    background-color: #7249fb;
-    height: 35px;
-    width: 35px;
-    display: inline-flex;
-    justify-content: center;
-    align-items: center;
-    margin: 5px ;
-    border-radius: 50%;
+    outline: none;
+    border: solid 1px #bc2bff;
+    padding: 6px 10px;
+    color: #bc2bff;
+    background-color: transparent;
     transition: 0.3s;
 }
 .community-card-icon:hover
 {
-    transform: scale(1.1);
     color: white;
+    background-color: #bc2bff;
 }

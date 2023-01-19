@@ -16,6 +16,7 @@ namespace backendInvestiganza.CombineModels
         public string UserName { get; set; }
         public string PofilePath { get; set; }
         public int CategoryId { get; set; }
+        public string UserId { get; set; }
 
     }
 }

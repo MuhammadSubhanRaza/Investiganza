@@ -26,7 +26,7 @@ const AfterLoginNav = () => {
 
             <nav className="navbar navbar-expand-lg navbar-dark after-login-nav">
                 <Link className="navbar-brand" to="/newsfeed">
-                <img src='images/logos/mainHalfWhite.png'/>
+                <img src='/images/logos/mainHalfWhite.png'/>
                 </Link>
                 <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                     <span className="navbar-toggler-icon"></span>
@@ -40,13 +40,13 @@ const AfterLoginNav = () => {
                             <Link to="/messages" className="nav-link">Messages</Link>
                         </li>
                         <li className="nav-item">
-                            {/* <Link to="" className="nav-link">Success Stories</Link> */}
+                            <Link to="/myposts" className="nav-link">My Posts</Link>
                         </li>
                         <li className="nav-item">
                             <Link to="/community" className="nav-link">Community</Link>
                         </li>
                         <li className="nav-item">
-                            <Link to="/create-profile" className="nav-link">Settings</Link>
+                            <Link to="/myproposals" className="nav-link">My Proposals</Link>
                         </li>
                         <li className="nav-item dropdown ">
 
@@ -56,7 +56,7 @@ const AfterLoginNav = () => {
                             </a>
                             <div className="dropdown-menu subnav-dropdown-login" aria-labelledby="navbarDropdownMenuLink">
                                 <p className='afterlogin_user_title'>{myState.firstName+" "+myState.lastName} </p>
-                                <Link to="" className='dropdown-item a-nav-s-item'>View Profile</Link>
+                                <Link to="/profiledetails" className='dropdown-item a-nav-s-item'>View Profile</Link>
                                 <Link to="/createpost" className='dropdown-item a-nav-s-item'>Create New Post</Link>
                                 {/* <Link to="/" className='dropdown-item'>Logout</Link> */}
                                 <button className='dropdown-item a-nav-s-item' onClick={()=>onLogoutClick()}>Logout</button>
