@@ -92,7 +92,7 @@ const CreateProposal = () => {
             
                 <h3 className='mt-2'>Create Proposal</h3>
                 <form onSubmit={handleSubmit}>
-                    <input type="text" placeholder="Amount for Investment"
+                    <input type="number" placeholder="Amount for Investment"
                     name='amount'
                     onChange={handleChange}
                     onBlur={handleBlur}

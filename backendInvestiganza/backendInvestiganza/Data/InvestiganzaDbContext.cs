@@ -44,5 +44,7 @@ namespace backendInvestiganza.Data
         public DbSet<PostImage> PostImages { get; set; }
         public DbSet<Proposal> Proposals { get; set; }
         public DbSet<Feedbacks> Feedbacks { get; set; }
+
+        public DbSet<UserFeedback> UserFeedbacks { get; set; }
     }
 }

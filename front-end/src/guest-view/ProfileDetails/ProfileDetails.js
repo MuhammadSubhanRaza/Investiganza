@@ -91,7 +91,6 @@ const ProfileDetails = () => {
             "userId":myState.id,
             "profileId":profid
         }
-        console.log(obj)
         let result = await postFeedback(obj)
         if(result)
         {

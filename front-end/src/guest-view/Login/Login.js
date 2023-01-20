@@ -78,11 +78,16 @@ const Login = () => {
             lastName : login_states.lastName,
             email : login_states.email,
             cnic : login_states.cnic,
-            profileImagePath : login_states.imageUrl
+            profileImagePath : login_states.imageUrl,
+            isUserLocked : login_states.isUserLocked,
+            isProfileApproved : login_states.isProfileApproved,
+            isInvestor: login_states.isInvestor,
+            isAdmin:login_states.isAdmin
         }
         
         dispatch(setProfileData(loggedin_user_data))
     
+        console.log(loggedin_user_data)
     }
 
 

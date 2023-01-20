@@ -29,7 +29,6 @@ const ProposalDetails = () => {
     async function fetchPostDetails() {
         const myData = await fetchDetails(postid);
         setTimeout(() => {
-            console.log(myData.images)
             setallImages(myData.images)
             setPostDetails(myData)
         }, 2000);

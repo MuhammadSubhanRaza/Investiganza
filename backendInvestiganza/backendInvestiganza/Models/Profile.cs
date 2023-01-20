@@ -45,6 +45,8 @@ namespace backendInvestiganza.Models
 
         //public int CategoryId1 { get; set; }
 
+        public bool IsProfileApproved { get; set; } = false;
+
 
     }
 }

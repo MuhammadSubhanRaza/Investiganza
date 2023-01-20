@@ -31,19 +31,19 @@ import { DataLayerContext } from './admin-view/Services/CustomGlobalStates';
 import MyPosts from './guest-view/MyPosts/MyPosts';
 import MyProposals from './guest-view/MyProposals/MyProposals';
 import ProfileDetails from './guest-view/ProfileDetails/ProfileDetails';
+import IsLoggedInService from './MainServiceComponents/IsLoggedInService';
+import TemporarilyLocked from './guest-view/ErrorPages/TemporarilyLocked';
+import UnauthorizedAcess from './guest-view/ErrorPages/UnauthorizedAcess';
+import IsAdminService from './MainServiceComponents/IsAdminService';
 
 function App() {
 
 
 
   
-  const FirstName = createContext();
+  // const FirstName = createContext();
 
-  const notifyDataSaved = () => toast.success("Success! data has been saved successfully");
-  const notifyDataUpdated = () => toast.success("Success! data has been updated successfully");
-  const notifyDataDeleted = () => toast.success("Success! data has been deleted successfully");
-
-  const notifyDataSaveFailure = () => toast.error("Sorry! Action failed due to an unexpected failure");
+ 
 
 
   return (
@@ -62,32 +62,51 @@ function App() {
 
       <Router>
         <Routes>
+          
+          {/* <Route path='/create-profile' element={<ProfileCreate notificationFailure={notifyDataSaveFailure} notificationUpdate={notifyDataUpdated}/>}/> */}
+          <Route path='/create-profile' element={<IsLoggedInService Component={ProfileCreate}/>}/>
+          {/* <Route path='/newsfeed' element={<NewsFeed/>}/> */}
+          <Route path='/newsfeed' element={<IsLoggedInService Component={NewsFeed}/>}/>
+          {/* <Route path='/createpost' element={<CreatePost notificationFailure={notifyDataSaveFailure}  notificationSave={notifyDataSaved}/>}/> */}
+          <Route path='/createpost' element={<IsLoggedInService Component={CreatePost}/>}/>
+          {/* <Route path='/community' element={<Community/>}/> */}
+          <Route path='/community' element={<IsLoggedInService Component={Community}/>}/>
+          {/* <Route path='/create-proposal/:postid' element={<CreateProposal/>}/> */}
+          <Route path='/create-proposal/:postid' element={<IsLoggedInService Component={CreateProposal}/>}/>
+          {/* <Route path='/proposal-details/:postid' element={<ProposalDetails/>}/> */}
+          <Route path='/proposal-details/:postid' element={<IsLoggedInService Component={ProposalDetails}/>}/>
+          
+          {/* <Route path='/myposts' element={<MyPosts/>}/> */}
+          <Route path='/myposts' element={<IsLoggedInService Component={MyPosts}/>}/>
+          <Route path='/myproposals' element={<IsLoggedInService Component={MyProposals}/>}/>
+          <Route path='/profiledetails/:profid' element={<IsLoggedInService Component={ProfileDetails}/>}/>
+          {/* <Route path='/myproposals' element={<MyProposals/>}/> */}
+          {/* <Route path='/profiledetails/:profid' element={<ProfileDetails/>}/> */}
+
+          <Route path='/teporarilylocked' element={<TemporarilyLocked/>}/>
+          <Route path='/servicedown' element={<ServiceDown/>}/>
+          <Route path='*' element={<Error400/>}/>
+          <Route path='/unauthorized' element={<UnauthorizedAcess/>}/>
           <Route path='/' element={<Home/>}/>
           <Route path='/about' element={<About/>}/>
           <Route path='/contact' element={<Contact/>}/>
           <Route path='/login' element={<Login/>}/>
           <Route path='/signup' element={<Signup/>}/>
-          <Route path='/create-profile' element={<ProfileCreate notificationFailure={notifyDataSaveFailure} notificationUpdate={notifyDataUpdated}/>}/>
           <Route path='/underreview' element={<UnderReview/>}/>
-          <Route path='/newsfeed' element={<NewsFeed/>}/>
-          <Route path='/createpost' element={<CreatePost notificationFailure={notifyDataSaveFailure}  notificationSave={notifyDataSaved}/>}/>
-          <Route path='/community' element={<Community/>}/>
           <Route path='/policies' element={<Policies/>}/>
           <Route path='/messages' element={<Message/>}/>
-          <Route path='/create-proposal/:postid' element={<CreateProposal/>}/>
-          <Route path='/proposal-details/:postid' element={<ProposalDetails/>}/>
-          <Route path='*' element={<Error400/>}/>
-          <Route path='/servicedown' element={<ServiceDown/>}/>
-          <Route path='/myposts' element={<MyPosts/>}/>
-          <Route path='/myproposals' element={<MyProposals/>}/>
-          <Route path='/profiledetails/:profid' element={<ProfileDetails/>}/>
+
 
           {/* ----------- ADMIN ------------ */}
 
-          <Route path='/admin/allusers' element={<AllUsers/>} />
+          <Route path='/admin/categories' element={<IsAdminService Component={Category}/>}/>
+          <Route path='/admin/addcategory' element={<IsAdminService Component={AddCategory}/>} />
+          <Route path='/admin/editcategory/:catid' element={<IsAdminService Component={AddCategory}/>} />
+
+          {/* <Route path='/admin/allusers' element={<AllUsers/>} />
           <Route path='/admin/categories' element={<Category notificationFailure={notifyDataSaveFailure} notificationDelete={notifyDataDeleted}/>}/>
           <Route path='/admin/addcategory' element={<AddCategory notificationFailure={notifyDataSaveFailure}  notificationSave={notifyDataSaved}/>}/>
-          <Route path='/admin/editcategory/:catid' element={<AddCategory notificationFailure={notifyDataSaveFailure} notificationUpdate={notifyDataUpdated}/>}/>
+          <Route path='/admin/editcategory/:catid' element={<AddCategory notificationFailure={notifyDataSaveFailure} notificationUpdate={notifyDataUpdated}/>}/> */}
 
         </Routes>
       </Router>

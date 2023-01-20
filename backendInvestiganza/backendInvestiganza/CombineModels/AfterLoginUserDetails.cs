@@ -11,5 +11,9 @@ namespace backendInvestiganza.CombineModels
         public string? Email { get; set; }
         public string? CNIC { get; set; }
         public string? ImageUrl { get; set; }
+        public int isAdmin { get; set; }
+        public bool isInvestor { get; set; }
+        public bool isUserLocked { get; set; }
+        public bool isProfileApproved { get; set; }
     }
 }

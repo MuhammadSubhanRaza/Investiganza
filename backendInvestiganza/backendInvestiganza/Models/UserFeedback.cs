@@ -3,7 +3,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace backendInvestiganza.Models
 {
-    public class Feedbacks
+    public class UserFeedback
     {
         [Key]
         public int Id { get; set; }

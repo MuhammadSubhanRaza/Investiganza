@@ -43,7 +43,7 @@ const AfterLoginNav = () => {
                             <Link to="/myposts" className="nav-link">My Posts</Link>
                         </li>
                         <li className="nav-item">
-                            <Link to="/community" className="nav-link">Community</Link>
+                            <Link to="/community" className="nav-link">Find Investor</Link>
                         </li>
                         <li className="nav-item">
                             <Link to="/myproposals" className="nav-link">My Proposals</Link>

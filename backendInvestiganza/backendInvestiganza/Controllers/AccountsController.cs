@@ -137,6 +137,10 @@ namespace backendInvestiganza.Controllers
                 Email = user.Email,
                 CNIC = cnic,
                 ImageUrl = @"http://localhost:5070/uploads/" + profile_user.ProfileImagePath,
+                isAdmin = user.IsAdmin,
+                isInvestor = user.isInvestor,
+                isProfileApproved = profile_user.IsProfileApproved,
+                isUserLocked = user.IsUserLocked
             };
 
 

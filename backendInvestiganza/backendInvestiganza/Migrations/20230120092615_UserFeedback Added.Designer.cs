@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using backendInvestiganza.Data;
 
@@ -11,9 +12,10 @@ using backendInvestiganza.Data;
 namespace backendInvestiganza.Migrations
 {
     [DbContext(typeof(InvestiganzaDbContext))]
-    partial class InvestiganzaDbContextModelSnapshot : ModelSnapshot
+    [Migration("20230120092615_UserFeedback Added")]
+    partial class UserFeedbackAdded
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -44,12 +46,6 @@ namespace backendInvestiganza.Migrations
                     b.Property<string>("FirstName")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
-
-                    b.Property<int>("IsAdmin")
-                        .HasColumnType("int");
-
-                    b.Property<bool>("IsUserLocked")
-                        .HasColumnType("bit");
 
                     b.Property<string>("LastName")
                         .IsRequired()
@@ -282,9 +278,6 @@ namespace backendInvestiganza.Migrations
                     b.Property<string>("Degree")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
-
-                    b.Property<bool>("IsProfileApproved")
-                        .HasColumnType("bit");
 
                     b.Property<int>("OccupationId")
                         .HasColumnType("int");

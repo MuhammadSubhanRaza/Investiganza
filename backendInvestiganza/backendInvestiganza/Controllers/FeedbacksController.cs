@@ -18,27 +18,27 @@ namespace backendInvestiganza.Controllers
         }
 
         [HttpPost]
-        public async Task<ActionResult<Feedback>> PostFeedback(Feedbacks feedback)
+        public async Task<ActionResult<UserFeedback>> PostFeedback(UserFeedback feedback)
         {
-            _context.Feedbacks.Add(feedback);
+            _context.UserFeedbacks.Add(feedback);
             await _context.SaveChangesAsync();
 
             //return CreatedAtAction("GetFeedback", new { id = feedback.Id }, feedback);
             return Ok(new { message = "data saved" });
         }
 
-        [HttpGet("{id}")]
-        public async Task<ActionResult<Feedbacks>> GetFeedback(int id)
-        {
-            var feedback = await _context.Feedbacks.FindAsync(id);
+        //[HttpGet("{id}")]
+        //public async Task<ActionResult<Feedbacks>> GetFeedback(int id)
+        //{
+        //    var feedback = await _context.Feedbacks.FindAsync(id);
 
-            if (feedback == null)
-            {
-                return NotFound();
-            }
+        //    if (feedback == null)
+        //    {
+        //        return NotFound();
+        //    }
 
-            return feedback;
-        }
+        //    return feedback;
+        //}
 
     }
 }
