@@ -1,0 +1,24 @@
+.myProposals-card
+{
+    padding: 20px;
+    border: solid 1px #7249fb;
+    margin: 20px;
+}
+.proposal-details{
+    height: 50px;
+    overflow: hidden;
+}
+.myProposals-card button{
+    margin-top: 20px;
+    border: solid 1px #7249fb;
+    outline: none;
+    background-color: transparent;
+    color: #7249fb;
+    padding: 10px ;
+    transition: 0.3s;
+}
+.myProposals-card button:hover
+{
+    background-color: #7249fb;
+    color: white;
+}

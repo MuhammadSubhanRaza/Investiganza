@@ -1,0 +1,89 @@
+.prof-details{
+    margin-top: 50px;
+    margin-bottom: 100px;
+}
+
+.prof-details img{
+    width: 220px;
+    height: 220px;
+}
+.prof-details-title{
+    display: block;
+}
+
+.prof-det-divider{
+    height: 1px;
+    background-color: silver;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+.ratingstar
+{
+    display: inline !important;
+    color: #7249fb;
+    margin: 0px 2px;
+}
+.prof-det-subtitle{
+    color: #7249fb;
+    font-size: 1rem;
+}
+.prof-det-title{
+    font-size: 1.7rem;
+}
+.prof-det-btn{
+    color: #7249fb;
+    background-color: transparent;
+    outline: none;
+    border: none;
+    transition: 0.3s;
+    padding: 10px;
+}
+.prof-det-btn:hover{
+    background-color: #7249fb;
+    color: white;
+
+}
+
+.prof-send-feedback-cont{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    min-height: 100vh;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 100;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.prof-send-feedback-cont-center{
+    padding: 40px;
+    background-color: white;
+    width: 500px;
+}
+
+.message-notification-pd{
+    padding: 20px;
+    background-color: rgb(19, 19, 31);
+    position: fixed;
+    top: 100px;
+    width: 70%;
+    z-index: 900;
+    left: 15%;
+    /* transform: translateX(-50%); */
+    border-radius: 10px;
+}
+.message-notification-pd p{
+    color: rgb(207, 207, 207);
+}
+.message-notification-pd button{
+    outline: none;
+    background-color: transparent;
+    border: none;
+    color: #a287f8;
+    font-size: 1.2rem;
+}
+.message-notification-pd button:hover{
+    color: white;
+}

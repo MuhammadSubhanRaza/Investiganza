@@ -1,0 +1,62 @@
+.myAllPosts-header{
+    min-height: 400px;
+    background: url('./../../../public/images/myallpost3.jpg');
+    background-size: cover;
+    background-position: bottom;
+    background-attachment: fixed;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.myAllPosts-header h1{
+    color: #7249fb;
+    text-transform: uppercase;
+    letter-spacing: 5px;
+    font-size: 3.6rem;
+}
+.myAllPosts-body{
+    padding: 90px 10px;
+}
+
+.mypostcard-allposts{
+    /* padding: 10px; */
+    margin: 20px 10px;
+    box-shadow: rgba(0,0, 0, 0.2) 0px 0px 10px;
+    transition: 0.3s;
+}
+.mypostcard-allposts:hover{
+    box-shadow: rgba(0,0, 0, 0.5) 0px 0px 10px;
+}
+.mpc-header
+{
+    min-height: 180px;
+    overflow: hidden;
+}
+.mpc-header img{
+    width: 100%;
+    height: 180px;
+}
+.mpc-body{
+    padding: 20px;
+}
+.mpc-description{
+    height: 100px;
+    overflow: hidden;
+}
+.mpc-footer{
+    padding: 10px 20px;
+    border-top: solid 1px rgb(228, 228, 228);
+}
+.mpc-footer button{
+    outline: none;
+    border: none;
+    background-color: transparent;
+    color: #7249fb;
+    transition: 0.3s;
+    padding: 5px 10px;
+    border-radius: 6px;
+}
+.mpc-footer button:hover{
+    background-color: #7249fb;
+    color: white;
+}

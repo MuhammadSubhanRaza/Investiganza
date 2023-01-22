@@ -1,117 +1,427 @@
 import { faPlus } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import AfterLoginNav from '../AfterLoginNav/AfterLoginNav';
 import Footer from '../Common/Footer';
 import Navigation from '../Common/Navigation';
 import './ProfileCreate.css';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate, useParams } from 'react-router-dom';
+import { useFormik } from 'formik';
+import { profileSchema } from '../../schemas/profileSchema';
+import { useSelector } from 'react-redux';
+import { fetchCatgories, fetchCities, fetchOccupations,saveData } from './ProfileService';
+import Aos from 'aos';
+import "aos/dist/aos.css";
 
-const ProfileCreate = () => {
+const ProfileCreate = (props) => {
+
+    // ------------ REDUX
+
+    const myState = useSelector((state)=>state.SetTheProfileGlobal);
+    
+  // ------------------ INITIALIZERS ----------
+
+    const{profileid} = useParams();
+    let navigate = useNavigate();
+
+    const defaultFormImage = "images/profileimageholder.png";
+    const [formImage, setformImage] = useState(defaultFormImage);
+
+    const [citiesList, setcitiesList] = useState([]);
+    const [occupationsList, setoccupationsList] = useState([]);
+    const [categoriesList, setcategoriesList] = useState([]);
+
+    const [isUpdate, setisUpdate] = useState(false);
+    const [isDataSaving, setisDataSaving] = useState(false);
+
+    // ----------------- LOAD ALL DATA ------------
+
+    async function loadCities() {
+        const cities = await fetchCities()
+        setcitiesList(cities.data)
+    }
+    async function loadOccupations() {
+        const occupations = await fetchOccupations()
+        setoccupationsList(occupations.data)
+    }
+    async function loadCategories() {
+        const categories = await fetchCatgories()
+        setcategoriesList(categories.data)
+    }
+
+    // ------------------ USE EFFECT ---------------
+
+    useEffect(() => {
+        loadCities()
+        loadCategories()
+        loadOccupations()
+        Aos.init({ duration: 2000 })
+    }, []);
+
+    //-------------------- UPLOAD IMAGE ----------
+
+    function uploadImage(events)
+    {
+        if(events.target.files && events.target.files[0])
+        {
+            let files = events.target.files;
+            let reader = new FileReader();
+            let res = reader.readAsDataURL(files[0]);
+            reader.onload = (e) =>{
+                setFieldValue('imageFile',events.target.files[0]);
+                setformImage(e.target.result)
+            }
+        }
+        else{
+            setFieldValue('imageFile',null);
+            setformImage(defaultFormImage);
+        }
+    }
+
+
+    // ------------------ FORM VALIDATION ----------
+  
+  const initialValues = {
+    profileImagePath:"",
+    imageFile:"",
+    cNIC:"",
+    address:"",
+    provinceResidence:-1,
+    residenceCityId:-1,
+    about:"",
+    degree:"",
+    otherQualification:"",
+    occupationId:-1,
+    otherOccupation:"",
+    categoryId:-1,
+    userId:myState.userId
+  }
+
+  const {values,errors,touched,handleBlur,handleChange,handleSubmit,setFieldValue,setValues,resetForm} = useFormik({
+    initialValues : initialValues,
+    validationSchema : profileSchema,
+    onSubmit:(values)=>{
+      if(isUpdate)
+      {
+        handleRecordUpdate()
+      }else{
+        setisDataSaving(true)
+        handleRecordInsert()
+    
+      }
+    }
+    });
+
+
+    
+  async function handleRecordInsert()
+  {
+    let formData = formDataConversion()
+    const isActionSuccessful = await saveData(formData)
+    setTimeout(() => {
+    if(isActionSuccessful)
+    {
+        resetForm()
+        setisDataSaving(false)
+        navigate('/underreview');
+    }else{
+      props.notificationFailure()
+      setisDataSaving(false)
+    }
+    }, 3000);
+  }
+
+  async function handleRecordUpdate()
+  {
+    
+  }
+
+
+  function formDataConversion()
+  {
+    let formData = new FormData()
+    formData.append("profileImagePath",values.profileImagePath);
+    formData.append("imageFile",values.imageFile);
+    formData.append("cNIC",values.cNIC);
+    formData.append("address",values.address);
+    formData.append("provinceResidence",values.provinceResidence);
+    formData.append("residenceCityId",values.residenceCityId);
+    formData.append("about",values.about);
+    formData.append("degree",values.degree);
+    formData.append("otherQualification",values.otherQualification);
+    formData.append("occupationId",values.occupationId);
+    formData.append("otherOccupation",values.otherOccupation);
+    formData.append("categoryId",values.categoryId);
+    formData.append("userId",values.userId);
+    return formData
+  }
+
+
+
   return (
     <>
     
     <Navigation/>
 
-    <div className='profilecreate-header'>
+    <section className="sec-profile">
 
-    </div>
+        <div className='profile-header'>
+            </div>
 
-    <section class="profile-create-sec">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-5 p-5">
-                    <div class="create-profile-left-sec">
-                        <h1 className='createprofile-title'>Complete Your Profile</h1>
-                        <img src="images/c_p_img.jpeg" class="c-f-img" alt=""/>
-                        <br/>
-                        <button><span><i class="fa fa-upload"></i></span> Upload Profile Image</button>
-                        <div class="cp-r-header mt-4">Personal Information</div>
-                        <label for="" class="mt-3">CNIC</label>
-                        <input type="text" placeholder="Enter Your CNIC here"/>
-                        
-                        <label for="">Address</label>
-                        <textarea cols="30" rows="2" placeholder="Enter Your Address"></textarea>
+    <form onSubmit={handleSubmit}>
+            <div className="profile-fragment p-f-1" data-aos="fade-up">
+                <h6 className="profile-fragment-title">Profile Information</h6>
+                <p className="profile-fragment-subtitle">Update your account's profile information</p>
 
-                        <label for="">Date of Birth</label>
-                        <input type="date"/>
 
-                        <label for="">About You</label>
-                        <textarea name="" placeholder="Enter Some Description" id="" cols="30" rows="3"></textarea>
+                <div className="container-fluid">
+                    <div className="row">
+                        <div className="col-md-8">
+                            <input type="hidden" value={values.userId}/>
+                            <label className="profile-label" >CNIC</label>
+                            <input className="profile-control" type="text"
+                            name='cNIC'
+                            disabled={isDataSaving}
+                            onChange={handleChange}
+                            onBlur={handleBlur}
+                            value={values.cNIC}
+                            />
+                            {
+                                errors.cNIC && touched.cNIC ? (
+                                    <label className='text-danger mt-1'>{errors.cNIC}</label>
+                                ) : null
+                            }
 
-                        <div class="mt-3 mb-4">
-                            <input type="checkbox"/>
-                            <span>I am Currently doing job</span>
-                        </div>
-                    
-                    </div>
-                </div>
-                <div class="col-md-6 p-5">
-                    <div class="create-profile-right-sec">
+                            <label className="profile-label" >Address</label>
+                            <textarea rows="2" className="profile-control"
+                            name='address'
+                            disabled={isDataSaving}
+                            onChange={handleChange}
+                            onBlur={handleBlur}
+                            value={values.address}
+                            ></textarea>
+                            {
+                                errors.address && touched.address ? (
+                                    <label className='text-danger mt-1'>{errors.address}</label>
+                                ) : null
+                            }
 
-                            <div class="cp-r-header mt-3">Qualification</div>
-                            
-                            <label for="" class="mt-3">Last Degree</label>
-
-                            <select>
-                                <option value="-1">-- Select </option>
-                                <option value="0">Matriculation</option>
-                                <option value="1">Intermediate</option>
-                                <option value="2">Graduation</option>
-                                <option value="3">Master</option>
+                            <label className="profile-label" >Province</label>
+                            <select className="profile-control"
+                            name='provinceResidence'
+                            disabled={isDataSaving}
+                            onChange={handleChange}
+                            onBlur={handleBlur}
+                            value={values.provinceResidence}
+                            >
+                                <option value="-1">Select</option>
+                                <option value="0">Sindh</option>
+                                <option value="1">Punjab</option>
+                                <option value="2">Khyber Pakhtun</option>
+                                <option value="3">Balochistan</option>
                             </select>
+                            {
+                                errors.provinceResidence && touched.provinceResidence ? (
+                                    <label className='text-danger mt-1'>{errors.provinceResidence}</label>
+                                ) : null
+                            }
 
-                            <label for="" class="mt-3">Other Qualification</label>
-                            <input type="text" placeholder="Please Enter Other Qualification if any"/>
+                            <label className="profile-label">City</label>
+                            <select className="profile-control"
+                            name='residenceCityId'
+                            disabled={isDataSaving}
+                            onChange={handleChange}
+                            onBlur={handleBlur}
+                            value={values.residenceCityId}
+                            >
+                                <option value="-1">Select</option>
+                                {
+                                    citiesList.map((item)=>{
+                                        return (
+                                            <option key={item.id} value={item.id}>{item.name}</option> 
+                                        );
+                                    })
+                                }
+                            </select>
+                            {
+                                errors.residenceCityId && touched.residenceCityId ? (
+                                    <label className='text-danger mt-1'>{errors.residenceCityId}</label>
+                                ) : null
+                            }
 
+                            <label className="profile-label" >About You</label>
+                            <textarea rows={4} className="profile-control"
+                            name='about'
+                            disabled={isDataSaving}
+                            onChange={handleChange}
+                            onBlur={handleBlur}
+                            value={values.about}
+                            ></textarea>
+                            {
+                                errors.about && touched.about ? (
+                                    <label className='text-danger mt-1'>{errors.about}</label>
+                                ) : null
+                            }
 
-                            <div class="cp-r-header mt-4">Interest</div>
-                            
-                            <label for="" class="mt-3">Type of Business interest</label>
-
-                            <div class="row mt-2">
-                                <div class="col-sm-6">
-                                    <input type="checkbox"/><span class="cp-r-interst-chk">Food</span>
-                                    <br/>
-                                    <input type="checkbox"/><span class="cp-r-interst-chk">Auto Mobile</span>
-                                    <br/>
-                                    <input type="checkbox"/><span class="cp-r-interst-chk">IT</span>
-                                    <br/>
-                                </div>
-                                <div class="col-sm-6">
-                                    <input type="checkbox"/><span class="cp-r-interst-chk">Electronics</span>
-                                    <br/>
-                                    <input type="checkbox"/><span class="cp-r-interst-chk">Buy and Sell</span>
-                                    <br/>
-                                    <input type="checkbox"/><span class="cp-r-interst-chk">Others</span>
-                                </div>
-                            </div>
-
-                            <div class="cp-r-header mt-3">Terms and Policies</div>
-
-                            <ul class="mt-3">
-                                <li>Investiganza has all the rights to block if information is wrong</li>
-                                <li>Legal action can be taken against you in case of fraud</li>
-                                <li>In case of complains, you will face consequences</li>
-                            </ul>
-
-                            <input type="checkbox" class="mt-3"/>
-                            <span>I accept all the terms and conditions</span>
-
-                            <br/>
-                            <input type="checkbox"/>
-                            <span>I pledge that all the given information is correct
-                            </span>
-
-                            <div>
-                                <Link to="/underreview" className='btn-cp-add'><FontAwesomeIcon icon={faPlus}/> Create</Link>
-                            </div>
-                            
+                        </div>
+                        <div className="col-md-3 offset-md-1 text-center profile-img-main-holdr">
+                            <img className="profile-set-img" src={formImage} />
+                            <input type="file" accept="image/*" className="form-control"
+                            name='profileImagePath'
+                            onChange={(e)=>uploadImage(e)}
+                            />
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
+
+            <div className="profile-fragment p-f-1" data-aos="fade-up">
+                <h6 className="profile-fragment-title">Educational Information</h6>
+                <p className="profile-fragment-subtitle">Update your educational information</p>
+
+
+                <label className="profile-label" >Last Degree Achieved</label>
+                <select className="profile-control"
+                name='degree'
+                disabled={isDataSaving}
+                onChange={handleChange}
+                onBlur={handleBlur}
+                value={values.degree}
+                >
+                    <option value="-1">Select</option>
+                    <option value="0">Ph.d</option>
+                    <option value="1">Masters</option>
+                    <option value="2">Bachelors</option>
+                    <option value="3">Intermediate</option>
+                    <option value="4">Matriculation</option>
+                </select>
+                {
+                    errors.degree && touched.degree ? (
+                        <label className='text-danger mt-1'>{errors.degree}</label>
+                    ) : null
+                }
+
+                <label className="profile-label" >Other Qualification</label>
+                <input type="text" className="profile-control"
+                name='otherQualification'
+                disabled={isDataSaving}
+                onChange={handleChange}
+                onBlur={handleBlur}
+                value={values.otherQualification}
+                />
+            </div>
+
+            <div className="profile-fragment p-f-1" data-aos="fade-up">
+                <h6 className="profile-fragment-title">Occupational Information</h6>
+                <p className="profile-fragment-subtitle">Update your occupational information</p>
+
+
+                <label className="profile-label" >Current Occupation</label>
+                <select className="profile-control"
+                name='occupationId'
+                disabled={isDataSaving}
+                onChange={handleChange}
+                onBlur={handleBlur}
+                value={values.occupationId}
+                >
+                    <option value="-1">Select</option>
+                    {
+                        occupationsList.map((item)=>{
+                            return (
+                                <option key={item.id} value={item.id}>{item.name}</option> 
+                            );
+                        })
+                    }
+                    {/* <option value="0">Ph.d</option>
+                    <option value="1">Masters</option>
+                    <option value="2">Bachelors</option>
+                    <option value="3">Intermediate</option>
+                    <option value="4">Matriculation</option> */}
+                </select>
+                {
+                    errors.occupationId && touched.occupationId ? (
+                        <label className='text-danger mt-1'>{errors.occupationId}</label>
+                    ) : null
+                }
+
+
+                <label className="profile-label" >Others</label>
+                <input className="profile-control" type="text" 
+                name='otherOccupation'
+                disabled={isDataSaving}
+                onChange={handleChange}
+                onBlur={handleBlur}
+                value={values.otherOccupation}
+                />
+
+               
+            </div>
+
+            <div className="profile-fragment p-f-1" data-aos="fade-up">
+                <h6 className="profile-fragment-title">Business Interest</h6>
+                <p className="profile-fragment-subtitle">Update your occupational information</p>
+
+
+                <label className="profile-label" >Business Categories</label>
+                <select className="profile-control"
+                name='categoryId'
+                disabled={isDataSaving}
+                onChange={handleChange}
+                onBlur={handleBlur}
+                value={values.categoryId}
+                >
+                    <option value="-1">Select</option>
+                    {
+                        categoriesList.map((item)=>{
+                            return (
+                                <option key={item.id} value={item.id}>{item.name}</option> 
+                            );
+                        })
+                    }
+                    {/* <option value="0">Ph.d</option>
+                    <option value="1">Masters</option>
+                    <option value="2">Bachelors</option>
+                    <option value="3">Intermediate</option>
+                    <option value="4">Matriculation</option> */}
+                </select>
+                {
+                    errors.categoryId && touched.categoryId ? (
+                        <label className='text-danger mt-1'>{errors.categoryId}</label>
+                    ) : null
+                }
+            </div>
+
+            <div className="profile-fragment p-f-1" data-aos="fade-up">
+                <h6 className="profile-fragment-title">Terms and Conditions</h6>
+                <p className="profile-fragment-subtitle">Acceptance of our terms and policies</p>
+
+                <p className="profile-term">Investiganza has all the rights to block a user permenantly from the system if any information given proved wrong</p>
+                <p className="profile-term">Legal actions can be taken in case of any fraud or malicious activity</p>
+                <p className="profile-term">In case of any complain, user will have to face consequences</p>
+                
+               <div className="mt-5 text-right">
+                <button className="profile-logout">
+                    Logout
+                </button>
+                <button type='submit' className="profile-submit">
+                    Submit Profile
+                </button>
+               </div>
+                
+            </div>
+            </form>
+
+            {isDataSaving &&
+                <div className='profile-saving-loader'>
+                    <div>
+                        {/* <div className='profile-save-spinner '></div> */}
+                        <div className='p-s-progress'></div>
+                        <p>please wait! while we are creating your profile</p>
+                    </div>
+                </div>
+            }
+
+        </section>
     
     <Footer/>
 

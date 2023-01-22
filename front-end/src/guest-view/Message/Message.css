@@ -1,2 +1,248 @@
 
 
+
+
+/* -- COLOR ONE #7249fb  */
+
+.msg-main-container{
+    min-height: 100vh;
+    background-color: white ;
+}
+
+.msg-left-pane {
+    height: 100vh;
+    overflow-y: auto;
+}
+
+.msg-left-pane h4{
+    color: #7249fb;
+    margin-top: 20px;
+    padding-left: 20px;
+}
+
+.msg-search-box {
+    padding:0px 20px;
+}
+
+.msg-search-box label{
+    font-size: 0.8rem;
+    margin-top: 20px;
+}
+.msg-search-box input
+{
+    width: 100%;
+    padding: 10px 10px;
+    border-radius: 7px;
+    outline: none;
+    background-color: rgb(243, 243, 243);
+    border: solid 2px  rgb(243, 243, 243);
+}
+.msg-search-box input:focus
+{
+    border-color: #7249fb;
+    background-color: white;
+}
+
+.msg-list-container{
+}
+
+.msg-list{
+    padding: 0;
+    margin: 0;
+    margin-top: 20px;
+}
+
+.msg-list-item{
+    display: block;
+    transition: 0.3s;
+    padding: 15px 10px;
+}
+
+.msg-list-item:hover{
+    background-color: rgb(245, 245, 245);
+}
+.msg-list-item:hover .msg-list-anch{
+    text-decoration: none;
+}
+
+.msg-item-inner {
+    display: flex;
+    width: 100%;
+    padding-left: 10px;
+    padding-right:10px;
+}
+
+.msg-item-inner img{
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+}
+
+.msg-item-inner h6,p{
+    margin: 0;
+    padding: 0;
+}
+.msg-item-inner h6{
+    color: black;
+}
+.msg-item-inner p{
+    color: rgb(185, 185, 185);
+}
+.msg-item-inner span
+{
+    display: block;
+    text-align: right;
+    color: #7249fb;
+    text-align: right;
+    margin-left: auto;
+    font-size: 0.78rem;
+    min-width: 60px;
+}
+
+/* ----------------- righ pane ------------- */
+
+.msg-right-pane
+{
+    position: relative;
+    height: 100vh;
+    overflow-y: auto;
+    background-color: rgb(245, 245, 245);
+}
+.msg-rt-pane-header{
+    margin-top: 53px;
+    padding: 10px 20px;
+    display: flex;
+    background-color: white;
+    border-left: solid 1px rgb(245, 245, 245);
+    position: fixed;
+    top: 0;
+    width: 100%;
+    box-shadow: rgba(0,0,0,0.2) 10px 0px 10px;
+}
+
+.msg-rt-pane-header img{
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+}
+.msg-rt-pane-header span{
+    color: silver;
+    font-size: 0.8rem;
+}
+.msg-rt-pane-header h6{
+    padding: 0;
+    margin: 0;
+    margin-top: 5px;
+}
+
+.msg-footer{
+    background-color: white;
+    border-left: solid 1px rgb(245, 245, 245);
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+    padding: 20px;
+    box-shadow: rgba(0,0,0,0.2) 10px 0px 10px;
+}
+
+.msg-footer-inner
+{
+    background-color: #e4dcff;
+    width: 73%;
+    padding: 0px;
+    display: flex;
+    border-radius: 100px;
+}
+.msg-footer-inner input{
+    background-color: transparent;
+    width: 100%;
+    border: none;
+    outline: none;
+    padding-left: 50px;
+}
+.msg-atch-file{
+    color: #7249fb;
+    background-color: transparent;
+    border: none;
+    outline: none;
+    font-size: 1.4rem;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 50%;
+    transition: 0.3s;
+}
+.msg-atch-file:focus{
+    border: none;
+    outline: none;
+}
+.msg-atch-file:hover{
+    background-color: #d3c5ff;
+}
+.msg-snd-msg{
+    outline: none;
+    border: none;
+    background-color: #7249fb;
+    color: white;
+    min-width: 90px;
+    padding: 10px;
+    border-radius: 100px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+.msg-snd-msg:focus
+{
+    border: none;   
+    outline: none;
+}
+.msg-snd-msg:hover
+{
+    background-color: #512cca;
+}
+
+.msg-stream{
+    padding: 90px 10px;
+}
+.msg-rcvr{
+    padding-right: 150px;
+    padding-top: 10px;
+}
+.msg-reciever-note{
+    background-color: rgba(0,0,0,0.1);
+    width: fit-content;
+    padding: 5px 15px;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+    border-bottom-right-radius: 15px;
+    margin-top: 13px;
+    
+}
+.msg-sndr{
+    text-align: right;
+    padding-left: 150px;
+    padding-top: 10px;
+}
+.msg-sender-note{
+    background-color: #bc2bff;
+    width: fit-content;
+    padding: 5px 15px;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+    border-bottom-left-radius: 15px;
+    color: white;
+    margin-left: auto;
+    margin-top: 13px;
+}
+.msg-rcvr-time{
+    color: gray;
+    font-size: 0.8rem;
+}
+.msg-sndr-time{
+    color: gray;
+    font-size: 0.8rem;
+}
+
+
+
+
+
+

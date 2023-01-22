@@ -1,35 +1,42 @@
+.after-login-nav
+{
+    background-color: #7249fb;
+    min-height: 70px;
+}
+
+
 .btn-nav-profile-img
 {
-    padding: 0%;
+    padding: 0 !important;
     margin: 0;
     width: 45px;
     height: 45px;
-    border-radius: 50%;
+    border-radius: 10px;
     border: none;
     outline: none;
     position: relative;
+    overflow: hidden;
+    background-color: red;
 }
 .online-dot-indicator
 {
     position: absolute;
-    background-color: rgb(36, 255, 36);
-    width: 10px;
-    height: 10px;
-    bottom: 0;
-    right: 0;
+    background-color: rgb(36, 255, 54);
+    width: 12px;
+    height: 12px;
+    bottom: 5px;
+    right: 5px;
     border-radius: 50%;
 }
 .btn-nav-profile-img img
 {
     width: 45px;
     height: 45px;
-    border-radius: 50%;
+    border-radius: 10px;
+    margin-top: 0;
 }
 
-.after-login-nav
-{
-    background-color: #7249fb;
-}
+
 .nav-link
 {
     color: white !important;
@@ -44,8 +51,8 @@
 {
     text-align: center;
     background-color: rgb(247, 247, 247);
-    padding: 10px;
-    padding-top: 60px;
+    /* padding: 10px; */
+    padding-top: 50px;
 }
 .sub-category-nav ul
 {
@@ -72,16 +79,27 @@
     color: white;
 }
 
-.subnav-dropdown-login a
-{
-    color: black !important;
+.subnav-dropdown-login{
+    margin-top: 0 !important;
+    padding-top: 0 !important;
 }
-.subnav-dropdown-login a:hover
-{
-    color: #7249fb !important;
-    background-color: transparent;
-}
+
+
 .subnav-dropdown-login 
 {
     left: -240%;
+}
+
+.a-nav-s-item{
+    color: black !important;
+    margin-left:  0 !important;
+}
+
+.afterlogin_user_title{
+    color: white;
+    background-color: #bc2bff;
+    padding: 10px;
+    font-weight: bold;
+    font-size: 1rem;
+    text-align: right;
 }

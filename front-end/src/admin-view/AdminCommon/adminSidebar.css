@@ -1,0 +1,47 @@
+.admin-sidebar-a
+{
+    width: 100%;
+    margin-left: 0;
+}
+.nav_title span{
+    color: white !important;
+    font-size: 0.9rem;
+}
+
+.sidebar{
+overflow: unset !important;
+}
+
+
+.admin-main-logo-image{
+    width: 150px !important;
+}
+.large_logo{
+    display: block;
+    width: 100%;
+    text-align: center;
+}
+.cls-btn-f-nav{
+    color: gray;
+    padding: 10px 20px;
+    font-size: 1.1rem;
+    position: absolute;
+    right: 0;
+    z-index: 10;
+    transform: translateX(100%);
+    margin-top: 10px;
+    outline: none;
+    border: none;
+    background-color: white;
+    display: none;
+}
+
+.new-small-nav{
+    left: 0px !important;
+}
+
+@media screen and (max-width: 800px) {
+    .cls-btn-f-nav{
+        display: block;
+    }
+  }

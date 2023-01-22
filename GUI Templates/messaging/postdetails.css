@@ -1,0 +1,109 @@
+.postdetial-cont{
+    min-height: 100vh;
+    position: relative;
+    padding-left: 350px;
+}
+.pd-left-pane{
+    min-height: 100vh;
+    background-color: white;
+    box-shadow: rgba(0,0,0,0.2) 0px 0px 20px;
+    width: 350px;
+    position: fixed;
+    left: 0;
+}
+.pd-pane-header{
+    margin-top: 20px;
+    display: flex;
+}
+.pd-pane-header img{
+    height: 60px;
+    width: 60px;
+    border-radius: 50%;
+}
+.pd-pane-header h6{
+    color: #7249fb;
+    margin: 0;
+    padding: 0;
+    font-size: 1rem;
+    margin-top: 10px;
+    margin-left: 15px;
+}
+.pd-pane-header span{
+    color: rgb(145, 145, 145);
+    font-size: 0.9rem;
+    display: block;
+    margin-left: 15px;
+}
+.pd-amount-required{
+    padding-top: 10px;
+}
+.pd-amount-required span{
+    color: #7249fb;
+    font-size: 0.8rem;
+}
+.pd-amount-required h6{
+    font-size: 1.1rem;
+}
+.pd-send-proposal{
+    background-color: #7249fb;
+    color: white;
+    text-decoration: none;
+    width: 100%;
+    display: block;
+    text-align: center;
+    margin-top: 10px;
+    padding: 5px;
+    border-radius: 5px;
+}
+.pd-send-proposal:hover
+{
+    background-color: #5434be;
+    text-decoration: none;
+    color: white;
+}
+
+.pd-body{
+    margin-top: 50px;
+}
+.pd-body h1{
+    font-size: 2.5rem;
+}
+.pd-body img{
+    width: 100%;
+    margin-top: 30px;
+}
+.pd-body p{
+    margin-top: 50px;
+}
+.pane-title{
+    text-transform: uppercase;
+    color: rgb(173, 173, 173);
+    padding-top: 20px;
+    font-weight: 400;
+    padding-bottom: 20px;
+}
+.pd-pane-images
+{
+
+}
+.pd-pane-images img{
+    width: 70px;
+    height: 70px;
+    border-radius: 10px;
+    margin: 3px;
+}
+.pd-pane-attachments {
+    padding-bottom: 20px;
+}
+.pd-pane-attachments a{ 
+    color: black;
+    display: block;
+    transition: 0.3s;
+    padding: 10px 0px;
+}
+.pd-pane-attachments a:hover{ 
+    color: #7249fb;
+   text-decoration: none;
+}
+
+

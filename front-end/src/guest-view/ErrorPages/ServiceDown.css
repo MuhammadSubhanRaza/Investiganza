@@ -1,0 +1,38 @@
+
+
+.sec-service-down{
+    min-height: 100vh;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.sec-service-down img{
+    height: 300px;
+    margin-right: 100px;
+}
+.sec-service-down h1{
+    font-size: 7rem;
+    color: gray;
+}
+.sec-service-down h6{
+    font-size: 1.5rem;
+    color: #bc2bff;
+}
+.sec-service-down span{
+    color: red !important;
+    font-size: 1.5rem;
+    margin-right: 20px;
+}
+.sec-service-down p{
+    font-size: 1.1rem;
+    margin-top: 10px;
+}
+.sec-service-down a{
+    background-color: #7249fb;
+    margin-top: 20px;
+    display: inline-block;
+    padding: 10px 20px;
+    color: white;
+}
+

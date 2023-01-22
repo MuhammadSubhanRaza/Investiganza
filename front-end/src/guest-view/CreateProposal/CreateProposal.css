@@ -1,0 +1,65 @@
+.create-proposal-cont{
+    box-shadow: rgba(0,0,0,0.3) 0px 0px 20px;
+    padding: 70px 50px;
+    margin-top: 50px;
+    border-radius: 10px;
+    margin-bottom: 40px;
+}
+.create-proposal-cont h3{
+    font-size: 1.4rem;
+    padding: 10px 0px;
+}
+.create-proposal-cont input,textarea{
+    width: 100%;
+    padding: 10px 20px;
+    font-size: 1.1rem;
+    border: none;
+    outline: none;
+    border: 1px solid rgb(204, 204, 204);
+    border-radius: 10px;
+}
+.create-proposal-cont input:focus{
+    border-color: #7249fb;
+}
+.create-proposal-cont textarea:focus{
+    border-color: #7249fb;
+}
+.create-proposal-cont button{
+    width: 100%;
+    color: white;
+    background-color: #7249fb;
+    outline: none;
+    border: none;
+    margin-top: 25px;
+    padding: 10px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+.create-proposal-cont button:hover{
+    background-color: #5435b9;
+}
+
+.create-prop-loader {
+    height: 4.5px;
+    width: 100%px;
+    background: linear-gradient(#474bff 0 0),
+        linear-gradient(#474bff 0 0),
+        #dbdcef;
+    background-size: 60% 100%;
+    background-repeat: no-repeat;
+    animation: progress-7x9cg2 3s infinite;
+ }
+ 
+ @keyframes progress-7x9cg2 {
+    0% {
+       background-position: -150% 0,-150% 0;
+    }
+ 
+    66% {
+       background-position: 250% 0,-150% 0;
+    }
+ 
+    100% {
+       background-position: 250% 0, 250% 0;
+    }
+ }

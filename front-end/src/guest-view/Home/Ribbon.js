@@ -6,8 +6,8 @@ const Ribbon = () => {
   return (
     <section className='home-sec-ribbon'>
       <div>
-        <h3>Investiganza's Community</h3>
-        <p className='home-sec-ribbon-header-desc'>
+        <h3 className='text-white'>Investiganza's Community</h3>
+        <p className='home-sec-ribbon-header-desc text-white'>
           We have a great community of Investors and Finance Seeker who make Investiganza absolute best <br /> Do You want to explore? 
         </p>
         <div className='container'>
@@ -19,7 +19,7 @@ const Ribbon = () => {
                 </span>
                 <div>
                   <a href='#' className='pl-3'>Investors</a>
-                  <p className='pl-3'>on Investiganza</p>
+                  <p className='pl-3 text-white'>on Investiganza</p>
                 </div>
               </div>
             </div>
@@ -30,7 +30,7 @@ const Ribbon = () => {
                 </span>
                 <div>
                   <a href='#' className='pl-3'>Investment</a>
-                  <p className=''>on Investiganza</p>
+                  <p className='text-white'>on Investiganza</p>
                 </div>
               </div>
             </div>

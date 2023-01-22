@@ -8,6 +8,7 @@ import Services from './Services'
 import Subscribe from './../Common/Subscribe'
 import Companies from './Companies'
 import Ribbon from './Ribbon'
+import HeadUpdateIndex from './HeadUpdateIndex'
 
 const Home = () => {
 
@@ -15,7 +16,8 @@ const Home = () => {
 
   return (
       <>
-        <Head/>
+        {/* <Head/> */}
+        <HeadUpdateIndex/>
         <Services/>
         <About/>
         <Counter/>

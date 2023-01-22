@@ -1,0 +1,48 @@
+
+.temp-locked-right{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+.temp-locked-left{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+.temp-locked-right h3{
+    color: #8860D0;
+}
+.temp-locked-right p{
+    font-size: 1.1rem;
+    margin-top: 20px;
+}
+.temp-locked-right button
+{
+    border: none;
+    outline: none;
+}
+.temp-locked-btn-why{
+    background-color: transparent;
+    margin-top: 40px;
+    color: #8860D0;
+    font-size: 1rem;
+}
+.temp-locked-btn-why:hover
+{
+    color: #491e99;
+}
+.temp-locked-btn-logout{
+    margin-top: 10px;
+    background-color: #8860D0;
+    color: white;
+    padding: 7px 15px;
+    font-size: 1.1rem;
+    letter-spacing: 1px;
+    transition: 0.3s;
+    margin-top: 40px;
+}
+.temp-locked-btn-logout:hover{
+    background-color: #491e99;
+}

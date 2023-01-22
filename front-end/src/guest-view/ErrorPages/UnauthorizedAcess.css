@@ -1,0 +1,45 @@
+.unauthorized-access
+{
+    position: relative;
+    display: flex;
+    min-height: 100vh;
+    justify-content: center;
+    align-items: center;
+}
+.unauthorized-403
+{
+    position: absolute;
+    font-size: 35rem;
+    color: rgba(136, 96, 208,0.13);
+    z-index: -1;
+}
+.unauthorized-access div{
+    text-align: center;
+}
+.unauthorized-access img
+{
+    height: 200px;
+}
+.unauthorized-access h2{
+    font-size: 2.5rem;
+    margin-top: 20px;
+}
+.unauthorized-access p{
+    margin-top: 20px;
+    font-size: 1.1rem;
+}
+.unauthorized-btn-logout{
+    margin-top: 30px;
+    display: inline-block;
+    padding: 7px 15px;
+    background-color: #8860D0;
+    color: white;
+    font-size: 1.2rem;
+    letter-spacing: 1px;
+    transition: 0.3s;
+}
+.unauthorized-btn-logout:hover
+{
+    background-color: #4e259b;
+    color: white;
+}
