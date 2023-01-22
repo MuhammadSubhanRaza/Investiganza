@@ -35,6 +35,8 @@ import IsLoggedInService from './MainServiceComponents/IsLoggedInService';
 import TemporarilyLocked from './guest-view/ErrorPages/TemporarilyLocked';
 import UnauthorizedAcess from './guest-view/ErrorPages/UnauthorizedAcess';
 import IsAdminService from './MainServiceComponents/IsAdminService';
+import InvestorDashboard from './guest-view/InvestorDashboard/InvestorDashboard';
+import FinanceSeekerDashboard from './guest-view/FinanceSeekerDashboard/FinanceSeekerDashboard';
 
 function App() {
 
@@ -94,8 +96,10 @@ function App() {
           <Route path='/signup' element={<Signup/>}/>
           <Route path='/underreview' element={<UnderReview/>}/>
           <Route path='/policies' element={<Policies/>}/>
-          <Route path='/messages' element={<Message/>}/>
 
+          <Route path='/messages' element={<Message/>}/>
+          <Route path='/investor-dashboard' element={<InvestorDashboard/>}/>
+          <Route path='/financeseeker-dashboard' element={<FinanceSeekerDashboard/>}/>
 
           {/* ----------- ADMIN ------------ */}
 

@@ -37,6 +37,7 @@
     border: none;
     transition: 0.3s;
     padding: 10px;
+    border: solid 1px #7249fb;
 }
 .prof-det-btn:hover{
     background-color: #7249fb;
@@ -86,4 +87,45 @@
 }
 .message-notification-pd button:hover{
     color: white;
+}
+
+.view-all-feedbacks-cont
+{
+    position: fixed;
+    width: 100%;
+    min-height: 100vh;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 1000;
+    top: 0;
+    left: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.view-all-feedbacks-center{
+    background-color: white;
+    padding: 30px 70px;
+    width: 75%;
+    border-radius: 30px;
+}
+.view-all-feedback-scroller
+{
+    height: 70vh;
+    overflow-y: auto;
+}
+
+.btn-close-all-fb-cont
+{
+    color: black;
+    background-color: transparent;
+    border: none;
+    outline: none;
+    font-size: 1.2rem;
+    padding: 2px 10px;
+    border-radius: 50%;
+    transition: 0.3s;
+}
+.btn-close-all-fb-cont:hover{
+    background-color: #f4f1ff;
 }

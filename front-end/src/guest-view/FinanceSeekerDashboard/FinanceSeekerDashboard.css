@@ -1,0 +1,130 @@
+/* .fs-big-sec
+{
+    background: linear-gradient(rgba(56, 149, 255, 0.4),rgba(0, 3, 22, 0.61)), 
+    url('./../../../public/images/building3.jpg');
+    background-size: cover;
+    min-height: 400px;
+    background-position: center;
+    padding: 30px;
+}
+
+.fs-big-sec h6
+{
+    color: white;
+    font-size: 1.5rem;
+}
+
+.fs-indicator-tile{
+    min-height: 200px;
+    background: linear-gradient(rgba(0, 3, 22, 0.4),rgba(0, 3, 22, 0.4)), 
+    url('./../../../public/images/graphimg.jpg');
+    background-size: cover;
+    padding: 20px;
+    display: flex;
+    align-items: center;
+}
+.fs-indicator-tile p{
+    color: rgb(224, 224, 224);
+    letter-spacing: 1px;
+    font-weight: 600;
+}
+.fs-indicator-tile h2{
+    color: white;
+}
+.fs-indicator-tile button
+{
+    outline: none;
+    border: none;
+    background-color: transparent;
+    color: rgb(231, 231, 231);
+    border: solid 1px rgb(231, 231, 231);
+    padding: 4px 8px;
+}
+.fs-indicator-tile button:hover{
+    background-color: #7249fb;
+} */
+
+
+.fs-main-intro
+{
+    min-height: 230px;
+    background: linear-gradient(rgba(0, 3, 22, 0.4),rgba(0, 3, 22, 0.4)), 
+    url('./../../../public/images/building4.jpg');
+    background-position: center;
+    background-size: cover;
+    border-radius: 10px;
+    padding: 20px 50px;
+}
+.fs-name{
+    color: #7249fb;
+}
+.fs-tag{
+    color: white;
+}
+.fs-welcome{
+    color: rgb(136, 187, 255);
+    display: block;
+    margin-top: 30px;
+}
+
+.fs-indicator{
+    background-color: white;
+    border-radius: 10px;
+    padding: 15px;
+    display: flex;
+}
+
+.fs-ind-icon{
+    color: white;
+    background: linear-gradient(#bc2bff,#7249fb);
+    text-align: center;
+    font-size: 1.5rem;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+}
+
+.fs-allposts{
+    background-color: white;
+    padding: 30px;
+    min-height: 320px;
+    border-radius: 10px;
+}
+.fs-post-item
+{
+    background-color: rgb(19, 18, 37);
+    padding: 20px;
+    position: relative;
+}
+.fs-item-head
+{
+    background-color: rgb(19, 18, 37);
+    font-size: 1.3rem;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    left: 50%;
+    top: 0;
+    transform: translate(-50%,-50%);
+    border-radius: 50%;
+}
+.fs-post-item button 
+{
+    outline: none;
+    border: none;
+    background-color: transparent;
+    color: #bc2bff;
+    margin-top: 15px;
+}
+.fs-post-item p{
+    height: 48px;
+}
+.fs-post-item h5{
+    color: rgb(240, 240, 240);
+}

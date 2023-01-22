@@ -3,12 +3,13 @@ import './ProfileDetails.css';
 import AfterLoginNav from '../AfterLoginNav/AfterLoginNav'
 import Footer from '../Common/Footer'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faComment, faMapMarker, faMessage, faPaperPlane, faStar, faTimes } from '@fortawesome/free-solid-svg-icons';
+import { faComment, faEye, faMapMarker, faMessage, faPaperPlane, faStar, faTimes } from '@fortawesome/free-solid-svg-icons';
 import Aos from 'aos';
 import "aos/dist/aos.css";
 import { useParams } from 'react-router-dom';
-import { getProfile, postFeedback } from './ProfileDetailsService';
+import { getAllFeedbacks, getProfile, postFeedback } from './ProfileDetailsService';
 import { useSelector } from 'react-redux';
+import ViewAllFeedbacks from '../ViewAllFeedbacks/ViewAllFeedbacks';
 
 
 const ProfileDetails = () => {
@@ -26,6 +27,7 @@ const ProfileDetails = () => {
 
     const [isFeedbackModalOpen, setisFeedbackModalOpen] = useState(false);
     const [isMessageModalOpen, setisMessageModalOpen] = useState(false);
+    const [isAllFeedbackModalOpen, setisAllFeedbackModalOpen] = useState(false);
     const [profile, setprofile] = useState({});
     const [isDataLoading, setisDataLoading] = useState(true);
 
@@ -34,6 +36,18 @@ const ProfileDetails = () => {
 
     const [feedbackNotification, setfeedbackNotification] = useState(false);
     const [messageNotification, setmessageNotification] = useState(false);
+
+    const [allFeedbacks, setallFeedbacks] = useState([]);
+
+    //----------------------- LOAD FEEDBACKS
+
+    async function loadFeedbacks()
+    {
+        let data = await getAllFeedbacks(profid)
+        setTimeout(() => {
+            setallFeedbacks(data)
+        }, 1000);
+    }
 
 
 
@@ -47,7 +61,6 @@ const ProfileDetails = () => {
         setTimeout(() => {
             setprofile(data)
             setisDataLoading(false)
-            console.log(data)
         }, 2000);
 
         
@@ -80,6 +93,14 @@ const ProfileDetails = () => {
     {
         setfeedbackNotification(false)
     }
+    function openAllFeedbackModal()
+    {
+        setisAllFeedbackModalOpen(true)
+    }
+    function closeAllFeedbackModal()
+    {
+        setisAllFeedbackModalOpen(false)
+    }
 
 
     // -------------------- SEND FEEDBACK and MESSAGE
@@ -111,6 +132,7 @@ const ProfileDetails = () => {
     useEffect(() => {
         Aos.init({duration:2000})
         loadProfile()
+        loadFeedbacks()
     }, []);
 
 
@@ -170,7 +192,8 @@ const ProfileDetails = () => {
                                 </span>
                             </div>
                             <div className='prof-det-btns-sec mt-4'>
-                                <button onClick={()=>openMessageModal()} className='prof-det-btn'><FontAwesomeIcon icon={faMessage} className="mr-2"/> Send Message </button>
+                                <button onClick={()=>openAllFeedbackModal()} className='prof-det-btn'><FontAwesomeIcon icon={faEye} className="mr-2"/> View Feedbacks </button>
+                                <button onClick={()=>openMessageModal()} className='prof-det-btn ml-2'><FontAwesomeIcon icon={faMessage} className="mr-2"/> Send Message </button>
                                 <button onClick={()=>openFeedbackModal()} className='prof-det-btn ml-2'><FontAwesomeIcon icon={faComment} className="mr-2"/> Send Feedback</button>
                             </div>
                             <div className='prof-det-pinfo'>
@@ -231,7 +254,7 @@ const ProfileDetails = () => {
                     <label className='mt-5'>Enter Your Message</label>
                     <textarea value={Feedback} onChange={(e)=>setFeedback(e.target.value)}></textarea>
                     <button onClick={()=>sendFeedback()} className='prof-det-btn mt-4'>Send <FontAwesomeIcon icon={faPaperPlane}/></button>
-                    <button onClick={()=>closeFeedbackModal()} className='prof-det-btn mt-4'>Close <FontAwesomeIcon icon={faTimes}/></button>
+                    <button onClick={()=>closeFeedbackModal()} className='prof-det-btn mt-4 ml-2'>Close <FontAwesomeIcon icon={faTimes}/></button>
                 
             </div>
         </div>
@@ -246,7 +269,7 @@ const ProfileDetails = () => {
                     <label className='mt-5'>Enter Your Message</label>
                     <textarea value={Message} onChange={(e)=>setMessage(e.target.value)}></textarea>
                     <button onClick={()=>sendMessage()} className='prof-det-btn mt-4'>Send <FontAwesomeIcon icon={faPaperPlane}/></button>
-                    <button onClick={()=>closeMessageModal()} className='prof-det-btn mt-4'>Close <FontAwesomeIcon icon={faTimes}/></button>
+                    <button onClick={()=>closeMessageModal()} className='prof-det-btn mt-4 ml-2'>Close <FontAwesomeIcon icon={faTimes}/></button>
                 
             </div>
         </div>
@@ -279,6 +302,32 @@ const ProfileDetails = () => {
             <div className='col-md-2 text-right'>
                 <button onClick={()=>closeNotificationMessage()}><FontAwesomeIcon icon={faTimes}/></button>
             </div>
+        </div>
+    </div>
+</div>
+}
+
+{isAllFeedbackModalOpen && 
+
+<div className='view-all-feedbacks-cont' >
+    <div className='view-all-feedbacks-center' data-aos="zoom-in">
+        <div className='container'>
+            <div className='row'>
+                <div className='col-md-9'>
+                    <h5>All Feedbacks of {profile.firstName+" "+profile.lastName}</h5>
+                    <span>{allFeedbacks.length} Feedbacks</span>
+                </div>
+                <div className='col-md-3 text-right'>
+                    <button onClick={()=>closeAllFeedbackModal()} className='btn-close-all-fb-cont'><FontAwesomeIcon icon={faTimes}/></button>
+                </div>
+            </div>
+        </div>
+        <div className='view-all-feedback-scroller mt-3'>
+            {
+                allFeedbacks.map((item)=>{
+                    return <ViewAllFeedbacks data={item}/>
+                })
+            }
         </div>
     </div>
 </div>

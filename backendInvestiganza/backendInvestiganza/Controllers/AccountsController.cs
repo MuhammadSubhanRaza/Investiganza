@@ -140,7 +140,8 @@ namespace backendInvestiganza.Controllers
                 isAdmin = user.IsAdmin,
                 isInvestor = user.isInvestor,
                 isProfileApproved = profile_user.IsProfileApproved,
-                isUserLocked = user.IsUserLocked
+                isUserLocked = user.IsUserLocked,
+                ProfileId = profile_user.Id
             };
 
 

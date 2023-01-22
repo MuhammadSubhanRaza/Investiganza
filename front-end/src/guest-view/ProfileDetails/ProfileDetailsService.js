@@ -27,3 +27,18 @@ export async function postFeedback(formData)
      })
      return isActionSuccesful
    }
+
+
+export async function getAllFeedbacks(id)
+{
+    let dt = []
+    await Axios.get(feedbackUrl+"/"+id).then(
+        res=>{
+            dt = res.data
+        },
+        error=>{
+
+        }
+    )
+    return dt
+}
