@@ -2,8 +2,28 @@ import React, { useEffect } from 'react'
 import './review.css';
 import Aos from 'aos';
 import "aos/dist/aos.css";
+import { useDispatch, useSelector } from 'react-redux';
+import { setProfileData } from '../../ReduxHub/index'
+import { Link, useNavigate } from 'react-router-dom';
 
 const UnderReview = () => {
+
+  // ------------- REDUX
+
+  const dispatch = useDispatch();
+
+  const myState = useSelector((state)=>state.SetTheProfileGlobal)
+ 
+  const navigate = useNavigate()
+
+
+  function onLogoutClick()
+  {
+      dispatch(setProfileData(null));
+      navigate('/login')
+  }
+
+
 
   useEffect(()=>{
     Aos.init({duration:2000})
@@ -21,7 +41,7 @@ const UnderReview = () => {
             <h6>
                 It will be available for you as soon as you get verified. It may take 3 to 5 days to verify
             </h6>
-            <button>logout</button>
+            <button onClick={()=>onLogoutClick()}>logout</button>
             <br/>
             <a href="#">Why am I seeing this ?</a>
             </div>

@@ -1,49 +1,6 @@
-/* .fs-big-sec
-{
-    background: linear-gradient(rgba(56, 149, 255, 0.4),rgba(0, 3, 22, 0.61)), 
-    url('./../../../public/images/building3.jpg');
-    background-size: cover;
-    min-height: 400px;
-    background-position: center;
-    padding: 30px;
+.fs-main-cont{
+    margin: 40px 0px;
 }
-
-.fs-big-sec h6
-{
-    color: white;
-    font-size: 1.5rem;
-}
-
-.fs-indicator-tile{
-    min-height: 200px;
-    background: linear-gradient(rgba(0, 3, 22, 0.4),rgba(0, 3, 22, 0.4)), 
-    url('./../../../public/images/graphimg.jpg');
-    background-size: cover;
-    padding: 20px;
-    display: flex;
-    align-items: center;
-}
-.fs-indicator-tile p{
-    color: rgb(224, 224, 224);
-    letter-spacing: 1px;
-    font-weight: 600;
-}
-.fs-indicator-tile h2{
-    color: white;
-}
-.fs-indicator-tile button
-{
-    outline: none;
-    border: none;
-    background-color: transparent;
-    color: rgb(231, 231, 231);
-    border: solid 1px rgb(231, 231, 231);
-    padding: 4px 8px;
-}
-.fs-indicator-tile button:hover{
-    background-color: #7249fb;
-} */
-
 
 .fs-main-intro
 {

@@ -55,7 +55,8 @@ namespace backendInvestiganza.Controllers
                                 CategoryName = c.Name,
                                 FirstName = u.FirstName,
                                 LastName = u.LastName,
-                                Email = u.Email
+                                Email = u.Email,
+                                IsUserLocked = u.IsUserLocked
                             }
                             ).ToListAsync();
 

@@ -28,6 +28,17 @@ const IsLoggedInService = (props) => {
             navigate('/login')
         }
         else{
+            isProfilePresent()
+        }
+     }
+
+     function isProfilePresent()
+     {
+        if(myState.isProfilePresent == false)
+        {
+            navigate('/create-profile')
+        }
+        else{
             isProfileApproved()
         }
      }
@@ -48,6 +59,10 @@ const IsLoggedInService = (props) => {
         if(myState.isUserLocked==true)
         {
             navigate('/teporarilylocked')
+        }
+        else if(myState.isAdmin)
+        {
+            navigate('/admin/admindashboard')
         }
         else
         {

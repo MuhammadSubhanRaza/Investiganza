@@ -83,7 +83,8 @@ const Login = () => {
             isProfileApproved : login_states.isProfileApproved,
             isInvestor: login_states.isInvestor,
             isAdmin:login_states.isAdmin,
-            profileId : login_states.profileId
+            profileId : login_states.profileId,
+            isProfilePresent : login_states.isProfilePresent
         }
         
         dispatch(setProfileData(loggedin_user_data))

@@ -23,6 +23,7 @@ const AllUsers = () => {
   async function fetchData() {
     const myData = await fetchAllData();
     setusersList(myData.data)
+    console.log(myData.data)
     setisDataLoading(false)
   }
 
@@ -78,7 +79,13 @@ const AllUsers = () => {
                     <tr key={item.id}>
                       <td><img className='table-admin-prof-img' src={item.profileImagePath}/></td>
                       <td>
-                        <span className='admin-table-user-status-da'>inactive</span>
+                        {
+                          item.isUserLocked && <span className='admin-table-user-status-da'>inactive</span>
+                        }
+                        {
+                          !item.isUserLocked && <span className='admin-table-user-status-a'>active</span>
+                        }
+                        
                       </td>
                       <td>{item.firstName+" "+item.lastName}</td>
                       <td>{item.email}</td>

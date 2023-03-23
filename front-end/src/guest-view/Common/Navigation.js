@@ -25,7 +25,6 @@ const Navigation = () => {
         setisLoggedIn(false)
         dispatch(setProfileData(null));
         navigate('/')
-        
     }
 
 
@@ -86,6 +85,30 @@ const Navigation = () => {
                     <li className="nav-item usual-nav-link">
                         <Link className='nav-link' to="/policies">Policies</Link>
                     </li>
+
+                    {
+                        isAdmin && isLoggedIn && 
+                            <>
+                                <li className="nav-item usual-nav-link">
+                                    <Link className='nav-link' to="/admin/admindashboard">Dashboard</Link>
+                                </li>
+                                <li className="nav-item nav-link-register">
+                                    <button style={{background:'transparent',border:'none',fontSize:'1rem'}} className='nav-link' onClick={()=>onLogoutClick()}>Logout</button>
+                                </li>
+                            </>
+                    }
+
+                    {
+                        !isAdmin && isLoggedIn && 
+                        <>
+                            <li className="nav-item usual-nav-link">
+                                <Link className='nav-link' to="/newsfeed">Dashboard</Link>
+                            </li>
+                            <li className="nav-item nav-link-register">
+                                <button style={{background:'transparent',border:'none',fontSize:'1rem'}} className='nav-link' onClick={()=>onLogoutClick()}>Logout</button>
+                            </li>
+                        </>
+                    }
                     
                     {
                         !isLoggedIn &&
@@ -99,7 +122,7 @@ const Navigation = () => {
                         </>
                     }
                     
-                    {
+                    {/* {
                         isLoggedIn && 
                         <>
                             <li className="nav-item usual-nav-link">
@@ -109,7 +132,7 @@ const Navigation = () => {
                                 <button style={{background:'transparent',border:'none',fontSize:'1rem'}} className='nav-link' onClick={()=>onLogoutClick()}>Logout</button>
                             </li>
                         </>
-                    }
+                    } */}
                     
                 </ul>
             </div>

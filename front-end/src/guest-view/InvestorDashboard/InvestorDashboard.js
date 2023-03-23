@@ -1,15 +1,83 @@
 import { faAndroid, faGithub } from '@fortawesome/free-brands-svg-icons';
-import { faEye,faPaperclip } from '@fortawesome/free-solid-svg-icons';
+import { faBars, faComment, faEye,faHandshake,faPaperclip } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import AfterLoginNav from '../AfterLoginNav/AfterLoginNav';
 import './InvestorDashboard.css';
+import Aos from 'aos';
+import "aos/dist/aos.css";
+import { GetDashboardDetails } from './InvestorDashboardService';
+import { useSelector } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
 
 const InvestorDashboard = () => {
+
+
+    const navigate = useNavigate()
+
+    // -------------------- REDUX
+
+    const myState = useSelector((state)=>state.SetTheProfileGlobal)
+
+
+    const [details, setdetails] = useState({});
+    const [allProposals, setallProposals] = useState([]);
+    const [isDataLoading, setisDataLoading] = useState(true);
+
+
+    // ------------------ LOAD PROFILE
+
+    function loadProfile(id)
+    {
+        navigate('/profiledetails/'+id)
+    }
+
+
+    // ---------------- LOAD DETAILS
+
+
+    async function loadDetails()
+    {
+        let data = await GetDashboardDetails(myState.id);
+        setTimeout(() => {
+            setdetails(data)
+            setProposals(data.proposals)
+            setisDataLoading(false)
+        }, 2000);
+    }
+
+
+    function setProposals(proposals)
+    {
+        if(proposals.lensth==0)
+        {
+            setallProposals([])
+        }
+        else if(proposals.lensth > 2)
+        {
+            setallProposals(proposals[0,1])
+        }
+        else{
+            setallProposals(proposals)
+        }
+    }
+    
+  // --------------- USE EFFECT
+
+  useEffect(() => {
+    Aos.init({duration:2000})
+    loadDetails()
+  }, []);
+
   return (
     <>
     <AfterLoginNav/>
-        <section className='investor-dashboard-sec'>
+
+    {isDataLoading && <div className='bars-load'></div>}
+
+    {!isDataLoading &&     
+
+        <section className='investor-dashboard-sec' data-aos="fade-up">
             <div className='container'>
                 <div className='row mt-4'>
                     <div className='col-md-4'>
@@ -17,12 +85,12 @@ const InvestorDashboard = () => {
                             <div className='container'>
                                 <div className='row'>
                                     <div className='col-md-8'>
-                                        <span>Total Posts</span>
-                                        <h5>150</h5>
+                                        <span>Total Proposals</span>
+                                        <h5>{details.totalProposals}</h5>
                                     </div>
                                     <div className='col-md-4 text-right'>
                                         <span className='inv-dbd-indicator-icon'>
-                                            <FontAwesomeIcon icon={faGithub}/>
+                                            <FontAwesomeIcon icon={faBars}/>
                                         </span>
                                     </div>
                                 </div>
@@ -41,12 +109,12 @@ const InvestorDashboard = () => {
                             <div className='container'>
                                 <div className='row'>
                                     <div className='col-md-8'>
-                                        <span>Total Posts</span>
-                                        <h5>150</h5>
+                                        <span>Total Connections</span>
+                                        <h5>{details.totalConnections}</h5>
                                     </div>
                                     <div className='col-md-4 text-right'>
                                         <span className='inv-dbd-indicator-icon'>
-                                            <FontAwesomeIcon icon={faGithub}/>
+                                            <FontAwesomeIcon icon={faHandshake}/>
                                         </span>
                                     </div>
                                 </div>
@@ -65,12 +133,12 @@ const InvestorDashboard = () => {
                             <div className='container'>
                                 <div className='row'>
                                     <div className='col-md-8'>
-                                        <span>Total Posts</span>
-                                        <h5>150</h5>
+                                        <span>Total Feedbacks Given</span>
+                                        <h5>{details.totalFeedbacks}</h5>
                                     </div>
                                     <div className='col-md-4 text-right'>
                                         <span className='inv-dbd-indicator-icon'>
-                                            <FontAwesomeIcon icon={faGithub}/>
+                                            <FontAwesomeIcon icon={faComment}/>
                                         </span>
                                     </div>
                                 </div>
@@ -90,11 +158,11 @@ const InvestorDashboard = () => {
                         <div className='investor-dbd-desc-first'>
                             <div className='pr-4'>
                                 <span>Welcome</span>
-                                <h5>Muhammad Subhan Raza</h5>
+                                <h5>{details.name}</h5>
                                 <p>
-                                    lorem lorem loremloremlorem lorem lorem lorem lorem lorem lorem lorem
+                                    {details.about}
                                 </p>
-                                <button><FontAwesomeIcon icon={faEye} className="mr-2"/> View Profile</button>
+                                <button onClick={()=>loadProfile(details.profileId)}><FontAwesomeIcon icon={faEye} className="mr-2"/> View Profile</button>
                             </div>
                             <div className='investor-dbd-desc-first-img'>
                                 <img src="/images/globeimage2.png"/>
@@ -121,23 +189,21 @@ const InvestorDashboard = () => {
                                     <button>View all</button>
                                 </div>
                             </div>
-                            <div className='inv-dbd-proposal'>
-                                <button className='inv-dbd-proposal-btn'>
-                                    <div className='text-left'>
-                                        <span>Amount Offered</span>
-                                        <p>Lorem lorem lorem lorem Lorem lorem lorem lorem Lorem lorem lorem lorem</p>
-                                    </div>
-                                </button>
-                            </div>
-                            <hr/>
-                            <div className='inv-dbd-proposal'>
-                                <button className='inv-dbd-proposal-btn'>
-                                    <div className='text-left'>
-                                        <span>Amount Offered</span>
-                                        <p>Lorem lorem lorem lorem Lorem lorem lorem lorem Lorem lorem lorem lorem</p>
-                                    </div>
-                                </button>
-                            </div>
+                            {
+
+                               
+
+                                allProposals.map((item)=>{
+                                    return <div className='inv-dbd-proposal'>
+                                                <button className='inv-dbd-proposal-btn'>
+                                                    <div className='text-left'>
+                                                    <span>Amount Offered</span> <span className='text-primary'>Rs. {item.amount}</span>
+                                                        <p>{item.message}</p>
+                                                    </div>
+                                                </button>
+                                            </div>
+                                })
+                            }
                         </div>
                     </div>
 
@@ -162,6 +228,7 @@ const InvestorDashboard = () => {
                 </div>
             </div>
         </section>
+}
     </>
   )
 }

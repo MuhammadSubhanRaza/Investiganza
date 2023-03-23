@@ -44,6 +44,10 @@ namespace backendInvestiganza.Controllers
                                   UserId = p.UserId
                               }
                               ).Where(x => x.UserId == id).ToListAsync();
+
+
+
+
             return post;
         }
     }

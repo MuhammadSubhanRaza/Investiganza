@@ -23,7 +23,7 @@ import ProposalDetails from './guest-view/ProposalDetails/ProposalDetails';
 import AllUsers from './admin-view/AllUsers/AllUsers';
 import Category from './admin-view/Category/Category';
 import AddCategory from './admin-view/Category/AddCategory';
-import { createContext, useEffect, useState } from 'react';
+import { Component, createContext, useEffect, useState } from 'react';
 import ServiceDown from './guest-view/ErrorPages/ServiceDown';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
@@ -37,6 +37,7 @@ import UnauthorizedAcess from './guest-view/ErrorPages/UnauthorizedAcess';
 import IsAdminService from './MainServiceComponents/IsAdminService';
 import InvestorDashboard from './guest-view/InvestorDashboard/InvestorDashboard';
 import FinanceSeekerDashboard from './guest-view/FinanceSeekerDashboard/FinanceSeekerDashboard';
+import AdminDashboard from './admin-view/AdminDashboard/AdminDashboard';
 
 function App() {
 
@@ -65,8 +66,8 @@ function App() {
       <Router>
         <Routes>
           
-          {/* <Route path='/create-profile' element={<ProfileCreate notificationFailure={notifyDataSaveFailure} notificationUpdate={notifyDataUpdated}/>}/> */}
-          <Route path='/create-profile' element={<IsLoggedInService Component={ProfileCreate}/>}/>
+          <Route path='/create-profile' element={<ProfileCreate />}/>
+          {/* <Route path='/create-profile' element={<IsLoggedInService Component={ProfileCreate}/>}/> */}
           {/* <Route path='/newsfeed' element={<NewsFeed/>}/> */}
           <Route path='/newsfeed' element={<IsLoggedInService Component={NewsFeed}/>}/>
           {/* <Route path='/createpost' element={<CreatePost notificationFailure={notifyDataSaveFailure}  notificationSave={notifyDataSaved}/>}/> */}
@@ -84,6 +85,9 @@ function App() {
           <Route path='/profiledetails/:profid' element={<IsLoggedInService Component={ProfileDetails}/>}/>
           {/* <Route path='/myproposals' element={<MyProposals/>}/> */}
           {/* <Route path='/profiledetails/:profid' element={<ProfileDetails/>}/> */}
+          
+          <Route path='/financeseeker-dashboard' element={<IsLoggedInService Component={FinanceSeekerDashboard}/>}/>
+          <Route path='/investor-dashboard' element={<IsLoggedInService Component={InvestorDashboard}/>}/>
 
           <Route path='/teporarilylocked' element={<TemporarilyLocked/>}/>
           <Route path='/servicedown' element={<ServiceDown/>}/>
@@ -98,17 +102,19 @@ function App() {
           <Route path='/policies' element={<Policies/>}/>
 
           <Route path='/messages' element={<Message/>}/>
-          <Route path='/investor-dashboard' element={<InvestorDashboard/>}/>
-          <Route path='/financeseeker-dashboard' element={<FinanceSeekerDashboard/>}/>
+          {/* <Route path='/investor-dashboard' element={<InvestorDashboard/>}/> */}
+          {/* <Route path='/financeseeker-dashboard' element={<FinanceSeekerDashboard/>}/> */}
 
           {/* ----------- ADMIN ------------ */}
-
+          
+          <Route path='/admin/admindashboard' element={<IsAdminService Component={AdminDashboard}/>} />
           <Route path='/admin/categories' element={<IsAdminService Component={Category}/>}/>
           <Route path='/admin/addcategory' element={<IsAdminService Component={AddCategory}/>} />
           <Route path='/admin/editcategory/:catid' element={<IsAdminService Component={AddCategory}/>} />
+          <Route path='/admin/allusers' element={<IsAdminService Component={AllUsers}/>}/>
 
-          {/* <Route path='/admin/allusers' element={<AllUsers/>} />
-          <Route path='/admin/categories' element={<Category notificationFailure={notifyDataSaveFailure} notificationDelete={notifyDataDeleted}/>}/>
+           {/* <Route path='/admin/allusers' element={<AllUsers/>} /> */}
+          {/*<Route path='/admin/categories' element={<Category notificationFailure={notifyDataSaveFailure} notificationDelete={notifyDataDeleted}/>}/>
           <Route path='/admin/addcategory' element={<AddCategory notificationFailure={notifyDataSaveFailure}  notificationSave={notifyDataSaved}/>}/>
           <Route path='/admin/editcategory/:catid' element={<AddCategory notificationFailure={notifyDataSaveFailure} notificationUpdate={notifyDataUpdated}/>}/> */}
 

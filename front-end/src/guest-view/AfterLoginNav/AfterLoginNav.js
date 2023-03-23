@@ -20,6 +20,10 @@ const AfterLoginNav = () => {
         navigate('/login')
     }
 
+    function loadProfile()
+    {
+        navigate('/profiledetails/'+myState.profileId)
+    }
 
     return (
         <>
@@ -33,21 +37,43 @@ const AfterLoginNav = () => {
                 </button>
                 <div className="collapse navbar-collapse" id="navbarNav">
                     <ul className="navbar-nav ml-auto">
-                        <li className="nav-item active">
-                            <Link to="/newsfeed" className="nav-link">Posts</Link>
-                        </li>
-                        <li className="nav-item">
-                            <Link to="/messages" className="nav-link">Messages</Link>
-                        </li>
-                        <li className="nav-item">
-                            <Link to="/myposts" className="nav-link">My Posts</Link>
-                        </li>
-                        <li className="nav-item">
-                            <Link to="/community" className="nav-link">Find Investor</Link>
-                        </li>
-                        <li className="nav-item">
-                            <Link to="/myproposals" className="nav-link">My Proposals</Link>
-                        </li>
+                        {
+                            !myState.isInvestor &&
+                            <>
+                                <li className="nav-item active">
+                                    <Link to="/financeseeker-dashboard" className="nav-link">Dashboard</Link>
+                                </li>
+                                {/* <li className="nav-item">
+                                    <Link to="/messages" className="nav-link">Messages</Link>
+                                </li> */}
+                                <li className="nav-item">
+                                    <Link to="/myposts" className="nav-link">My Posts</Link>
+                                </li>
+                                <li className="nav-item">
+                                    <Link to="/community" className="nav-link">Find Investor</Link>
+                                </li>
+                            </>
+                        }
+                        {
+                            myState.isInvestor &&
+                            <>
+                                <li className="nav-item active">
+                                    <Link to="/investor-dashboard" className="nav-link">Dashboard</Link>
+                                </li>
+                                    <li className="nav-item active">
+                                    <Link to="/newsfeed" className="nav-link">Newsfeed</Link>
+                                </li>
+                                {/* <li className="nav-item">
+                                    <Link to="/messages" className="nav-link">Messages</Link>
+                                </li> */}
+                                <li className="nav-item">
+                                    <Link to="/myproposals" className="nav-link">My Proposals</Link>
+                                </li>
+                            </>
+                        }
+                       
+                        
+                        
                         <li className="nav-item dropdown ">
 
                             <a className="nav-link btn-nav-profile-img" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -56,9 +82,11 @@ const AfterLoginNav = () => {
                             </a>
                             <div className="dropdown-menu subnav-dropdown-login" aria-labelledby="navbarDropdownMenuLink">
                                 <p className='afterlogin_user_title'>{myState.firstName+" "+myState.lastName} </p>
-                                <Link to="/profiledetails" className='dropdown-item a-nav-s-item'>View Profile</Link>
-                                <Link to="/createpost" className='dropdown-item a-nav-s-item'>Create New Post</Link>
-                                {/* <Link to="/" className='dropdown-item'>Logout</Link> */}
+                                <button onClick={()=>loadProfile()} className='dropdown-item a-nav-s-item'>View Profile</button>
+                                {
+                                    !myState.isInvestor &&
+                                    <Link to="/createpost" className='dropdown-item a-nav-s-item'>Create New Post</Link>
+                                }
                                 <button className='dropdown-item a-nav-s-item' onClick={()=>onLogoutClick()}>Logout</button>
                             </div>
                         </li>

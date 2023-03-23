@@ -3,7 +3,7 @@ import './ProfileDetails.css';
 import AfterLoginNav from '../AfterLoginNav/AfterLoginNav'
 import Footer from '../Common/Footer'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faComment, faEye, faMapMarker, faMessage, faPaperPlane, faStar, faTimes } from '@fortawesome/free-solid-svg-icons';
+import { faComment, faEdit, faEye, faMapMarker, faMessage, faPaperPlane, faStar, faTimes } from '@fortawesome/free-solid-svg-icons';
 import Aos from 'aos';
 import "aos/dist/aos.css";
 import { useParams } from 'react-router-dom';
@@ -38,6 +38,7 @@ const ProfileDetails = () => {
     const [messageNotification, setmessageNotification] = useState(false);
 
     const [allFeedbacks, setallFeedbacks] = useState([]);
+    const [isMyProfile, setisMyProfile] = useState(false);
 
     //----------------------- LOAD FEEDBACKS
 
@@ -64,6 +65,14 @@ const ProfileDetails = () => {
         }, 2000);
 
         
+    }
+
+    function checkifMyProfile()
+    {
+        if(myState.profileId == profid)
+        {
+            setisMyProfile(true)
+        }
     }
 
 
@@ -133,6 +142,7 @@ const ProfileDetails = () => {
         Aos.init({duration:2000})
         loadProfile()
         loadFeedbacks()
+        checkifMyProfile()
     }, []);
 
 
@@ -191,11 +201,21 @@ const ProfileDetails = () => {
                                     <FontAwesomeIcon icon={faStar}/>
                                 </span>
                             </div>
-                            <div className='prof-det-btns-sec mt-4'>
-                                <button onClick={()=>openAllFeedbackModal()} className='prof-det-btn'><FontAwesomeIcon icon={faEye} className="mr-2"/> View Feedbacks </button>
-                                <button onClick={()=>openMessageModal()} className='prof-det-btn ml-2'><FontAwesomeIcon icon={faMessage} className="mr-2"/> Send Message </button>
-                                <button onClick={()=>openFeedbackModal()} className='prof-det-btn ml-2'><FontAwesomeIcon icon={faComment} className="mr-2"/> Send Feedback</button>
-                            </div>
+                            {
+                                !isMyProfile && 
+                                <div className='prof-det-btns-sec mt-4'>
+                                    <button onClick={()=>openAllFeedbackModal()} className='prof-det-btn'><FontAwesomeIcon icon={faEye} className="mr-2"/> View Feedbacks </button>
+                                    <button onClick={()=>openMessageModal()} className='prof-det-btn ml-2'><FontAwesomeIcon icon={faMessage} className="mr-2"/> Send Message </button>
+                                    <button onClick={()=>openFeedbackModal()} className='prof-det-btn ml-2'><FontAwesomeIcon icon={faComment} className="mr-2"/> Send Feedback</button>
+                                </div>
+                            }
+                            {
+                                isMyProfile && 
+                                <div className='prof-det-btns-sec mt-4'>
+                                    <button onClick={()=>openFeedbackModal()} className='prof-det-btn ml-2'><FontAwesomeIcon icon={faEdit} className="mr-2"/> Edit Profile</button>
+                                </div>
+                            }
+                            
                             <div className='prof-det-pinfo'>
                                 <span className='prof-details-title mt-4'>Contact</span>
                                 <div className='prof-det-divider'></div>
