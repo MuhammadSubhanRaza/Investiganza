@@ -1,0 +1,87 @@
+.fs-main-cont{
+    margin: 40px 0px;
+}
+
+.fs-main-intro
+{
+    min-height: 230px;
+    background: linear-gradient(rgba(0, 3, 22, 0.4),rgba(0, 3, 22, 0.4)), 
+    url('./../../../public/images/building4.jpg');
+    background-position: center;
+    background-size: cover;
+    border-radius: 10px;
+    padding: 20px 50px;
+}
+.fs-name{
+    color: #7249fb;
+}
+.fs-tag{
+    color: white;
+}
+.fs-welcome{
+    color: rgb(136, 187, 255);
+    display: block;
+    margin-top: 30px;
+}
+
+.fs-indicator{
+    background-color: white;
+    border-radius: 10px;
+    padding: 15px;
+    display: flex;
+}
+
+.fs-ind-icon{
+    color: white;
+    background: linear-gradient(#bc2bff,#7249fb);
+    text-align: center;
+    font-size: 1.5rem;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+}
+
+.fs-allposts{
+    background-color: white;
+    padding: 30px;
+    min-height: 320px;
+    border-radius: 10px;
+}
+.fs-post-item
+{
+    background-color: rgb(19, 18, 37);
+    padding: 20px;
+    position: relative;
+}
+.fs-item-head
+{
+    background-color: rgb(19, 18, 37);
+    font-size: 1.3rem;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    left: 50%;
+    top: 0;
+    transform: translate(-50%,-50%);
+    border-radius: 50%;
+}
+.fs-post-item button 
+{
+    outline: none;
+    border: none;
+    background-color: transparent;
+    color: #bc2bff;
+    margin-top: 15px;
+}
+.fs-post-item p{
+    height: 48px;
+}
+.fs-post-item h5{
+    color: rgb(240, 240, 240);
+}

@@ -27,6 +27,7 @@ const MyPosts = () => {
     {
         let data = await getmyAllPosts(myState.id);
         setTimeout(() => {
+            console.log(data)
             setallPosts(data)
             setisDataLoading(false)
         }, 2000);

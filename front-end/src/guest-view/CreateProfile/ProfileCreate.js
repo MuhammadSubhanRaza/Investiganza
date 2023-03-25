@@ -12,8 +12,11 @@ import { useSelector } from 'react-redux';
 import { fetchCatgories, fetchCities, fetchOccupations,saveData } from './ProfileService';
 import Aos from 'aos';
 import "aos/dist/aos.css";
+import ProfileNavigation from '../ProfileNavigation/ProfileNavigation';
 
-const ProfileCreate = (props) => {
+const ProfileCreate = () => {
+
+    
 
     // ------------ REDUX
 
@@ -21,7 +24,7 @@ const ProfileCreate = (props) => {
     
   // ------------------ INITIALIZERS ----------
 
-    const{profileid} = useParams();
+    // const{profileid} = useParams();
     let navigate = useNavigate();
 
     const defaultFormImage = "images/profileimageholder.png";
@@ -94,7 +97,7 @@ const ProfileCreate = (props) => {
     occupationId:-1,
     otherOccupation:"",
     categoryId:-1,
-    userId:myState.userId
+    userId:myState.id
   }
 
   const {values,errors,touched,handleBlur,handleChange,handleSubmit,setFieldValue,setValues,resetForm} = useFormik({
@@ -125,7 +128,7 @@ const ProfileCreate = (props) => {
         setisDataSaving(false)
         navigate('/underreview');
     }else{
-      props.notificationFailure()
+    //   props.notificationFailure()
       setisDataSaving(false)
     }
     }, 3000);
@@ -161,7 +164,7 @@ const ProfileCreate = (props) => {
   return (
     <>
     
-    <Navigation/>
+    <ProfileNavigation/>
 
     <section className="sec-profile">
 
@@ -378,11 +381,6 @@ const ProfileCreate = (props) => {
                             );
                         })
                     }
-                    {/* <option value="0">Ph.d</option>
-                    <option value="1">Masters</option>
-                    <option value="2">Bachelors</option>
-                    <option value="3">Intermediate</option>
-                    <option value="4">Matriculation</option> */}
                 </select>
                 {
                     errors.categoryId && touched.categoryId ? (

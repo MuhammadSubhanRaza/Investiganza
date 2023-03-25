@@ -1,0 +1,43 @@
+
+
+.view-all-feedback-item{
+    display: flex;
+    border-bottom: solid 1px rgb(221, 221, 221);
+    padding: 30px;
+}
+
+.view-all-feedback-item img{
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    margin: 10px;
+}
+.view-all-feedback-item h6{
+    color: #7249fb;
+    margin: 0;
+    padding: 0;
+}
+.view-all-feed-star
+{
+    color: rgb(219, 219, 32);
+    font-size: 1rem;
+    margin: 0px 3px;
+}
+.view-all-feedback-item p{
+    font-size: 1rem;
+}
+.view-all-feedback-item button
+{
+    outline: none;
+    border: none;
+    background-color: transparent;
+    margin-top: 15px;
+    color: #7249fb;
+    transition: 0.3s;
+    border-radius: 5px;
+    font-size: 1rem;
+}
+.view-all-feedback-item button:hover
+{
+    color: #2b099b;
+}

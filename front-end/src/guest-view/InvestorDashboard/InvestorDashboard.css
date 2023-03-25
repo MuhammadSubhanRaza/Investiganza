@@ -1,0 +1,227 @@
+.investor-dashboard-sec{
+    margin: 40px 0px;
+}
+
+.inv-dbd-indicator{
+    background-color: white;
+    padding: 10px;
+    border-radius: 10px;
+}
+.inv-dbd-indicator h5{
+    font-size: 1.5rem;
+}
+
+
+.inv-dbd-indicator-icon{
+    color: white;
+    background: linear-gradient(#bc2bff,#7249fb);
+    display: flex;
+    width: 50px;
+    height: 50px;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.4rem;
+    border-radius: 7px;
+    margin-top: 10px;
+}
+
+.investor-dbd-desc-first{
+    background-color: white;
+    padding: 15px;
+    border-radius: 10px;
+    min-height: 240px;
+    display: flex;
+}
+.investor-dbd-desc-first img{
+    width: 140px;
+    animation: globeanimation 12s linear infinite;
+}
+@keyframes globeanimation {
+    0%{
+        transform: rotate(0deg);
+    }
+    50%
+    {
+        transform: rotate(180deg);
+    }
+    100%
+    {
+        transform: rotate(360deg);
+    }
+}
+.investor-dbd-desc-first-img{
+    background: linear-gradient(#bc2bff,#7249fb);
+    border-radius: 10px;
+    width: 30%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.investor-dbd-desc-first h5{
+    color: #bc2bff;
+    font-size: 1.4rem;
+}
+.investor-dbd-desc-first p{
+    height: 100px;
+    overflow: hidden;
+}
+.investor-dbd-desc-first button
+{
+    background-color: transparent;
+    outline: none;
+    border: none;
+    margin-top: 10px;
+    color: gray;
+}
+.investor-dbd-desc-first button:hover
+{
+    color: #7249fb;
+}
+
+.investor-dbd-desc-second{
+    background: linear-gradient(rgba(29, 19, 48,0.6),rgba(29, 19, 48,0.6)),
+    url('./../../../public/images/graphimg.jpg');
+    padding: 15px;
+    border-radius: 10px;
+    min-height: 240px;
+}
+.investor-dbd-desc-second:hover{
+    background: linear-gradient(rgba(29, 19, 48,0.8),rgba(29, 19, 48,0.8)),
+    url('./../../../public/images/graphimg.jpg');   
+}
+.investor-dbd-desc-second h5{
+    color: white;
+    margin-top: 10px;
+}
+.investor-dbd-desc-second p{
+    color: rgb(224, 224, 224);
+    margin-top: 20px;
+}
+.investor-dbd-desc-second button
+{
+    border: none;
+    outline: none;
+    background-color: transparent;
+    margin-top: 20px;
+    color: white;
+    text-transform: uppercase;
+}
+
+.inv-dbd-allproposals
+{
+    background-color: white;
+    min-height: 220px;
+    border-radius: 10px;
+    padding: 15px;
+}
+.inv-dbd-allproposals button
+{
+    border: none;
+    outline: none;
+    background-color: transparent;
+    text-transform: uppercase;
+    color: #7249fb;
+}
+.inv-dbd-proposal{
+    padding: 7px 10px;
+    margin-top: 10px;
+    border-radius: 6px;
+    transition: 0.3s;
+}
+.inv-dbd-proposal-btn {
+    display: block !important;
+}
+.inv-dbd-proposal-btn p{
+    height: 22px;
+    overflow: hidden;
+}
+
+.inv-dbd-proposal:hover
+{
+    background-color: #7249fb;
+    color: white !important;
+}
+.inv-dbd-proposal:hover .inv-dbd-proposal-btn p{
+    color: white !important;
+}
+
+.inv-dbd-find-posts{
+    background: linear-gradient(rgba(29, 19, 48,0.8),rgba(29, 19, 48,0.8)),
+    url('./../../../public/images/officeimg.png');
+    padding: 15px;
+    border-radius: 10px;
+    min-height: 240px;
+    background-position:center;
+    transition: 0.3s;
+}
+.inv-dbd-find-posts:hover{
+    background: linear-gradient(rgba(29, 19, 48,0.9),rgba(29, 19, 48,0.89)),
+    url('./../../../public/images/officeimg.png');
+    background-position:center;
+}
+
+.inv-dbd-find-posts p
+{
+    color: rgb(228, 228, 228);
+}
+.inv-dbd-find-posts h6{
+    color: white;
+}
+
+.inv-dbd-find-posts img{
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    border: solid 2px white;
+    margin-left: -8px;
+}
+
+
+
+.inv-plus-span{
+    color: white;
+    font-size: 1.3rem;
+    display: inline-block;
+    margin-left: 3px;
+}
+.inv-dbd-find-posts button
+{
+    outline: none;
+    border: none;
+    background-color: transparent;
+    color: white;
+    text-transform: uppercase;
+    margin-top: 10px;
+}
+
+.bars-load {
+    width: 50.4px;
+    height: 44.8px;
+    --c: linear-gradient(#474bff calc(50% - 11.2px),#0000 0 calc(50% + 11.2px),#474bff  0);
+    background: var(--c) 0%   100%,
+         var(--c) 50%  100%,
+         var(--c) 100% 100%;
+    background-size: 10.1px calc(200% + 22.4px);
+    background-repeat: no-repeat;
+    animation: bars-th2joa 1s infinite linear;
+    margin: auto;
+    margin-top: 250px;
+ }
+ 
+ @keyframes bars-th2joa {
+    33% {
+       background-position: 0% 50%,50% 100%,100% 100%;
+    }
+ 
+    50% {
+       background-position: 0%  0%,50%  50%,100% 100%;
+    }
+ 
+    66% {
+       background-position: 0%  0%,50%   0%,100%  50%;
+    }
+ 
+    100% {
+       background-position: 0%  0%,50%   0%,100%   0%;
+    }
+ }

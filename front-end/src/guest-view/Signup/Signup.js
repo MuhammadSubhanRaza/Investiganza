@@ -88,6 +88,7 @@ const Signup = () => {
 
     function setGlobalState(login_states)
     {
+        
         const loggedin_user_data = {
             id : login_states.id,
             firstName : login_states.firstName,

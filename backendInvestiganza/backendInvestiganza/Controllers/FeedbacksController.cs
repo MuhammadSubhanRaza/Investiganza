@@ -1,7 +1,9 @@
-﻿using backendInvestiganza.Data;
+﻿using backendInvestiganza.CombineModels;
+using backendInvestiganza.Data;
 using backendInvestiganza.Models;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 
 namespace backendInvestiganza.Controllers
 {
@@ -17,6 +19,28 @@ namespace backendInvestiganza.Controllers
             _context = context;
         }
 
+
+        [HttpGet("{id}")]
+        public async Task<ActionResult<IEnumerable<ProfileFeedbacks>>> GetAllFeedbacks(int id)
+        {
+            var allFeedbacks = await (from f in _context.UserFeedbacks
+                                      join p in _context.Profiles
+                                      on f.ProfileId equals p.Id
+                                      join u in _context.Users
+                                      on p.UserId equals u.Id
+                                      select new ProfileFeedbacks()
+                                      {
+                                          ProfileId = p.Id,
+                                          Date = f.Date,
+                                          Message = f.Message,
+                                          Name = u.FirstName+" "+u.LastName,
+                                          ProfileImagePath = @"http://localhost:5070/uploads/" + p.ProfileImagePath
+                                      }
+                                      ).Where(x=>x.ProfileId == id).ToListAsync();
+            return allFeedbacks;
+        }
+
+
         [HttpPost]
         public async Task<ActionResult<UserFeedback>> PostFeedback(UserFeedback feedback)
         {
@@ -26,6 +50,9 @@ namespace backendInvestiganza.Controllers
             //return CreatedAtAction("GetFeedback", new { id = feedback.Id }, feedback);
             return Ok(new { message = "data saved" });
         }
+
+
+
 
         //[HttpGet("{id}")]
         //public async Task<ActionResult<Feedbacks>> GetFeedback(int id)

@@ -130,18 +130,36 @@ namespace backendInvestiganza.Controllers
                 cnic = profile_user.CNIC;
             }
 
-            var user_with_profile = new AfterLoginUserDetails() { 
-                UserId = user.Id,
-                FirstName = user.FirstName,
-                LastName = user.LastName,
-                Email = user.Email,
-                CNIC = cnic,
-                ImageUrl = @"http://localhost:5070/uploads/" + profile_user.ProfileImagePath,
-                isAdmin = user.IsAdmin,
-                isInvestor = user.isInvestor,
-                isProfileApproved = profile_user.IsProfileApproved,
-                isUserLocked = user.IsUserLocked
-            };
+            AfterLoginUserDetails user_with_profile;
+
+            if (profile_user != null)
+            {
+                user_with_profile = new AfterLoginUserDetails()
+                {
+                    UserId = user.Id,
+                    FirstName = user.FirstName,
+                    LastName = user.LastName,
+                    Email = user.Email,
+                    CNIC = cnic,
+                    ImageUrl = @"http://localhost:5070/uploads/" + profile_user.ProfileImagePath,
+                    isAdmin = user.IsAdmin,
+                    isInvestor = user.isInvestor,
+                    isProfileApproved = profile_user.IsProfileApproved,
+                    isUserLocked = user.IsUserLocked,
+                    ProfileId = profile_user.Id,
+                    IsProfilePresent = true
+                };
+            }
+            else
+            {
+                user_with_profile = new AfterLoginUserDetails()
+                {
+                    UserId = user.Id,
+                    FirstName = user.FirstName,
+                    LastName = user.LastName,
+                    IsProfilePresent = false
+                };
+            }
 
 
             return Ok(new { message = "success", token = tokenAsString, user = user_with_profile});

@@ -91,7 +91,7 @@ const [isSmallNavOpen, setIsSmallNavOpen] = useState("sidebar dark_sidebar");
             </div>
             <ul id="sidebar_menu">
             <li className="">
-                    <Link to="/admin/dashboard" className='admin-sidebar-a' aria-expanded="false">
+                    <Link to="/admin/admindashboard" className='admin-sidebar-a' aria-expanded="false">
                         <div className="nav_icon_small">
                             <img src="img/menu-icon/2.svg" alt=""/>
                         </div>
@@ -115,15 +115,16 @@ const [isSmallNavOpen, setIsSmallNavOpen] = useState("sidebar dark_sidebar");
                     </ul>
                 </li>
                 <li className="">
-                    <a href="crypto_wallet.html" className='admin-sidebar-a' aria-expanded="false">
+                    <Link to="/admin/allusers" className='admin-sidebar-a' aria-expanded="false">
                         <div className="nav_icon_small">
                             <img src="img/menu-icon/2.svg" alt=""/>
                         </div>
                         <div className="nav_title">
-                            <span>Crypto Wallet</span>
+                            <span>All Users</span>
                         </div>
-                    </a>
+                    </Link>
                 </li>
+                
             </ul>
         </nav>
     </>

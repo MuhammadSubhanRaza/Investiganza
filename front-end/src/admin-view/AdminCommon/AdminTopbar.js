@@ -1,8 +1,25 @@
 
 import React,{useState} from 'react'
+import { useDispatch, useSelector } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
+import { setProfileData } from '../../ReduxHub/index'
 
 const AdminTopbar = () => {
 
+     // ------------- REDUX
+
+     const dispatch = useDispatch();
+     
+     const myState = useSelector((state)=>state.SetTheProfileGlobal)
+    
+     const navigate = useNavigate()
+ 
+     function onLogoutClick()
+     {
+         dispatch(setProfileData(null));
+         navigate('/login')
+     }
+ 
 
     
   const [isNotificationBoxActive, setIsNotificationBoxActive] = useState("Menu_NOtification_Wrap");
@@ -131,21 +148,21 @@ const AdminTopbar = () => {
                                 </div>
                                 <div className="profile_info d-flex align-items-center">
                                     <div className="profile_thumb mr_20">
-                                        <img src="img/transfer/4.png" alt="#"/>
+                                        <img style={{height:"50px",width:"50px"}} src={myState.profileImagePath} alt="#"/>
                                     </div>
                                     <div className="author_name">
-                                        <h4 className="f_s_15 f_w_500 mb-0">Jiue Anderson</h4>
-                                        <p className="f_s_12 f_w_400">Manager</p>
+                                        <h4 className="f_s_15 f_w_500 mb-0">{myState.firstName+" "+myState.lastName}</h4>
+                                        <p className="f_s_12 f_w_400">Admin</p>
                                     </div>
                                     <div className="profile_info_iner">
                                         <div className="profile_author_name">
-                                            <p>Manager</p>
-                                            <h5>Jiue Anderson</h5>
+                                            <p>Admin</p>
+                                            <h5>{myState.firstName+" "+myState.lastName}</h5>
                                         </div>
                                         <div className="profile_info_details">
                                             <a href="#">My Profile </a>
                                             <a href="#">Settings</a>
-                                            <a href="#">Log Out </a>
+                                            <button onClick={()=>onLogoutClick()} className="btn">Logout</button>
                                         </div>
                                     </div>
                                 </div>

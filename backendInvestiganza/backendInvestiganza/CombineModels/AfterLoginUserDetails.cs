@@ -15,5 +15,7 @@ namespace backendInvestiganza.CombineModels
         public bool isInvestor { get; set; }
         public bool isUserLocked { get; set; }
         public bool isProfileApproved { get; set; }
+        public int ProfileId { get; set; }
+        public bool IsProfilePresent { get; set; }
     }
 }
